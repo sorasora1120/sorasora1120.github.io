@@ -9,7 +9,7 @@ const SITES = {
   gipsyqueens: 'https://gipsyqueens.com/', maribelli: 'https://maribelli-shop.com/', amdor: 'https://amdor.de/',
   whitesand: 'https://whitesandgolf.com/', bigcove: 'https://bigcoveecycles.com/', skyfox: 'https://www.skyfoxtech.com/',
   hogplay: 'https://hogplay.myshopify.com/', bsonme: 'https://bsonme.com/', golfcars: 'https://golfcarsofarizona.com/',
-  havoc: 'https://havocpowersports.com/', malane: 'https://malanelighting.com/', aimabel: 'https://aimabel.com/',
+  havoc: 'https://havocpowersports.com/', malane: 'https://malanelighting.com/',
   massinart: 'https://massinart.ma/',
 };
 const PHOTOS = {
@@ -34,13 +34,14 @@ function download(url, path) {
 (async () => {
   fs.mkdirSync('assets/team', { recursive: true });
   fs.mkdirSync('assets/photos', { recursive: true });
-  for (const [k, id] of Object.entries(PHOTOS)) {
+  // 写真は取得済み。撮り直したいときだけ PHOTOS=1 で実行する
+  if (process.env.PHOTOS) for (const [k, id] of Object.entries(PHOTOS)) {
     const ok = await download(`https://images.unsplash.com/${id}?w=1100&q=62&fm=jpg&fit=crop`, `assets/photos/${k}.jpg`);
     console.log('photo', k, ok);
   }
   const browser = await chromium.launch();
   for (const [k, url] of Object.entries(SITES)) {
-    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 0.5,
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1,
       userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36' });
     const p = await ctx.newPage();
     try {
@@ -53,7 +54,7 @@ function download(url, path) {
       }
       await p.keyboard.press('Escape').catch(() => {});
       await p.waitForTimeout(1000);
-      await p.screenshot({ path: `assets/team/${k}.jpg`, type: 'jpeg', quality: 60 });
+      await p.screenshot({ path: `assets/team/${k}.jpg`, type: 'jpeg', quality: 85 });
       console.log('shot', k, 'ok', await p.title());
     } catch (e) { console.log('shot', k, 'NG', e.message); }
     await ctx.close();
