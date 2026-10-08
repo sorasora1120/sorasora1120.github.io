@@ -18,10 +18,11 @@ hero（コピー＋チーム実績4サイトのスライドショー）→ WORKS
   サンプルページの見た目を変えたら撮り直す
 
 ## 決まっていること
+- アイコンは案Dベース（黒地に SORA / WEB DESIGN、Jost の細字）：`assets/brand/sora-icon.png`（800×800、クラウドワークス用）。ファビコンは `tools/img/favicon.json`
 - チーム実績は12サイト（aimabel.com は閉店したので外した）。`affiliate-pipeline` の `TEAM_WORKS` と揃える
 - FAQ の答えは提案文（affiliate-pipeline の worker_matcher）と食い違わないようにする。支払いはクラウドワークスの仮払い
 - contact はボタンなし（「クラウドワークスのメッセージからご連絡ください」の文だけ）
 
 ## やり残し・次にやること
+- ワーカーに各実績サイトの担当範囲（デザイン / 構築 / 使ったツール）を確認中。返事が来たら WORKS の各カードに「担当：〜」を追加（本当のことだけ）
 - 親名義の CrowdWorks プロフィールURLができたら、contact にそこへのボタンを付ける
-- ロゴをアイコン案（C か D）に合わせる（まだ決めていない）
