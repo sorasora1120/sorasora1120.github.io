@@ -172,8 +172,10 @@
   .glow:hover::after { opacity: 1; }
 
   /* works: whole site scrolls on hover */
-  .work .img img.full { object-position: center 0%; transition: object-position 5s cubic-bezier(.45,.05,.55,.95), transform .6s cubic-bezier(.2,.8,.2,1); }
-  .work:hover .img img.full { object-position: center 100%; transform: none; }
+  /* object-position のアニメーションは iPad の Safari で画像が消えることがあるため、
+     画像はふつうに幅いっぱいで置き、transform で上下に動かす */
+  .work .img img.full { position: absolute; top: 0; left: 0; width: 100%; height: auto; object-fit: initial; transform: translateY(0); transition: transform 5s cubic-bezier(.45,.05,.55,.95); }
+  .work:hover .img img.full { transform: translateY(calc(-1 * var(--pan, 0px))); }
   .work .img { position: relative; }
   .work .img::before { content: "SCROLL ↓"; position: absolute; right: 12px; bottom: 12px; z-index: 2; font-family: var(--en); font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #fff; background: rgba(0,0,0,.55); padding: 4px 10px; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; }
   .work:hover .img::before { opacity: 1; transform: none; }
@@ -231,10 +233,10 @@
 
   /* タッチ端末：制作サンプルが自動でスクロールし続ける */
   @media (hover: none) {
-    .work .img img.full { animation: pan 9s ease-in-out infinite alternate; transition: none; }
+    .work .img img.full { transition: none; }
+    .work:hover .img img.full { transform: none; }
     .work .img::before { display: none; }
   }
-  @keyframes pan { 0%, 10% { object-position: center 0%; } 90%, 100% { object-position: center 100%; } }
 
   /* カスタムカーソル（マウスのあるPCだけ） */
   .cursor, .cursor-dot { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 90; border-radius: 50%; display: none; }
@@ -358,15 +360,15 @@
     </div>
     <div class="works">
       <a class="work glow rv" href="salon.html">
-        <div class="img"><img class="full" src="img/salon-full.jpg" alt="美容室サイトのサンプル" loading="lazy"></div>
+        <div class="img"><img class="full" src="img/salon-full.jpg" decoding="async" alt="美容室サイトのサンプル"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p></div>
       </a>
       <a class="work glow rv" href="accounting.html">
-        <div class="img"><img class="full" src="img/accounting-full.jpg" alt="会計事務所サイトのサンプル" loading="lazy"></div>
+        <div class="img"><img class="full" src="img/accounting-full.jpg" decoding="async" alt="会計事務所サイトのサンプル"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の事務所）</span><h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p></div>
       </a>
       <a class="work glow rv" href="cafe.html">
-        <div class="img"><img class="full" src="img/cafe-full.jpg" alt="カフェのLPのサンプル" loading="lazy"></div>
+        <div class="img"><img class="full" src="img/cafe-full.jpg" decoding="async" alt="カフェのLPのサンプル"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p></div>
       </a>
     </div>
@@ -555,6 +557,28 @@
         b.addEventListener("mouseleave", function () { b.style.transform = ""; });
       });
     }
+
+    // 制作サンプルの画像を動かす距離（画像の高さ − 枠の高さ）
+    function setPan() {
+      document.querySelectorAll(".work .img").forEach(function (box) {
+        var img = box.querySelector("img.full");
+        if (!img) return;
+        var d = Math.max(0, img.getBoundingClientRect().height - box.getBoundingClientRect().height);
+        box.style.setProperty("--pan", d + "px");
+        // タッチ端末（ホバーできない）では、上から下へ自動でゆっくり動かし続ける
+        if (!reduce && matchMedia("(hover: none)").matches && img.animate) {
+          if (img._pan) img._pan.cancel();
+          img._pan = img.animate(
+            [{ transform: "translateY(0)", offset: 0 }, { transform: "translateY(0)", offset: .1 },
+             { transform: "translateY(" + (-d) + "px)", offset: .9 }, { transform: "translateY(" + (-d) + "px)", offset: 1 }],
+            { duration: 10000, iterations: Infinity, direction: "alternate", easing: "ease-in-out" });
+        }
+      });
+    }
+    document.querySelectorAll(".work img.full").forEach(function (img) {
+      if (img.complete) setPan(); else img.addEventListener("load", setPan);
+    });
+    addEventListener("resize", setPan); addEventListener("load", setPan); setPan();
 
     var els = document.querySelectorAll(".rv");
     if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("on"); }); return; }
