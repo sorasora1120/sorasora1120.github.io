@@ -1,0 +1,23 @@
+name: 素材取得（一時）
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm i playwright@1 && npx playwright install chromium --with-deps
+      - run: node tools/capture.js
+      - name: コミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          git commit -m "chore: 制作実績のスクリーンショットとサンプル用の写真を取得" || echo "no changes"
+          git push
