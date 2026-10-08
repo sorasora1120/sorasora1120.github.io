@@ -137,11 +137,63 @@
   footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--dim); font-size: 13px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
+  /* ===== animations ===== */
+  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--accent2), var(--accent)); z-index: 60; }
+
+  /* hero: blobs */
+  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; pointer-events: none; animation: drift 18s ease-in-out infinite alternate; }
+  .blob.b1 { width: 420px; height: 420px; background: rgba(47,143,127,.45); top: 6%; right: 4%; }
+  .blob.b2 { width: 360px; height: 360px; background: rgba(242,184,75,.28); bottom: 4%; left: -4%; animation-duration: 22s; animation-delay: -6s; }
+  @keyframes drift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,40px) scale(1.12); } 100% { transform: translate(40px,-30px) scale(.95); } }
+
+  /* hero: headline lines slide up */
+  .hero h1 .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+  .hero h1 .ln > span { display: inline-block; transform: translateY(110%); transition: transform 1.1s cubic-bezier(.2,.8,.2,1); }
+  .hero h1.on .ln > span { transform: none; }
+  .hero h1.rv { opacity: 1; transform: none; }
+  .hero h1 .ln:nth-child(2) > span { transition-delay: .12s; }
+  .hero h1 .ln:nth-child(3) > span { transition-delay: .24s; }
+  .hero h1 em { background-size: 200% 100%; animation: shine 5s linear infinite; }
+  @keyframes shine { to { background-position: -200% 0; } }
+
+  /* hero: floating screenshots + mouse tilt */
+  .stack { perspective: 1200px; }
+  .stack .tilt { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg)); }
+  .shot { animation: float 6s ease-in-out infinite; }
+  .shot:nth-child(2) { animation-delay: -2s; }
+  .shot:nth-child(3) { animation-delay: -4s; }
+  @keyframes float { 50% { translate: 0 -14px; } }
+
+  /* cards: light follows the cursor */
+  .glow { position: relative; isolation: isolate; }
+  .glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(260px circle at var(--gx, 50%) var(--gy, 50%), rgba(242,184,75,.13), transparent 60%); z-index: 1; }
+  .glow:hover::after { opacity: 1; }
+
+  /* works: whole site scrolls on hover */
+  .work .img img.full { object-position: center 0%; transition: object-position 5s cubic-bezier(.45,.05,.55,.95), transform .6s cubic-bezier(.2,.8,.2,1); }
+  .work:hover .img img.full { object-position: center 100%; transform: none; }
+  .work .img { position: relative; }
+  .work .img::before { content: "SCROLL ↓"; position: absolute; right: 12px; bottom: 12px; z-index: 2; font-family: var(--en); font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #fff; background: rgba(0,0,0,.55); padding: 4px 10px; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; }
+  .work:hover .img::before { opacity: 1; transform: none; }
+
+  /* flow: line draws across */
+  .flow { position: relative; }
+  .flow::before { content: ""; position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.8s cubic-bezier(.2,.8,.2,1); }
+  .flow.on::before { transform: scaleX(1); }
+
+  /* buttons: shine sweep */
+  .btn { position: relative; overflow: hidden; }
+  .btn:not(.ghost)::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); animation: sweep 4.5s ease-in-out infinite; }
+  @keyframes sweep { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+
   .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
   .rv.on { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .rv { opacity: 1; transform: none; transition: none; }
-    .marquee .track { animation: none; }
+    .marquee .track, .blob, .shot, .hero h1 em, .btn::after { animation: none !important; }
+    .hero h1 .ln > span { transform: none; transition: none; }
+    .work .img img.full { transition: none; }
   }
 
   @media (max-width: 960px) {
@@ -152,6 +204,8 @@
     .services, .prices { grid-template-columns: 1fr 1fr; }
     .works { grid-template-columns: 1fr; }
     .flow { grid-template-columns: 1fr; border-top: none; border-left: 1px solid var(--line); }
+    .flow::before { top: 0; left: -1px; width: 1px; height: 100%; transform: scaleY(0); transform-origin: 50% 0; }
+    .flow.on::before { transform: scaleY(1); }
     .flow div { padding: 0 0 34px 28px; }
     .flow div::after { top: 6px; left: -5px; }
     .flow div::before { font-size: 30px; margin-bottom: 4px; }
@@ -170,6 +224,7 @@
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"></div>
 <header id="top">
   <div class="wrap nav">
     <a class="logo" href="#">sora<span>.</span></a>
@@ -184,10 +239,12 @@
 </header>
 
 <div class="hero">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
       <div class="kicker rv"><i></i>SORA WEB DESIGN</div>
-      <h1 class="rv"><span class="nw">Webサイトで、</span><br><span class="nw">ビジネスを</span><span class="nw"><em>次の一歩</em>へ。</span></h1>
+      <h1 class="rv"><span class="ln"><span class="nw">Webサイトで、</span></span><span class="ln"><span class="nw">ビジネスを</span></span><span class="ln"><span class="nw"><em>次の一歩</em>へ。</span></span></h1>
       <p class="lead rv">ホームページ・LP・ネットショップの制作から、公開後の更新まで。デザイナーとエンジニアが組んだ少数精鋭のチームで、伝わるサイトをつくります。</p>
       <div class="cta-row rv">
         <a class="btn" href="#contact">無料で相談する <span class="en">→</span></a>
@@ -195,9 +252,11 @@
       </div>
     </div>
     <div class="stack rv" aria-hidden="true">
+      <div class="tilt">
       <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/accounting.jpg" alt=""></div>
       <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/cafe.jpg" alt=""></div>
       <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/salon.jpg" alt=""></div>
+      </div>
     </div>
   </div>
 </div>
@@ -216,10 +275,10 @@
       <p>企画・デザイン・実装・公開まで一式。必要なところだけのご依頼も歓迎です。</p>
     </div>
     <div class="services">
-      <div class="svc rv"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
-      <div class="svc rv"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
-      <div class="svc rv"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
-      <div class="svc rv"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
+      <div class="svc glow rv"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
+      <div class="svc glow rv"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
+      <div class="svc glow rv"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
+      <div class="svc glow rv"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
     </div>
   </div>
 </section>
@@ -231,16 +290,16 @@
       <p>業種別のデザインサンプルです。どれもスマホ・タブレット・PCに対応しています。</p>
     </div>
     <div class="works">
-      <a class="work rv" href="salon.html">
-        <div class="img"><img src="img/salon.jpg" alt="美容室サイトのサンプル" loading="lazy"></div>
+      <a class="work glow rv" href="salon.html">
+        <div class="img"><img class="full" src="img/salon-full.jpg" alt="美容室サイトのサンプル" loading="lazy"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p></div>
       </a>
-      <a class="work rv" href="accounting.html">
-        <div class="img"><img src="img/accounting.jpg" alt="会計事務所サイトのサンプル" loading="lazy"></div>
+      <a class="work glow rv" href="accounting.html">
+        <div class="img"><img class="full" src="img/accounting-full.jpg" alt="会計事務所サイトのサンプル" loading="lazy"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の事務所）</span><h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p></div>
       </a>
-      <a class="work rv" href="cafe.html">
-        <div class="img"><img src="img/cafe.jpg" alt="カフェのLPのサンプル" loading="lazy"></div>
+      <a class="work glow rv" href="cafe.html">
+        <div class="img"><img class="full" src="img/cafe-full.jpg" alt="カフェのLPのサンプル" loading="lazy"></div>
         <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p></div>
       </a>
     </div>
@@ -249,20 +308,20 @@
       <div><div class="label">TEAM WORKS</div><h2>チームの制作実績</h2></div>
       <p>連携しているデザイナー・エンジニアが、これまでに海外向けに制作したサイトの一部です。</p>
     </div>
-    <div class="team rv">
-      <a href="https://gipsyqueens.com/" target="_blank" rel="noopener">gipsyqueens.com<span>↗</span></a>
-      <a href="https://maribelli-shop.com/" target="_blank" rel="noopener">maribelli-shop.com<span>↗</span></a>
-      <a href="https://amdor.de/" target="_blank" rel="noopener">amdor.de<span>↗</span></a>
-      <a href="https://whitesandgolf.com/" target="_blank" rel="noopener">whitesandgolf.com<span>↗</span></a>
-      <a href="https://bigcoveecycles.com/" target="_blank" rel="noopener">bigcoveecycles.com<span>↗</span></a>
-      <a href="https://www.skyfoxtech.com/" target="_blank" rel="noopener">skyfoxtech.com<span>↗</span></a>
-      <a href="https://hogplay.myshopify.com/" target="_blank" rel="noopener">hogplay.myshopify.com<span>↗</span></a>
-      <a href="https://bsonme.com/" target="_blank" rel="noopener">bsonme.com<span>↗</span></a>
-      <a href="https://golfcarsofarizona.com/" target="_blank" rel="noopener">golfcarsofarizona.com<span>↗</span></a>
-      <a href="https://havocpowersports.com/" target="_blank" rel="noopener">havocpowersports.com<span>↗</span></a>
-      <a href="https://malanelighting.com/" target="_blank" rel="noopener">malanelighting.com<span>↗</span></a>
-      <a href="https://aimabel.com/" target="_blank" rel="noopener">aimabel.com<span>↗</span></a>
-      <a href="https://massinart.ma/" target="_blank" rel="noopener">massinart.ma<span>↗</span></a>
+    <div class="team">
+      <a class="rv" href="https://gipsyqueens.com/" target="_blank" rel="noopener">gipsyqueens.com<span>↗</span></a>
+      <a class="rv" href="https://maribelli-shop.com/" target="_blank" rel="noopener">maribelli-shop.com<span>↗</span></a>
+      <a class="rv" href="https://amdor.de/" target="_blank" rel="noopener">amdor.de<span>↗</span></a>
+      <a class="rv" href="https://whitesandgolf.com/" target="_blank" rel="noopener">whitesandgolf.com<span>↗</span></a>
+      <a class="rv" href="https://bigcoveecycles.com/" target="_blank" rel="noopener">bigcoveecycles.com<span>↗</span></a>
+      <a class="rv" href="https://www.skyfoxtech.com/" target="_blank" rel="noopener">skyfoxtech.com<span>↗</span></a>
+      <a class="rv" href="https://hogplay.myshopify.com/" target="_blank" rel="noopener">hogplay.myshopify.com<span>↗</span></a>
+      <a class="rv" href="https://bsonme.com/" target="_blank" rel="noopener">bsonme.com<span>↗</span></a>
+      <a class="rv" href="https://golfcarsofarizona.com/" target="_blank" rel="noopener">golfcarsofarizona.com<span>↗</span></a>
+      <a class="rv" href="https://havocpowersports.com/" target="_blank" rel="noopener">havocpowersports.com<span>↗</span></a>
+      <a class="rv" href="https://malanelighting.com/" target="_blank" rel="noopener">malanelighting.com<span>↗</span></a>
+      <a class="rv" href="https://aimabel.com/" target="_blank" rel="noopener">aimabel.com<span>↗</span></a>
+      <a class="rv" href="https://massinart.ma/" target="_blank" rel="noopener">massinart.ma<span>↗</span></a>
     </div>
   </div>
 </section>
@@ -273,7 +332,7 @@
       <div><div class="label">FLOW</div><h2>ご依頼の流れ</h2></div>
       <p>はじめての方にも分かりやすく、一つずつ確認しながら進めます。</p>
     </div>
-    <div class="flow">
+    <div class="flow rv">
       <div class="rv"><h3>ご相談</h3><p>ご要望・ご予算・イメージを伺います。</p></div>
       <div class="rv"><h3>お見積り</h3><p>必要な作業だけの、分かりやすいお見積り。</p></div>
       <div class="rv"><h3>構成・デザイン</h3><p>ページ構成とデザイン案をご確認いただきます。</p></div>
@@ -290,10 +349,10 @@
       <p>内容を伺ってから、正式なお見積りをお出しします。</p>
     </div>
     <div class="prices">
-      <div class="price rv"><h3>LP制作</h3><div class="yen">5<small>万円〜</small></div><p>1ページ完結。広告・SNS集客向け。</p></div>
-      <div class="price hl rv"><h3>ホームページ制作</h3><div class="yen">10<small>万円〜</small></div><p>5ページ前後。WordPress対応。</p></div>
-      <div class="price rv"><h3>ECサイト構築</h3><div class="yen">15<small>万円〜</small></div><p>Shopify等。決済・配送設定込み。</p></div>
-      <div class="price rv"><h3>保守・更新</h3><div class="yen">5,500<small>円〜/月</small></div><p>軽微な修正・サーバー管理。</p></div>
+      <div class="price glow rv"><h3>LP制作</h3><div class="yen"><span data-count="5">5</span><small>万円〜</small></div><p>1ページ完結。広告・SNS集客向け。</p></div>
+      <div class="price hl glow rv"><h3>ホームページ制作</h3><div class="yen"><span data-count="10">10</span><small>万円〜</small></div><p>5ページ前後。WordPress対応。</p></div>
+      <div class="price glow rv"><h3>ECサイト構築</h3><div class="yen"><span data-count="15">15</span><small>万円〜</small></div><p>Shopify等。決済・配送設定込み。</p></div>
+      <div class="price glow rv"><h3>保守・更新</h3><div class="yen"><span data-count="5500" data-comma="1">5,500</span><small>円〜/月</small></div><p>軽微な修正・サーバー管理。</p></div>
     </div>
     <p class="price-note rv">※ ページ数・機能・素材のご用意状況によって変わります。</p>
   </div>
@@ -301,8 +360,8 @@
 
 <section style="padding-top:0">
   <div class="wrap promise">
-    <div class="rv"><b class="en">24<small>h</small></b><h3>以内にご返信</h3><p>ご連絡には原則24時間以内にお返事します。</p></div>
-    <div class="rv"><b class="en">100<small>%</small></b><h3>スマホ対応</h3><p>すべてのサイトをスマホ・タブレット・PCで最適表示に。</p></div>
+    <div class="rv"><b class="en"><span data-count="24">24</span><small>h</small></b><h3>以内にご返信</h3><p>ご連絡には原則24時間以内にお返事します。</p></div>
+    <div class="rv"><b class="en"><span data-count="100">100</span><small>%</small></b><h3>スマホ対応</h3><p>すべてのサイトをスマホ・タブレット・PCで最適表示に。</p></div>
     <div class="rv"><b class="en">1<small>to</small>1</b><h3>丁寧なヒアリング</h3><p>着手前にしっかり伺い、イメージのズレを防ぎます。</p></div>
   </div>
 </section>
@@ -327,10 +386,58 @@
     var header = document.querySelector("header");
     function onScroll() { header.classList.toggle("scrolled", window.scrollY > 20); }
     window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // スクロール量のバー
+    var bar = document.querySelector(".progress");
+    function onProgress() {
+      var h = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = "scaleX(" + (h > 0 ? scrollY / h : 0) + ")";
+    }
+    addEventListener("scroll", onProgress, { passive: true }); onProgress();
+
+    // マウスに合わせてヒーローの画面を傾ける
+    var stack = document.querySelector(".stack .tilt");
+    if (stack && !reduce && matchMedia("(pointer: fine)").matches) {
+      document.querySelector(".hero").addEventListener("mousemove", function (e) {
+        var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+        stack.style.setProperty("--rx", (x * 10).toFixed(2) + "deg");
+        stack.style.setProperty("--ry", (-y * 8).toFixed(2) + "deg");
+      });
+    }
+
+    // カードの上でカーソルの位置を光らせる
+    document.querySelectorAll(".glow").forEach(function (el) {
+      el.addEventListener("mousemove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--gx", (e.clientX - r.left) + "px");
+        el.style.setProperty("--gy", (e.clientY - r.top) + "px");
+      });
+    });
+
+    // 数字のカウントアップ
+    function countUp(el) {
+      var target = +el.dataset.count, comma = el.dataset.comma, t0 = null, dur = 1400;
+      if (reduce) return;
+      function step(t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1), v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = comma ? v.toLocaleString() : v;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      el.textContent = "0";
+      requestAnimationFrame(step);
+    }
+
     var els = document.querySelectorAll(".rv");
     if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("on"); }); return; }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("on");
+        e.target.querySelectorAll("[data-count]").forEach(countUp);
+        io.unobserve(e.target);
+      });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     els.forEach(function (e, i) { e.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(e); });
   })();
