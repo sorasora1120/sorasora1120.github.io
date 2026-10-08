@@ -3,74 +3,337 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>制作実績｜ソラ</title>
-<meta name="description" content="Web制作のサンプル一覧（すべて架空の店舗・事務所です）">
+<title>SORA WEB DESIGN｜Web制作チーム</title>
+<meta name="description" content="ホームページ・LP・ECサイトの制作から公開後の保守まで。デザイナー・エンジニアと組んだチームで、スマホ対応のWebサイトをお届けします。">
+<meta property="og:title" content="SORA WEB DESIGN｜Web制作チーム">
+<meta property="og:description" content="ホームページ・LP・ECサイトの制作から公開後の保守まで。">
+<meta name="theme-color" content="#0d0e11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #f6f7f9; --ink: #1d2433; --muted: #5d6779; --line: #e1e5ec; --card: #fff; --blue: #1f5fa8; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #14171d; --ink: #e8ebf1; --muted: #9aa3b2; --line: #2a303b; --card: #1b1f27; --blue: #6aa8ef; }
+  :root {
+    color-scheme: dark;
+    --bg: #0d0e11; --bg2: #14161b; --card: #181b21; --line: #262a32;
+    --ink: #f2efe8; --muted: #9a9ea8; --dim: #6b707b;
+    --accent: #f2b84b; --accent2: #2f8f7f;
+    --en: "Outfit", "Zen Kaku Gothic New", sans-serif;
+    --ja: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; line-height: 1.8; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 56px 16px 72px; }
-  h1 { margin: 0 0 6px; font-size: 28px; }
-  .lead { margin: 0 0 36px; color: var(--muted); }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px; }
-  a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
-  a.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.1); }
-  .thumb { height: 150px; display: grid; place-items: center; color: #fff; font-size: 22px; font-weight: 700; letter-spacing: .08em; }
-  .body { padding: 18px 20px 22px; }
-  .body h2 { margin: 0 0 4px; font-size: 18px; }
-  .body p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags span { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; color: var(--muted); }
-  h2.sub { margin: 48px 0 6px; font-size: 20px; }
-  ul.team { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
-  ul.team a { display: block; padding: 12px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; color: var(--blue); text-decoration: none; font-weight: 600; font-size: 14px; word-break: break-all; }
-  .note { margin-top: 36px; font-size: 13px; color: var(--muted); }
-  .note b { color: var(--blue); }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--ja); line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .en { font-family: var(--en); }
+
+  /* nav */
+  header { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  header.scrolled { background: rgba(13,14,17,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-color: var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: var(--en); font-weight: 700; font-size: 26px; letter-spacing: -.5px; }
+  .logo span { color: var(--accent); }
+  .nav ul { list-style: none; display: flex; gap: 32px; margin: 0; padding: 0; font-family: var(--en); font-size: 14px; font-weight: 500; color: var(--muted); }
+  .nav ul a:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; padding: 14px 26px; border-radius: 999px; background: var(--accent); color: #17130a; transition: transform .2s, box-shadow .2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(242,184,75,.25); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn.ghost:hover { border-color: var(--muted); box-shadow: none; }
+  .btn.sm { padding: 10px 20px; font-size: 14px; }
+
+  /* hero */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; }
+  .hero::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(600px 400px at 85% 20%, rgba(47,143,127,.18), transparent 70%),
+      radial-gradient(500px 360px at 10% 90%, rgba(242,184,75,.10), transparent 70%); pointer-events: none; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+  .kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: .18em; color: var(--muted); margin-bottom: 24px; }
+  .kicker i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 4px rgba(47,143,127,.2); }
+  .nw { white-space: nowrap; }
+  .hero h1 { font-weight: 900; font-size: clamp(36px, 5.4vw, 72px); line-height: 1.12; letter-spacing: -.02em; margin: 0 0 28px; }
+  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), #f6d68f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { color: var(--muted); font-size: 17px; max-width: 520px; margin: 0 0 40px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .stack { position: relative; height: 520px; }
+  .shot { position: absolute; width: 78%; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.55); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .shot .bar { height: 26px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: #1f232a; }
+  .shot .bar b { width: 9px; height: 9px; border-radius: 50%; background: #3a3f48; }
+  .shot img { aspect-ratio: 16/10; object-fit: cover; object-position: top; width: 100%; }
+  .shot:nth-child(1) { top: 0; right: 0; transform: rotate(3deg); }
+  .shot:nth-child(2) { top: 150px; left: 0; transform: rotate(-4deg); z-index: 2; }
+  .shot:nth-child(3) { top: 300px; right: 6%; transform: rotate(2deg); z-index: 3; }
+  .stack:hover .shot:nth-child(1) { transform: rotate(5deg) translate(10px,-10px); }
+  .stack:hover .shot:nth-child(2) { transform: rotate(-6deg) translate(-10px,0); }
+  .stack:hover .shot:nth-child(3) { transform: rotate(1deg) translate(6px,12px); }
+
+  /* marquee */
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; padding: 22px 0; background: var(--bg2); }
+  .marquee .track { display: flex; width: max-content; animation: scroll 32s linear infinite; }
+  .marquee span { font-family: var(--en); font-weight: 600; font-size: clamp(22px, 3vw, 34px); color: var(--dim); padding: 0 28px; white-space: nowrap; }
+  .marquee span:nth-child(even) { color: var(--ink); }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* sections */
+  section { padding: 130px 0; }
+  .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 56px; flex-wrap: wrap; }
+  .label { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: .2em; color: var(--accent); margin-bottom: 14px; }
+  h2 { font-weight: 900; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.25; letter-spacing: -.01em; margin: 0; }
+  .head p { color: var(--muted); max-width: 420px; margin: 0; }
+
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .svc { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px 34px; transition: border-color .3s, transform .3s; }
+  .svc:hover { border-color: #3a4049; transform: translateY(-4px); }
+  .svc .num { font-family: var(--en); font-weight: 700; font-size: 14px; color: var(--accent); }
+  .svc h3 { font-size: 21px; margin: 46px 0 10px; }
+  .svc p { color: var(--muted); font-size: 14px; margin: 0; }
+
+  .works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .work { display: block; border-radius: 18px; overflow: hidden; background: var(--card); border: 1px solid var(--line); transition: transform .35s, border-color .35s; }
+  .work:hover { transform: translateY(-6px); border-color: #3a4049; }
+  .work .img { overflow: hidden; aspect-ratio: 16/10; }
+  .work img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .work:hover img { transform: scale(1.05); }
+  .work .meta { padding: 22px 24px 26px; }
+  .work .tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; }
+  .work h3 { margin: 0 0 4px; font-size: 19px; }
+  .work p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .team-head { margin-top: 90px; }
+  .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+  .team a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; font-family: var(--en); font-weight: 500; font-size: 16px; transition: background .25s, border-color .25s; }
+  .team a span { color: var(--dim); transition: transform .25s, color .25s; }
+  .team a:hover { background: var(--card); border-color: #3a4049; }
+  .team a:hover span { transform: translate(3px,-3px); color: var(--accent); }
+
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: s; border-top: 1px solid var(--line); }
+  .flow div { padding: 30px 22px 0 0; position: relative; }
+  .flow div::before { counter-increment: s; content: "0" counter(s); font-family: var(--en); font-weight: 700; font-size: 40px; color: var(--line); display: block; margin-bottom: 14px; }
+  .flow div::after { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .flow h3 { margin: 0 0 6px; font-size: 18px; }
+  .flow p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .price { border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; background: linear-gradient(180deg, var(--card), var(--bg)); }
+  .price h3 { margin: 0 0 18px; font-size: 16px; color: var(--muted); font-weight: 700; }
+  .price .yen { font-family: var(--en); font-weight: 700; font-size: 40px; letter-spacing: -.02em; line-height: 1; }
+  .price .yen small { font-size: 15px; font-weight: 500; color: var(--muted); margin-left: 4px; }
+  .price p { color: var(--muted); font-size: 13px; margin: 18px 0 0; }
+  .price.hl { border-color: rgba(242,184,75,.5); }
+  .price-note { color: var(--dim); font-size: 13px; margin-top: 18px; }
+
+  .promise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .promise b { display: block; font-family: var(--en); font-size: 54px; font-weight: 700; line-height: 1; letter-spacing: -.03em; margin-bottom: 14px; }
+  .promise b small { font-size: 20px; margin-left: 2px; color: var(--muted); }
+  .promise h3 { margin: 0 0 6px; font-size: 18px; }
+  .promise p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .contact { text-align: center; padding: 150px 0; position: relative; overflow: hidden; }
+  .contact::before { content: ""; position: absolute; inset: 0; background: radial-gradient(500px 300px at 50% 100%, rgba(242,184,75,.14), transparent 70%); }
+  .contact .wrap { position: relative; }
+  .contact h2 { font-size: clamp(34px, 5.5vw, 68px); margin-bottom: 22px; }
+  .contact p { color: var(--muted); margin: 0 auto 38px; max-width: 520px; }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--dim); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .rv.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+    .marquee .track { animation: none; }
+  }
+
+  @media (max-width: 960px) {
+    .nav ul { display: none; }
+    .hero { min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .stack { height: 360px; }
+    .services, .prices { grid-template-columns: 1fr 1fr; }
+    .works { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; border-top: none; border-left: 1px solid var(--line); }
+    .flow div { padding: 0 0 34px 28px; }
+    .flow div::after { top: 6px; left: -5px; }
+    .flow div::before { font-size: 30px; margin-bottom: 4px; }
+    .promise { grid-template-columns: 1fr; gap: 34px; }
+    section { padding: 96px 0; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .services, .prices { grid-template-columns: 1fr; }
+    .stack { height: 280px; }
+    .shot:nth-child(2) { top: 90px; }
+    .shot:nth-child(3) { top: 180px; }
+    .hero { padding-top: 110px; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>制作実績・サンプル</h1>
-  <p class="lead">Web制作：ソラ ／ デザイナー・エンジニアと組んだチームで制作しています。すべてスマホ・タブレット・PC対応です。</p>
-  <div class="grid">
-    <a class="card" href="salon.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#d9bfa9,#8f6648)">Lumière</div>
-      <div class="body"><h2>美容室サイト</h2><p>落ち着いた雰囲気のサロン向け。メニュー・スタッフ・予約導線を1ページに。</p>
-        <div class="tags"><span>店舗サイト</span><span>1ページ構成</span><span>スクロール演出</span></div></div>
-    </a>
-    <a class="card" href="accounting.html">
-      <div class="thumb" style="background:linear-gradient(120deg,#13294b,#1f5fa8)">みなと会計事務所</div>
-      <div class="body"><h2>会計事務所コーポレートサイト</h2><p>士業向け。お悩み→サービス→料金→流れ→FAQ→問い合わせの王道構成。</p>
-        <div class="tags"><span>コーポレート</span><span>料金表</span><span>問い合わせフォーム</span></div></div>
-    </a>
-    <a class="card" href="cafe.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#3B2620,#C1552C)">Urban Café</div>
-      <div class="body"><h2>カフェのLP（英語）</h2><p>海外店舗向けの英語ランディングページ。メニュー・口コミ・アクセス。</p>
-        <div class="tags"><span>LP</span><span>英語対応</span><span>Tailwind CSS</span></div></div>
-    </a>
-  </div>
-  <h2 class="sub">連携チームの制作実績</h2>
-  <p class="lead">連携しているデザイナー・エンジニアが、これまでに海外向けに制作したサイトの一部です。</p>
-  <ul class="team">
-    <li><a href="https://gipsyqueens.com/" target="_blank" rel="noopener">gipsyqueens.com</a></li>
-    <li><a href="https://maribelli-shop.com/" target="_blank" rel="noopener">maribelli-shop.com</a></li>
-    <li><a href="https://amdor.de/" target="_blank" rel="noopener">amdor.de</a></li>
-    <li><a href="https://whitesandgolf.com/" target="_blank" rel="noopener">whitesandgolf.com</a></li>
-    <li><a href="https://bigcoveecycles.com/" target="_blank" rel="noopener">bigcoveecycles.com</a></li>
-    <li><a href="https://www.skyfoxtech.com/" target="_blank" rel="noopener">www.skyfoxtech.com</a></li>
-    <li><a href="https://hogplay.myshopify.com/" target="_blank" rel="noopener">hogplay.myshopify.com</a></li>
-    <li><a href="https://bsonme.com/" target="_blank" rel="noopener">bsonme.com</a></li>
-    <li><a href="https://golfcarsofarizona.com/" target="_blank" rel="noopener">golfcarsofarizona.com</a></li>
-    <li><a href="https://havocpowersports.com/" target="_blank" rel="noopener">havocpowersports.com</a></li>
-    <li><a href="https://malanelighting.com/" target="_blank" rel="noopener">malanelighting.com</a></li>
-    <li><a href="https://aimabel.com/" target="_blank" rel="noopener">aimabel.com</a></li>
-    <li><a href="https://massinart.ma/" target="_blank" rel="noopener">massinart.ma</a></li>
-  </ul>
 
-  <p class="note">※ 上の「制作サンプル」は<b>架空の店舗・事務所</b>です。実在の企業・人物とは関係ありません。WordPress・STUDIO・Shopify等での制作にも対応しています。</p>
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#">sora<span>.</span></a>
+    <ul>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#flow">Flow</a></li>
+      <li><a href="#price">Price</a></li>
+    </ul>
+    <a class="btn sm" href="#contact">相談する</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker rv"><i></i>SORA WEB DESIGN</div>
+      <h1 class="rv"><span class="nw">Webサイトで、</span><br><span class="nw">ビジネスを</span><span class="nw"><em>次の一歩</em>へ。</span></h1>
+      <p class="lead rv">ホームページ・LP・ネットショップの制作から、公開後の更新まで。デザイナーとエンジニアが組んだ少数精鋭のチームで、伝わるサイトをつくります。</p>
+      <div class="cta-row rv">
+        <a class="btn" href="#contact">無料で相談する <span class="en">→</span></a>
+        <a class="btn ghost" href="#works">実績を見る</a>
+      </div>
+    </div>
+    <div class="stack rv" aria-hidden="true">
+      <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/accounting.jpg" alt=""></div>
+      <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/cafe.jpg" alt=""></div>
+      <div class="shot"><div class="bar"><b></b><b></b><b></b></div><img src="img/salon.jpg" alt=""></div>
+    </div>
+  </div>
 </div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Corporate Site</span><span>Landing Page</span><span>E-Commerce</span><span>WordPress</span><span>Shopify</span><span>STUDIO</span><span>Renewal</span><span>Maintenance</span>
+    <span>Corporate Site</span><span>Landing Page</span><span>E-Commerce</span><span>WordPress</span><span>Shopify</span><span>STUDIO</span><span>Renewal</span><span>Maintenance</span>
+  </div>
+</div>
+
+<section id="service">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">SERVICE</div><h2>できること</h2></div>
+      <p>企画・デザイン・実装・公開まで一式。必要なところだけのご依頼も歓迎です。</p>
+    </div>
+    <div class="services">
+      <div class="svc rv"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
+      <div class="svc rv"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
+      <div class="svc rv"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
+      <div class="svc rv"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="works" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">WORKS</div><h2>制作サンプル</h2></div>
+      <p>業種別のデザインサンプルです。どれもスマホ・タブレット・PCに対応しています。</p>
+    </div>
+    <div class="works">
+      <a class="work rv" href="salon.html">
+        <div class="img"><img src="img/salon.jpg" alt="美容室サイトのサンプル" loading="lazy"></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p></div>
+      </a>
+      <a class="work rv" href="accounting.html">
+        <div class="img"><img src="img/accounting.jpg" alt="会計事務所サイトのサンプル" loading="lazy"></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の事務所）</span><h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p></div>
+      </a>
+      <a class="work rv" href="cafe.html">
+        <div class="img"><img src="img/cafe.jpg" alt="カフェのLPのサンプル" loading="lazy"></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p></div>
+      </a>
+    </div>
+
+    <div class="head team-head rv">
+      <div><div class="label">TEAM WORKS</div><h2>チームの制作実績</h2></div>
+      <p>連携しているデザイナー・エンジニアが、これまでに海外向けに制作したサイトの一部です。</p>
+    </div>
+    <div class="team rv">
+      <a href="https://gipsyqueens.com/" target="_blank" rel="noopener">gipsyqueens.com<span>↗</span></a>
+      <a href="https://maribelli-shop.com/" target="_blank" rel="noopener">maribelli-shop.com<span>↗</span></a>
+      <a href="https://amdor.de/" target="_blank" rel="noopener">amdor.de<span>↗</span></a>
+      <a href="https://whitesandgolf.com/" target="_blank" rel="noopener">whitesandgolf.com<span>↗</span></a>
+      <a href="https://bigcoveecycles.com/" target="_blank" rel="noopener">bigcoveecycles.com<span>↗</span></a>
+      <a href="https://www.skyfoxtech.com/" target="_blank" rel="noopener">skyfoxtech.com<span>↗</span></a>
+      <a href="https://hogplay.myshopify.com/" target="_blank" rel="noopener">hogplay.myshopify.com<span>↗</span></a>
+      <a href="https://bsonme.com/" target="_blank" rel="noopener">bsonme.com<span>↗</span></a>
+      <a href="https://golfcarsofarizona.com/" target="_blank" rel="noopener">golfcarsofarizona.com<span>↗</span></a>
+      <a href="https://havocpowersports.com/" target="_blank" rel="noopener">havocpowersports.com<span>↗</span></a>
+      <a href="https://malanelighting.com/" target="_blank" rel="noopener">malanelighting.com<span>↗</span></a>
+      <a href="https://aimabel.com/" target="_blank" rel="noopener">aimabel.com<span>↗</span></a>
+      <a href="https://massinart.ma/" target="_blank" rel="noopener">massinart.ma<span>↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="flow" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">FLOW</div><h2>ご依頼の流れ</h2></div>
+      <p>はじめての方にも分かりやすく、一つずつ確認しながら進めます。</p>
+    </div>
+    <div class="flow">
+      <div class="rv"><h3>ご相談</h3><p>ご要望・ご予算・イメージを伺います。</p></div>
+      <div class="rv"><h3>お見積り</h3><p>必要な作業だけの、分かりやすいお見積り。</p></div>
+      <div class="rv"><h3>構成・デザイン</h3><p>ページ構成とデザイン案をご確認いただきます。</p></div>
+      <div class="rv"><h3>制作</h3><p>スマホ対応で実装。途中経過もこまめに共有。</p></div>
+      <div class="rv"><h3>公開・サポート</h3><p>公開後の更新や修正もお任せください。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">PRICE</div><h2>料金の目安</h2></div>
+      <p>内容を伺ってから、正式なお見積りをお出しします。</p>
+    </div>
+    <div class="prices">
+      <div class="price rv"><h3>LP制作</h3><div class="yen">5<small>万円〜</small></div><p>1ページ完結。広告・SNS集客向け。</p></div>
+      <div class="price hl rv"><h3>ホームページ制作</h3><div class="yen">10<small>万円〜</small></div><p>5ページ前後。WordPress対応。</p></div>
+      <div class="price rv"><h3>ECサイト構築</h3><div class="yen">15<small>万円〜</small></div><p>Shopify等。決済・配送設定込み。</p></div>
+      <div class="price rv"><h3>保守・更新</h3><div class="yen">5,500<small>円〜/月</small></div><p>軽微な修正・サーバー管理。</p></div>
+    </div>
+    <p class="price-note rv">※ ページ数・機能・素材のご用意状況によって変わります。</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap promise">
+    <div class="rv"><b class="en">24<small>h</small></b><h3>以内にご返信</h3><p>ご連絡には原則24時間以内にお返事します。</p></div>
+    <div class="rv"><b class="en">100<small>%</small></b><h3>スマホ対応</h3><p>すべてのサイトをスマホ・タブレット・PCで最適表示に。</p></div>
+    <div class="rv"><b class="en">1<small>to</small>1</b><h3>丁寧なヒアリング</h3><p>着手前にしっかり伺い、イメージのズレを防ぎます。</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label rv">CONTACT</div>
+    <h2 class="rv">まずは、気軽に<br>ご相談ください。</h2>
+    <p class="rv">「まだ何も決まっていない」という段階でも大丈夫です。クラウドワークスのメッセージから、お気軽にご連絡ください。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="en">© SORA WEB DESIGN</span>
+    <span>「制作サンプル」は架空の店舗・事務所です。実在の企業・人物とは関係ありません。</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var header = document.querySelector("header");
+    function onScroll() { header.classList.toggle("scrolled", window.scrollY > 20); }
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var els = document.querySelectorAll(".rv");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("on"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (e, i) { e.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(e); });
+  })();
+</script>
 </body>
 </html>
