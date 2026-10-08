@@ -173,6 +173,25 @@
   @media (max-width: 960px) { .tws { grid-template-columns: 1fr 1fr; } .about { grid-template-columns: 1fr; gap: 50px; } }
   @media (max-width: 560px) { .tws, .roles { grid-template-columns: 1fr; } }
 
+
+  /* Profile（島・留学・ビジネス・サッカー・海） */
+  .profile { position: relative; overflow: hidden; padding-bottom: 170px; background: linear-gradient(180deg, var(--bg) 0%, #0f2a2a 55%, #0f3434 100%); }
+  .facts { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; z-index: 1; }
+  .fact { background: rgba(24,27,33,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 24px 20px 26px; transition: transform .35s, border-color .35s; }
+  .fact:hover { transform: translateY(-6px) rotate(-.6deg); border-color: rgba(47,143,127,.6); }
+  .fi { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: rgba(47,143,127,.18); margin-bottom: 18px; }
+  .fi svg { width: 26px; height: 26px; fill: none; stroke: #7fd3c3; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .fact h3 { margin: 0 0 8px; font-size: 17px; }
+  .fact p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.75; }
+  .waves { position: absolute; left: 0; bottom: 0; width: 200%; height: 120px; }
+  .waves path { animation: wave 14s linear infinite; }
+  .waves .w1 { fill: rgba(47,143,127,.22); }
+  .waves .w2 { fill: rgba(47,143,127,.35); animation-duration: 9s; animation-direction: reverse; }
+  @keyframes wave { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 1100px) { .facts { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) { .facts { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
+
   /* ===== animations ===== */
   .progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--accent2), var(--accent)); z-index: 60; }
 
@@ -280,6 +299,7 @@
   .cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--accent); }
   .cursor.big { width: 70px; height: 70px; margin: -35px 0 0 -35px; background: rgba(242,184,75,.12); border-color: rgba(242,184,75,.6); }
   @media (hover: hover) and (pointer: fine) { .cursor, .cursor-dot { display: block; } }
+  .cursor, .cursor-dot { opacity: 0; } body.moved .cursor, body.moved .cursor-dot { opacity: 1; }
 
   /* 粒子ノイズで質感を足す */
   body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 80; opacity: .05;
@@ -287,6 +307,7 @@
   .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
   .rv.on { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
+    .waves path { animation: none; }
     .ring { animation: none; }
     .rv { opacity: 1; transform: none; transition: none; }
     .marquee .track, .blob, .shot, .hero h1 em, .btn::after { animation: none !important; }
@@ -334,9 +355,9 @@
   <div class="wrap nav">
     <a class="logo" href="#">sora<span>.</span></a>
     <ul>
+      <li><a href="#works">Works</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#service">Service</a></li>
-      <li><a href="#works">Works</a></li>
       <li><a href="#flow">Flow</a></li>
       <li><a href="#price">Price</a></li>
     </ul>
@@ -375,42 +396,7 @@
   </div>
 </div>
 
-<section id="about">
-  <div class="wrap about">
-    <div class="badge-wrap rv" aria-hidden="true">
-      <svg class="ring" viewBox="0 0 300 300"><defs><path id="circ" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs>
-        <text><textPath href="#circ">SORA WEB DESIGN • DIRECTION • DESIGN • DEVELOPMENT • </textPath></text></svg>
-      <div class="badge-core"><span>sora<em>.</em></span></div>
-    </div>
-    <div>
-      <div class="label rv">ABOUT</div>
-      <div class="rv"><h2><span class="nw">はじめまして、</span><span class="nw">ソラです。</span></h2></div>
-      <p class="body rv">Webサイトの企画とディレクションを担当しています。お客様のお話を伺って「誰に・何を・どう伝えるか」を整理し、デザイナー・エンジニアと一緒に形にするのが私の役割です。<br>海外で活動するメンバーとチームを組んでいるので、ご予算に合わせた柔軟なご提案ができます。窓口はずっと私ひとりなので、伝言ゲームにはなりません。</p>
-      <div class="roles rv">
-        <div class="role"><h3>SORA</h3><ul><li>ヒアリング・企画</li><li>構成・ディレクション</li><li>進行管理・品質チェック</li><li>公開後のサポート窓口</li></ul></div>
-        <div class="role"><h3>TEAM</h3><ul><li>UI・グラフィックデザイン</li><li>コーディング・実装</li><li>WordPress・Shopify構築</li><li>動作確認・修正対応</li></ul></div>
-      </div>
-      <div class="chips rv"><span>Figma</span><span>WordPress</span><span>Shopify</span><span>STUDIO</span><span>HTML / CSS / JS</span><span>Google Analytics</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="service">
-  <div class="wrap">
-    <div class="head rv">
-      <div><div class="label">SERVICE</div><h2>できること</h2></div>
-      <p>企画・デザイン・実装・公開まで一式。必要なところだけのご依頼も歓迎です。</p>
-    </div>
-    <div class="services">
-      <div class="svc glow rv"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
-      <div class="svc glow rv"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
-      <div class="svc glow rv"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
-      <div class="svc glow rv"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="works" style="padding-top:0">
+<section id="works">
   <div class="wrap">
     <div class="head rv">
       <div><div class="label">WORKS</div><h2>制作サンプル</h2></div>
@@ -448,6 +434,61 @@
       <a class="tw rv" href="https://bsonme.com/" target="_blank" rel="noopener"><div class="tw-img"><img src="{{bsonme}}" alt="bsonme.com のトップページ"></div><div class="tw-meta"><div><b>bsonme.com</b><span>Electronics · EC</span></div><i>↗</i></div></a>
       <a class="tw rv" href="https://hogplay.myshopify.com/" target="_blank" rel="noopener"><div class="tw-img"><img src="{{hogplay}}" alt="hogplay.myshopify.com のトップページ"></div><div class="tw-meta"><div><b>hogplay.myshopify.com</b><span>Car Accessories · EC</span></div><i>↗</i></div></a>
       <a class="tw rv" href="https://massinart.ma/" target="_blank" rel="noopener"><div class="tw-img"><img src="{{massinart}}" alt="massinart.ma のトップページ"></div><div class="tw-meta"><div><b>massinart.ma</b><span>Art · EC</span></div><i>↗</i></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="badge-wrap rv" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 300 300"><defs><path id="circ" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs>
+        <text><textPath href="#circ">SORA WEB DESIGN • DIRECTION • DESIGN • DEVELOPMENT • </textPath></text></svg>
+      <div class="badge-core"><span>sora<em>.</em></span></div>
+    </div>
+    <div>
+      <div class="label rv">ABOUT</div>
+      <div class="rv"><h2><span class="nw">はじめまして、</span><span class="nw">ソラです。</span></h2></div>
+      <p class="body rv">Webサイトの企画とディレクションを担当しています。お客様のお話を伺って「誰に・何を・どう伝えるか」を整理し、デザイナー・エンジニアと一緒に形にするのが私の役割です。<br>海外で活動するメンバーとチームを組んでいるので、ご予算に合わせた柔軟なご提案ができます。窓口はずっと私ひとりなので、伝言ゲームにはなりません。</p>
+      <div class="roles rv">
+        <div class="role"><h3>SORA</h3><ul><li>ヒアリング・企画</li><li>構成・ディレクション</li><li>進行管理・品質チェック</li><li>公開後のサポート窓口</li></ul></div>
+        <div class="role"><h3>TEAM</h3><ul><li>UI・グラフィックデザイン</li><li>コーディング・実装</li><li>WordPress・Shopify構築</li><li>動作確認・修正対応</li></ul></div>
+      </div>
+      <div class="chips rv"><span>Figma</span><span>WordPress</span><span>Shopify</span><span>STUDIO</span><span>HTML / CSS / JS</span><span>Google Analytics</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="profile" class="profile">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">PROFILE</div><h2><span class="nw">島で育って、</span><span class="nw">いまは海の向こうで</span><span class="nw">学んでいます。</span></h2></div>
+      <p>小さな島で生まれ育ち、いまは海外に留学しながら、自分でビジネスをしています。</p>
+    </div>
+    <div class="facts">
+      <div class="fact rv"><div class="fi"><svg viewBox="0 0 24 24"><path d="M12 22V11M12 11c-2-3-6-4-9-2 3 0 5 1 6 3M12 11c2-3 6-4 9-2-3 0-5 1-6 3M12 11c-1-3-4-6-8-6 2 1 4 3 5 6M12 11c1-3 4-6 8-6-2 1-4 3-5 6M3 22c3-2 15-2 18 0"/></svg></div><h3>島生まれ・島育ち</h3><p>周りは一面の海、という小さな島で育ちました。人との距離が近い環境だったので、一人ひとりとのやり取りを大切にしています。</p></div>
+      <div class="fact rv"><div class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-8-6 12-3-5-5-1zM13 15l9-7"/></svg></div><h3>海外に留学中</h3><p>いまは海外で勉強中。チームの海外メンバーとは英語でやり取りしています。</p></div>
+      <div class="fact rv"><div class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div><h3>学びながらビジネス</h3><p>留学と並行して、自分でWeb制作のビジネスを運営。案件探しや見積もりの仕組みも自分でつくっています。</p></div>
+      <div class="fact rv"><div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z M12 7V3M16 10l4-1M14.5 14.5l2.5 3.5M9.5 14.5L7 18M8 10L4 9"/></svg></div><h3>サッカーが好き</h3><p>みんなで一つのゴールを目指すのが好き。Web制作も、お客様とチームで同じゴールを目指すものだと思っています。</p></div>
+      <div class="fact rv"><div class="fi"><svg viewBox="0 0 24 24"><path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0 2 2 2 2M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 7c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><h3>やっぱり海が好き</h3><p>島で育ったので、海を見ると落ち着きます。海の色は、このサイトのテーマカラーにもなっています。</p></div>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 2880 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="w1" d="M0 60 Q360 15 720 60 T1440 60 T2160 60 T2880 60 V120 H0Z"/>
+    <path class="w2" d="M0 78 Q360 40 720 78 T1440 78 T2160 78 T2880 78 V120 H0Z"/>
+  </svg>
+</section>
+
+<section id="service">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="label">SERVICE</div><h2>できること</h2></div>
+      <p>企画・デザイン・実装・公開まで一式。必要なところだけのご依頼も歓迎です。</p>
+    </div>
+    <div class="services">
+      <div class="svc glow rv"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
+      <div class="svc glow rv"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
+      <div class="svc glow rv"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
+      <div class="svc glow rv"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
     </div>
   </div>
 </section>
@@ -600,7 +641,7 @@
     if (!reduce && matchMedia("(hover: hover) and (pointer: fine)").matches) {
       var ring = document.querySelector(".cursor"), dot = document.querySelector(".cursor-dot");
       var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-      addEventListener("mousemove", function (e) { mx = e.clientX; my = e.clientY; dot.style.transform = "translate(" + mx + "px," + my + "px)"; });
+      addEventListener("mousemove", function (e) { document.body.classList.add("moved"); mx = e.clientX; my = e.clientY; dot.style.transform = "translate(" + mx + "px," + my + "px)"; });
       (function loop() { rx += (mx - rx) * .18; ry += (my - ry) * .18; ring.style.transform = "translate(" + rx + "px," + ry + "px)"; requestAnimationFrame(loop); })();
       document.querySelectorAll("a, button").forEach(function (a) {
         a.addEventListener("mouseenter", function () { ring.classList.add("big"); });
