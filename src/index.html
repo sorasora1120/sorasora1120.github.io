@@ -7,14 +7,15 @@
 <meta name="description" content="ホームページ・LP・ECサイトの制作から公開後の保守まで。デザイナー・エンジニアと組んだチームで、スマホ対応のWebサイトをお届けします。">
 <meta property="og:title" content="SORA WEB DESIGN｜Web制作">
 <meta property="og:description" content="ホームページ・LP・ECサイトの制作から公開後の保守まで。">
-<meta name="theme-color" content="#fbfbfa">
+<meta name="theme-color" content="#0c0c0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfbfa; --bg2: #f1f1ef; --ink: #1b1b1d; --sub: #5b5b60; --dim: #9b9ba1; --line: #e3e2df;
-    --navy: #1e2b45;
+    color-scheme: dark;
+    --bg: #0c0c0d; --bg2: #141416; --ink: #ecebe7; --sub: #a4a3a0; --dim: #6e6e72; --line: #2a2a2e;
+    --navy: #9fb0cc;
     --en: "Jost", "Noto Sans JP", sans-serif;
     --min: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
     --ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -30,7 +31,7 @@
 
   /* ヘッダー */
   header { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .5s, border-color .5s; border-bottom: 1px solid transparent; }
-  header.scrolled { background: rgba(251,251,250,.95); border-color: var(--line); }
+  header.scrolled { background: rgba(12,12,13,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-color: var(--line); }
   .nav { display: flex; align-items: center; height: 84px; gap: 44px; }
   .logo { font-family: var(--en); font-weight: 400; font-size: 17px; letter-spacing: .38em; }
   .logo small { display: block; font-size: 9px; letter-spacing: .5em; color: var(--dim); line-height: 1; margin-top: 2px; }
@@ -41,9 +42,9 @@
 
   /* ボタン：左から色が満ちる */
   .btn { position: relative; display: inline-flex; align-items: center; gap: 22px; font-family: var(--ja); font-weight: 500; font-size: 13px; letter-spacing: .16em; padding: 19px 34px; border: 1px solid var(--ink); color: var(--ink); background: linear-gradient(var(--ink), var(--ink)) no-repeat left / 0% 100%; transition: background-size .7s var(--ease), color .5s; }
-  .btn:hover { background-size: 100% 100%; color: #fff; }
-  .btn.fill { background: linear-gradient(var(--navy), var(--navy)) no-repeat left / 0% 100%, var(--ink); color: #fff; }
-  .btn.fill:hover { background-size: 100% 100%, auto; }
+  .btn:hover { background-size: 100% 100%; color: var(--bg); }
+  .btn.fill { background: linear-gradient(var(--bg), var(--bg)) no-repeat left / 0% 100%, var(--ink); color: var(--bg); }
+  .btn.fill:hover { background-size: 100% 100%, auto; color: var(--ink); }
   .btn .ar { display: inline-block; width: 28px; height: 1px; background: currentColor; transition: width .6s var(--ease); }
   .btn:hover .ar { width: 42px; }
   .btn.sm { padding: 12px 22px; font-size: 12px; }
@@ -115,7 +116,7 @@
   .tools b { font-weight: 400; color: var(--ink); margin-right: 18px; letter-spacing: .3em; font-size: 11px; }
 
   /* プロフィール */
-  .profile { background: var(--bg2); position: relative; overflow: hidden; padding-bottom: 210px; }
+  .profile { background: var(--bg2); border-block: 1px solid var(--line); position: relative; overflow: hidden; padding-bottom: 210px; }
   .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; position: relative; z-index: 1; }
   .intro-text { margin: 0 0 40px; font-size: 15px; line-height: 2.3; }
   .prof { margin: 0; display: grid; grid-template-columns: 8em 1fr; border-top: 1px solid var(--ink); }
@@ -123,8 +124,8 @@
   .prof dt { color: var(--dim); font-size: 12.5px; }
   .waves { position: absolute; left: 0; bottom: 0; width: 200%; height: 110px; }
   .waves path { animation: wave 22s linear infinite; }
-  .waves .w1 { fill: rgba(30,43,69,.06); }
-  .waves .w2 { fill: rgba(30,43,69,.11); animation-duration: 15s; animation-direction: reverse; }
+  .waves .w1 { fill: rgba(255,255,255,.025); }
+  .waves .w2 { fill: rgba(255,255,255,.05); animation-duration: 15s; animation-direction: reverse; }
   @keyframes wave { to { transform: translateX(-50%); } }
 
   /* サービス */
@@ -163,13 +164,13 @@
   .promise p { margin: 0; color: var(--sub); font-size: 13px; }
 
   /* 制作サンプル（架空の店舗） */
-  .samples { background: var(--bg2); }
+  .samples { background: var(--bg2); border-block: 1px solid var(--line); }
   .works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 40px; }
   .work { display: block; }
-  .work .img { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #fff; }
+  .work .img { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--bg); }
   .work .img img.full { position: absolute; top: 0; left: 0; width: 100%; height: auto; transform: translateY(0); transition: transform 6s cubic-bezier(.45,.05,.55,.95); }
   .work:hover .img img.full { transform: translateY(calc(-1 * var(--pan, 0px))); }
-  .work .tag { display: inline-block; margin-top: 22px; font-size: 11px; color: var(--sub); border: 1px solid var(--line); padding: 2px 12px; background: #fff; }
+  .work .tag { display: inline-block; margin-top: 22px; font-size: 11px; color: var(--sub); border: 1px solid var(--line); padding: 2px 12px; }
   .work h3 { margin: 14px 0 4px; font-family: var(--min); font-weight: 600; font-size: 18px; letter-spacing: .1em; }
   .work p { margin: 0; color: var(--sub); font-size: 13px; }
   .work .pts { list-style: none; margin: 18px 0 0; padding: 0; font-size: 12.5px; color: var(--sub); }
@@ -194,7 +195,7 @@
   .qa .ans p { margin: 0; padding: 0 0 30px 40px; color: var(--sub); font-size: 13.5px; }
 
   /* お問い合わせ */
-  .contact { background: #16181d; color: #f3f3f1; }
+  .contact { background: #050506; color: #f3f3f1; border-top: 1px solid var(--line); }
   .contact .label { color: #a9abb2; }
   .contact .label::before { background: #f3f3f1; }
   .contact .h2 { font-size: clamp(26px, 3.4vw, 44px); margin-bottom: 26px; }
@@ -337,10 +338,10 @@
     </div>
     <div class="show rv" aria-hidden="true">
       <div class="frame curtain">
-        <img data-from="tw-amdor" data-name="amdor.de" alt="">
-        <img data-from="tw-maribelli" data-name="maribelli-shop.com" alt="">
-        <img data-from="tw-malane" data-name="malanelighting.com" alt="">
-        <img data-from="tw-whitesand" data-name="whitesandgolf.com" alt="">
+        <img src="{{hd_amdor}}" data-name="amdor.de" alt="">
+        <img src="{{hd_maribelli}}" data-name="maribelli-shop.com" alt="">
+        <img src="{{hd_malane}}" data-name="malanelighting.com" alt="">
+        <img src="{{hd_havoc}}" data-name="havocpowersports.com" alt="">
       </div>
       <div class="cap"><span>TEAM WORKS — <b>amdor.de</b></span><span class="bars"><i></i><i></i><i></i><i></i></span></div>
     </div>
@@ -589,12 +590,7 @@
       requestAnimationFrame(step);
     }
 
-    // ヒーローのスライドショーは、チーム実績に埋め込んだ画像を使い回す
-    // （画像を別ファイルにすると、学校などのネットワークやCDNによっては読み込めないため）
-    document.querySelectorAll("img[data-from]").forEach(function (img) {
-      var src = document.getElementById(img.dataset.from);
-      if (src) img.src = src.src;
-    });
+    // ヒーローのスライドショー（画像は高画質版を埋め込み：tools/img/hero.json）
     var slides = document.querySelectorAll(".show .frame img"), bars = document.querySelectorAll(".show .bars i");
     var capName = document.querySelector(".show .cap b"), cur = 0;
     function go(i) {
