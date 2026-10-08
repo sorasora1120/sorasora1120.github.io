@@ -316,6 +316,80 @@
     .rv > h2 { clip-path: none; transition: none; }
   }
 
+  /* ===== v3 ===== */
+  /* 制作サンプル：ポイント */
+  .work .pts { list-style: none; margin: 14px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+  .work .pts li { display: flex; gap: 8px; }
+  .work .pts li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .75em; border-radius: 50%; background: var(--accent2); }
+  .work .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--accent); }
+  .work .go i { font-style: normal; transition: transform .3s; }
+  .work:hover .go i { transform: translateX(5px); }
+
+  /* チーム実績：件数 */
+  .count { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 10px; font-family: var(--en); color: var(--muted); font-size: 13px; letter-spacing: .12em; }
+  .count b { font-size: 34px; color: var(--ink); letter-spacing: -.02em; }
+
+  /* FAQ */
+  .faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; }
+  .qa { border-top: 1px solid var(--line); }
+  .qa details { border-bottom: 1px solid var(--line); }
+  .qa summary { list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: center; padding: 24px 4px; font-weight: 700; font-size: 16.5px; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary .q { flex: none; font-family: var(--en); font-weight: 700; color: var(--accent); }
+  .qa summary .pm { margin-left: auto; flex: none; position: relative; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); transition: transform .4s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s; }
+  .qa summary .pm::before, .qa summary .pm::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 1.5px; margin: -.75px 0 0 -5px; background: var(--ink); transition: transform .4s; }
+  .qa summary .pm::after { transform: rotate(90deg); }
+  .qa details[open] summary .pm { transform: rotate(180deg); background: var(--accent); border-color: var(--accent); }
+  .qa details[open] summary .pm::before, .qa details[open] summary .pm::after { background: #17130a; }
+  .qa details[open] summary .pm::after { transform: rotate(0deg); }
+  .qa summary:hover { color: var(--accent); }
+  .qa .ans { overflow: hidden; }
+  .qa .ans p { margin: 0; padding: 0 4px 26px 38px; color: var(--muted); font-size: 15px; }
+
+  /* お問い合わせ：最初に教えてほしいこと */
+  .ask { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 900px; margin: 0 auto 40px; text-align: left; }
+  .ask div { border: 1px solid var(--line); border-radius: 16px; padding: 20px 20px 22px; background: rgba(24,27,33,.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ask b { display: block; font-family: var(--en); font-size: 12px; letter-spacing: .14em; color: var(--accent); margin-bottom: 6px; }
+  .ask span { display: block; font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .ask small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+  .contact .lead2 { color: var(--muted); font-size: 14px; margin: 0 auto; }
+
+  /* スマホのメニュー */
+  .menu-btn { display: none; position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: rgba(13,14,17,.6); cursor: pointer; z-index: 70; }
+  .menu-btn i { position: absolute; left: 13px; width: 18px; height: 1.5px; background: var(--ink); transition: transform .4s cubic-bezier(.2,.8,.2,1), top .4s; }
+  .menu-btn i:nth-child(1) { top: 17px; } .menu-btn i:nth-child(2) { top: 25px; }
+  body.menu-open .menu-btn i:nth-child(1) { top: 21px; transform: rotate(45deg); }
+  body.menu-open .menu-btn i:nth-child(2) { top: 21px; transform: rotate(-45deg); }
+  .sheet { position: fixed; inset: 0; z-index: 65; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 0 28px; clip-path: circle(0 at calc(100% - 44px) 36px); transition: clip-path .7s cubic-bezier(.77,0,.18,1); visibility: hidden; }
+  body.menu-open .sheet { clip-path: circle(150% at calc(100% - 44px) 36px); visibility: visible; }
+  .sheet a { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; font-family: var(--en); font-weight: 700; font-size: 40px; letter-spacing: -.02em; border-bottom: 1px solid var(--line); opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .6s cubic-bezier(.2,.8,.2,1); }
+  .sheet a small { font-family: var(--ja); font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+  body.menu-open .sheet a { opacity: 1; transform: none; }
+  .sheet a:nth-child(1) { transition-delay: .15s; } .sheet a:nth-child(2) { transition-delay: .2s; } .sheet a:nth-child(3) { transition-delay: .25s; }
+  .sheet a:nth-child(4) { transition-delay: .3s; } .sheet a:nth-child(5) { transition-delay: .35s; } .sheet a:nth-child(6) { transition-delay: .4s; }
+  body.menu-open { overflow: hidden; }
+  body.menu-open header { z-index: 70; background: transparent; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  @media (max-width: 960px) {
+    .menu-btn { display: block; }
+    .nav .btn.sm { margin-left: auto; margin-right: 10px; }
+    .faq { grid-template-columns: 1fr; gap: 28px; }
+    .ask { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    /* チーム実績はスマホでは2列にして、縦に長くなりすぎないようにする */
+    .tws { grid-template-columns: 1fr 1fr !important; gap: 10px; }
+    .tw { border-radius: 12px; }
+    .tw-meta { padding: 10px 12px 12px; }
+    .tw-meta b { font-size: 12px; word-break: break-all; line-height: 1.4; }
+    .tw-meta span { font-size: 10.5px; }
+    .tw-meta i { display: none; }
+    .qa summary { font-size: 15px; padding: 20px 2px; gap: 12px; }
+    .qa .ans p { padding-left: 30px; font-size: 14px; }
+    .ask div { padding: 16px; }
+    .sheet a { font-size: 34px; }
+  }
+
   @media (max-width: 960px) {
     .nav ul { display: none; }
     .hero { min-height: auto; }
@@ -356,10 +430,20 @@
       <li><a href="#service">Service</a></li>
       <li><a href="#flow">Flow</a></li>
       <li><a href="#price">Price</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="btn sm" href="#contact">相談する</a>
+    <button class="menu-btn" type="button" aria-label="メニュー" aria-expanded="false"><i></i><i></i></button>
   </div>
 </header>
+<nav class="sheet" aria-label="メニュー">
+  <a href="#works">Works <small>制作実績</small></a>
+  <a href="#about">About <small>ソラについて</small></a>
+  <a href="#service">Service <small>できること</small></a>
+  <a href="#price">Price <small>料金の目安</small></a>
+  <a href="#faq">FAQ <small>よくある質問</small></a>
+  <a href="#contact">Contact <small>ご相談</small></a>
+</nav>
 
 <div class="hero">
   <div class="grid-bg" aria-hidden="true"></div>
@@ -401,20 +485,20 @@
     <div class="works">
       <a class="work glow rv" href="salon.html">
         <div class="img"><img class="full" id="img-salon" src="{{shot_salon}}" decoding="async" alt="美容室サイトのサンプル"></div>
-        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p><ul class="pts"><li>縦書きのコピーと余白で、サロンらしい上品さを出す</li><li>メニューと料金をカテゴリごとに整理</li><li>上部に予約ボタンを固定して、いつでも予約へ</li></ul><span class="go en">VIEW SAMPLE <i>→</i></span></div>
       </a>
       <a class="work glow rv" href="accounting.html">
         <div class="img"><img class="full" id="img-accounting" src="{{shot_accounting}}" decoding="async" alt="会計事務所サイトのサンプル"></div>
-        <div class="meta"><span class="tag">制作サンプル（架空の事務所）</span><h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の事務所）</span><h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p><ul class="pts"><li>「こんなお悩み」から入って、自分ごとにしてもらう</li><li>料金プランと契約までの流れを先に見せて不安を減らす</li><li>よくある質問と無料相談フォームで問い合わせにつなげる</li></ul><span class="go en">VIEW SAMPLE <i>→</i></span></div>
       </a>
       <a class="work glow rv" href="cafe.html">
         <div class="img"><img class="full" id="img-cafe" src="{{shot_cafe}}" decoding="async" alt="カフェのLPのサンプル"></div>
-        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p></div>
+        <div class="meta"><span class="tag">制作サンプル（架空の店舗）</span><h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p><ul class="pts"><li>写真を大きく使って、お店の空気感を伝える</li><li>人気メニューをカードで並べて選びやすく</li><li>場所と営業時間をまとめて、来店まで迷わせない</li></ul><span class="go en">VIEW SAMPLE <i>→</i></span></div>
       </a>
     </div>
 
     <div class="head team-head rv">
-      <div><div class="label">TEAM WORKS</div><h2>チームの制作実績</h2></div>
+      <div><div class="label">TEAM WORKS</div><h2>チームの制作実績</h2><div class="count"><b data-count="12">12</b>SITES</div></div>
       <p>チームのデザイナー・エンジニアが、これまでに海外向けに制作したサイトの一部です。画像を押すと実際のサイトが開きます。</p>
     </div>
     <div class="tws">
@@ -538,7 +622,25 @@
   <div class="wrap promise">
     <div class="rv"><b class="en"><span data-count="24">24</span><small>h</small></b><h3>以内にご返信</h3><p>ご連絡には原則24時間以内にお返事します。</p></div>
     <div class="rv"><b class="en"><span data-count="100">100</span><small>%</small></b><h3>スマホ対応</h3><p>すべてのサイトをスマホ・タブレット・PCで最適表示に。</p></div>
-    <div class="rv"><b class="en">1<small>to</small>1</b><h3>丁寧なヒアリング</h3><p>着手前にしっかり伺い、イメージのズレを防ぎます。</p></div>
+    <div class="rv"><b class="en">1<small>人</small></b><h3>ずっと同じ窓口</h3><p>最初のご相談から公開後まで、やり取りはソラが担当。伝言ゲームになりません。</p></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <div class="rv">
+      <div class="label">FAQ</div>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="qa rv">
+      <details><summary><span class="q">Q.</span>まだ何も決まっていなくても、相談できますか？<span class="pm"></span></summary><div class="ans"><p>はい、大丈夫です。「こんなことに困っている」というお話から一緒に整理して、必要なページや機能をご提案します。</p></div></details>
+      <details><summary><span class="q">Q.</span>写真や文章が用意できていません。<span class="pm"></span></summary><div class="ans"><p>文章のたたき台はこちらでお作りします。写真は、イメージに合う素材写真をご提案することもできます。</p></div></details>
+      <details><summary><span class="q">Q.</span>修正はお願いできますか？<span class="pm"></span></summary><div class="ans"><p>デザイン案の確認と、公開前の確認・修正の時間をとっています。修正の回数や範囲は、お見積りの時点で分かるようにお伝えします。</p></div></details>
+      <details><summary><span class="q">Q.</span>どのくらいで完成しますか？<span class="pm"></span></summary><div class="ans"><p>ページ数や内容によって変わるため、お見積りと一緒にスケジュールをお出しします。公開したい日が決まっている場合は、最初にお知らせください。</p></div></details>
+      <details><summary><span class="q">Q.</span>支払いはどうなりますか？<span class="pm"></span></summary><div class="ans"><p>クラウドワークスの仮払い（エスクロー）を使います。納品物をご確認いただいてから報酬が支払われる仕組みなので、はじめてでも安心です。</p></div></details>
+      <details><summary><span class="q">Q.</span>海外のメンバーとのチームと聞いて、少し不安です。<span class="pm"></span></summary><div class="ans"><p>やり取りはすべてソラが日本語で担当します。メンバーへの指示や、公開前の品質チェックも私が行うので、お客様が英語でやり取りすることはありません。</p></div></details>
+      <details><summary><span class="q">Q.</span>公開したあと、自分で更新できますか？<span class="pm"></span></summary><div class="ans"><p>WordPressやSTUDIOなどで作れば、文章や写真をご自身で更新できます。手が回らない場合は、月額5,500円〜の保守でまるごとお任せいただけます。</p></div></details>
+    </div>
   </div>
 </section>
 
@@ -547,6 +649,13 @@
     <div class="label rv">CONTACT</div>
     <div class="rv"><h2>まずは、気軽に<br>ご相談ください。</h2></div>
     <p class="rv">「まだ何も決まっていない」という段階でも大丈夫です。クラウドワークスのメッセージから、お気軽にご連絡ください。</p>
+    <div class="ask rv">
+      <div><b>01</b><span>業種</span><small>どんなお店・会社か</small></div>
+      <div><b>02</b><span>目的</span><small>集客・問い合わせ・採用など</small></div>
+      <div><b>03</b><span>ご予算</span><small>だいたいで大丈夫です</small></div>
+      <div><b>04</b><span>公開時期</span><small>決まっていれば</small></div>
+    </div>
+    <p class="lead2 rv">この4つが分かれば、すぐにご提案の準備ができます。参考にしたいサイトがあれば、あわせて教えてください。</p>
   </div>
 </section>
 
@@ -563,6 +672,28 @@
     function onScroll() { header.classList.toggle("scrolled", window.scrollY > 20); }
     window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // スマホのメニュー
+    var menuBtn = document.querySelector(".menu-btn");
+    function setMenu(open) { document.body.classList.toggle("menu-open", open); menuBtn.setAttribute("aria-expanded", open); }
+    menuBtn.addEventListener("click", function () { setMenu(!document.body.classList.contains("menu-open")); });
+    document.querySelectorAll(".sheet a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+
+    // FAQ：開くときにふわっと広げる
+    document.querySelectorAll(".qa details").forEach(function (d) {
+      var ans = d.querySelector(".ans");
+      d.querySelector("summary").addEventListener("click", function (e) {
+        if (reduce || !ans.animate) return;
+        e.preventDefault();
+        if (d.open) {
+          ans.animate([{ height: ans.offsetHeight + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 300, easing: "ease-in" })
+            .onfinish = function () { d.open = false; };
+        } else {
+          d.open = true;
+          ans.animate([{ height: "0px", opacity: 0 }, { height: ans.offsetHeight + "px", opacity: 1 }], { duration: 400, easing: "cubic-bezier(.2,.8,.2,1)" });
+        }
+      });
+    });
 
     // スクロール量のバー
     var bar = document.querySelector(".progress");
