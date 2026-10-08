@@ -1,15 +1,17 @@
 """src/*.html の {{画像名}} を data URI に置き換えて、公開用のHTMLを書き出す。
 
 画像は別ファイルにすると学校などのネットワーク・CDN経由で読み込めないことがあった
-ため、ページに埋め込む。data URI は tools/enc.js で assets/ から作る:
-  node tools/enc.js /tmp/img.json 1000 0.62 assets/photos/salon1.jpg ...
-  python3 tools/build.py /tmp/img.json [/tmp/img2.json ...]
+ため、ページに埋め込む。いま使っている data URI は tools/img/*.json に保存してあるので、
+ふつうは引数なしで実行すればよい:
+  python3 tools/build.py
+画像を足す・差し替えるときは tools/enc.js で assets/ から JSON を作り、tools/img/ に置く:
+  node tools/enc.js tools/img/new.json 1000 0.62 assets/photos/salon1.jpg ...
 """
 import json, re, sys, pathlib
 
 root = pathlib.Path(__file__).resolve().parent.parent
 images = {}
-for f in sys.argv[1:]:
+for f in sys.argv[1:] or sorted((root / "tools" / "img").glob("*.json")):
     images.update(json.load(open(f)))
 for src in (root / "src").glob("*.html"):
     html = src.read_text(encoding="utf-8")

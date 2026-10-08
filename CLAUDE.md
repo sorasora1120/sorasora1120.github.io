@@ -1,0 +1,36 @@
+# CLAUDE.md（sorasora1120.github.io ＝ ソラのポートフォリオ）
+
+セッション開始時に必ず `progress.md` を読んでから作業すること。作業の区切りで `progress.md` を更新してコミットする。
+
+## ユーザーについて
+- 返事は日本語で、短く。質問は最小限にして手を動かす（迷ったら妥当な方を選び、何を選んだか一言書く）
+- 留学中の高校生。iPad / iPhone で見ている
+- 学校のネットワークは github.com / github.io がブロックされる。確認用リンクは
+  `https://rawcdn.githack.com/sorasora1120/sorasora1120.github.io/<コミットSHA>/index.html` の形（コミット固定）で渡す。
+  CrowdWorks の提案文からは本番の `https://sorasora1120.github.io/` にリンクしている
+- このサイトは「ソラ」としての Web制作の窓口。案件収集の仕組みは `affiliate-pipeline`、ビューアは `dispatch-viewer`
+
+## 編集のしかた
+- **ルートの `*.html` を直接編集しない**。元は `src/*.html`。編集したら `python3 tools/build.py` でルートに書き出し、両方をコミット
+- 画像はページに data URI で埋め込む（rawcdn 経由だと iPhone で jpg が表示されなかったため）。データは `tools/img/*.json`
+  - 同じ画像を何度も使うときは CSS 変数（`--salon1: url({{salon1}})`）にして1回だけ埋め込む（重複でページが 930KB になったことがある）
+  - 新しい画像：`node tools/enc.js tools/img/<名前>.json <最大幅> <画質> assets/...jpg` → `python3 tools/build.py`
+  - チーム実績のスクショは `.github/workflows/capture.yml`（Actions で撮って `assets/team/` にコミット）
+- アニメーション
+  - clip-path で隠した要素は IntersectionObserver が反応しない。見出しは親（`.rv > h2`）を監視する
+  - 横にはみ出す要素（回転するリング等）は親で `overflow: hidden`。`html { overflow-x: hidden }` も維持
+  - 確認はスマホ幅（390px）と PC 幅でスクリーンショットを撮って見る。サンドボックスのブラウザは Google Fonts に
+    つながらないので、フォントは curl で取ってきて route で差し込む（フォールバックフォントだと縦書きが崩れて見える）
+
+## 守ること（変えない）
+- 制作サンプル（salon / accounting / cafe）には必ず「制作サンプル（架空の店舗です）」と明記する
+- チームの実績はワーカー本人が作ったサイト（掲載許可あり）。「チーム（連携しているデザイナー・エンジニア）の実績」として
+  だけ載せ、ソラ本人の実績とは書かない
+- 経験年数・件数・お客様の声などを作らない
+- 自己紹介は「普通の自己紹介」のトーン（島育ち・留学中・Web制作・サッカーと海が好き）。盛らない
+
+## Git
+- 作業ブランチの指定がなければ `main` に直接コミット＆push
+- push が 5xx やネットワークエラーで失敗したら 2s→4s→8s→16s で再試行
+- コミットメッセージ末尾には、そのセッションで指示される帰属行（`Co-Authored-By:` と `Claude-Session:`）を付ける
+- コミット・コード内にモデルIDを書かない
