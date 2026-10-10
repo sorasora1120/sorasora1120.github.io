@@ -21,9 +21,8 @@ hero（コピー＋チーム実績4サイトのスライドショー）→ WORKS
 - アイコンは案Dベース（黒地に SORA / WEB DESIGN、Jost の細字）：`assets/brand/sora-icon.png`（800×800、クラウドワークス用）。ファビコンは `tools/img/favicon.json`
 - チーム実績は12サイト（aimabel.com は閉店したので外した）。`affiliate-pipeline` の `TEAM_WORKS` と揃える
 - FAQ の答えは提案文（affiliate-pipeline の worker_matcher）と食い違わないようにする。支払いはクラウドワークスの仮払い
-- クラウドワークスのプロフィール：2026-10-10、応募するアカウントを親の名義のものに替えた。前のアカウント（employees/6831717）への
-  「クラウドワークスで相談する」ボタンは隠した（`src/index.html` の contact にコメントで残してある）。新しいプロフィールのURLを
-  もらったら、`NEW_PROFILE_URL` を差し替えてコメントを外し、`python3 tools/build.py`
+- クラウドワークスのプロフィール: https://crowdworks.jp/public/employees/6831717（contact の「クラウドワークスで相談する」ボタンのリンク先）。
+  2026-10-10、ユーザーがこのアカウントを親の名義に書き換えた（新しく作ったのではなく同じアカウント）
 
 ## やり残し・次にやること
 - ワーカーに各実績サイトの担当範囲（デザイン / 構築 / 使ったツール）を確認中。返事が来たら WORKS の各カードに「担当：〜」を追加（本当のことだけ）
