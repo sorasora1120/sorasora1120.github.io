@@ -23,11 +23,11 @@
     /* 架空のお店のブランド */
     --lu-bg: #f7f3ee; --lu-ink: #2a2420; --lu-accent: #a07856; --lu-muted: #85786d; --lu-line: #e6ddd3;
     --lu-serif: "Cormorant Garamond", serif; --lu-min: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
-    --mi-navy: #0e2747; --mi-blue: #1d5fae; --mi-sky: #eef4fb; --mi-ink: #16202e; --mi-muted: #5b6676; --mi-orange: #f2a33a;
+    --mi-navy: #1f2329; --mi-blue: #ef8a3c; --mi-sky: #f2efe9; --mi-ink: #1f2329; --mi-muted: #6b6f76; --mi-orange: #ef8a3c;
     --mi-go: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
     --wu-esp: #3b2620; --wu-terra: #c1552c; --wu-cream: #f6eee3; --wu-latte: #d9b99b;
     --wu-font: "Poppins", "Jost", sans-serif;
-    --hair: url("{{hair}}"); --cafe3: url("{{cafe3}}");
+    --hair: url("{{hair}}"); --pro: url("{{pro}}"); --cafe3: url("{{cafe3}}");
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -118,34 +118,26 @@
       linear-gradient(#3b2622 0 0) 12% 12% / 26% 26% no-repeat, linear-gradient(#3b2622 0 0) 88% 12% / 26% 26% no-repeat,
       linear-gradient(#3b2622 0 0) 12% 88% / 26% 26% no-repeat; opacity: .8; }
 
-  /* みなと会計事務所：大きな見出しと、相談できる日が一目で分かるカレンダー */
-  .fl-mi { background: #f6f4ef; color: #1b2430; font-family: var(--mi-go); }
-  .fl-mi .in { position: absolute; inset: 0; padding: 6.5cqw 7cqw 0; }
-  .fl-mi .top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 3cqw; border-bottom: 2px solid #0e2747; }
-  .fl-mi .top svg { width: 40cqw; display: block; }
-  .fl-mi .top span { font-family: var(--en); font-size: 1.9cqw; letter-spacing: .3em; color: #0e2747; text-align: right; line-height: 1.5; }
-  .fl-mi .hd { display: grid; grid-template-columns: auto 1fr; gap: 5cqw; align-items: end; margin: 5.5cqw 0 2.8cqw; }
-  .fl-mi h3 { margin: 0; font-weight: 900; font-size: 9.4cqw; line-height: 1.2; letter-spacing: .02em; color: #0e2747; white-space: nowrap; }
-  .fl-mi h3 em { font-style: normal; color: #e0701b; }
-  .fl-mi .lead { margin: 0; font-weight: 500; font-size: 2.75cqw; line-height: 1.75; letter-spacing: .04em; }
-  .fl-mi .cal { margin-top: 3.6cqw; display: grid; grid-template-columns: 1fr 1fr; gap: 6cqw; }
-  .fl-mi .mh { display: flex; align-items: baseline; gap: 2cqw; margin-bottom: 1.6cqw; }
-  .fl-mi .mh b { font-family: var(--en); font-weight: 400; font-size: 10cqw; line-height: .8; color: #0e2747; }
-  .fl-mi .mh span { font-family: var(--en); font-size: 1.8cqw; letter-spacing: .3em; color: #59636f; }
-  .fl-mi .days { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: .5cqw; font-family: var(--en); font-size: 2.2cqw; text-align: center; line-height: 4cqw; }
-  .fl-mi .days .w { font-family: var(--mi-go); font-weight: 700; font-size: 1.8cqw; color: #59636f; line-height: 3.6cqw; }
-  .fl-mi .days .su { color: #b4584f; }
-  .fl-mi .days .on { position: relative; color: #fff; font-weight: 500; z-index: 0; }
-  .fl-mi .days .on::before { content: ""; position: absolute; left: 50%; top: 50%; width: 4.1cqw; height: 4.1cqw; transform: translate(-50%, -50%); border-radius: 50%; background: #e0701b; z-index: -1; }
-  .fl-mi .key { margin-top: 2.2cqw; display: flex; align-items: center; gap: 1.6cqw; font-size: 2.3cqw; font-weight: 700; color: #0e2747; }
-  .fl-mi .key i { width: 2.6cqw; height: 2.6cqw; border-radius: 50%; background: #e0701b; flex: none; }
-  .fl-mi .can { list-style: none; margin: 0 0 1cqw; padding: 0; display: grid; gap: 2.2cqw; font-size: 2.15cqw; font-weight: 700; line-height: 1.5; }
-  .fl-mi .can li { border-top: 1px solid #cfd5dc; padding-top: 1.4cqw; }
-  .fl-mi .can b { display: block; font-family: var(--en); font-weight: 400; font-size: 3.4cqw; color: #e0701b; line-height: 1.15; }
-  .fl-mi .foot { position: absolute; left: 0; right: 0; bottom: 0; background: #0e2747; color: #fff; padding: 3.4cqw 7cqw; display: flex; align-items: center; justify-content: space-between; gap: 4cqw; }
-  .fl-mi .tel { font-family: var(--en); font-weight: 400; font-size: 6.4cqw; letter-spacing: .02em; line-height: 1; }
-  .fl-mi .tel small { display: block; font-family: var(--mi-go); font-size: 2.1cqw; font-weight: 500; letter-spacing: .06em; margin-top: 1.4cqw; color: #c9d3e3; }
-  .fl-mi .addr { text-align: right; font-size: 2.05cqw; line-height: 1.7; color: #c9d3e3; }
+  /* みなと会計事務所：人物の写真とオレンジの壁を大きく使い、縦書きの明朝で一言。日程と連絡先は下の濃い段に。
+     （2026-10-12、カレンダーが主役の版は「クソダサい」と言われてやめた。美容室の版は「いい感じ」だったので、同じく写真と明朝で組む） */
+  .fl-mi { background: #1f2329; color: #f2efe9; }
+  .fl-mi .ph { position: absolute; left: 0; top: 0; width: 100%; height: 66%; background: var(--pro) 50% 33% / cover; }
+  .fl-mi .tate { position: absolute; left: 6cqw; top: 8cqw; writing-mode: vertical-rl; font-family: var(--min); font-weight: 700; font-size: 6.6cqw; line-height: 1.62; letter-spacing: .14em; color: #fff; }
+  .fl-mi .label { position: absolute; right: 6cqw; top: 5cqw; text-align: right; font-family: var(--en); font-size: 1.8cqw; letter-spacing: .4em; line-height: 1.8; color: #2a2f37; }
+  .fl-mi .label::before { display: none; }
+  .fl-mi .sheet { position: absolute; left: 0; right: 0; top: 66%; bottom: 0; padding: 5.2cqw 7cqw 4.8cqw; display: flex; flex-direction: column; justify-content: space-between; }
+  .fl-mi .r1 { display: flex; align-items: baseline; justify-content: space-between; gap: 3cqw; }
+  .fl-mi h3 { margin: 0; font-family: var(--min); font-weight: 600; font-size: 5.2cqw; letter-spacing: .12em; line-height: 1.3; white-space: nowrap; }
+  .fl-mi .r2 { display: flex; align-items: flex-end; justify-content: space-between; gap: 3cqw; }
+  .fl-mi .dates { font-family: var(--en); font-weight: 300; font-size: 9.6cqw; line-height: 1; letter-spacing: .01em; white-space: nowrap; }
+  .fl-mi .dates em { font-style: normal; font-weight: 400; font-size: 1.8cqw; letter-spacing: .24em; color: #ef8a3c; margin-left: 1cqw; text-transform: uppercase; }
+  .fl-mi .dates i { font-style: normal; color: #ef8a3c; margin: 0 1.6cqw; }
+  .fl-mi .times { text-align: right; font-size: 2.3cqw; line-height: 1.85; letter-spacing: .04em; white-space: nowrap; }
+  .fl-mi .times b { font-weight: 700; color: #ef8a3c; margin-right: 1.2cqw; }
+  .fl-mi .r3 { display: flex; align-items: center; justify-content: space-between; gap: 3cqw; padding-top: 3cqw; border-top: 1px solid rgba(242,239,233,.2); }
+  .fl-mi .r3 svg { width: 33cqw; display: block; }
+  .fl-mi .tel { text-align: right; font-family: var(--en); font-weight: 300; font-size: 5.4cqw; line-height: 1; letter-spacing: .02em; }
+  .fl-mi .tel small { display: block; font-family: var(--ja); font-weight: 400; font-size: 1.85cqw; letter-spacing: .04em; color: #b9b4ab; margin-top: 1.2cqw; }
 
   /* ===== 名刺（91×55） ===== */
   .cards { display: grid; gap: 22px; width: 100%; max-width: 520px; }
@@ -160,16 +152,16 @@
   .c-lu-b .kana { font-family: var(--lu-serif); font-style: italic; font-size: 3.4cqw; color: var(--lu-muted); letter-spacing: .1em; }
   .c-lu-b .info { position: absolute; left: 8cqw; right: 8cqw; bottom: 7cqw; font-size: 2.5cqw; line-height: 1.75; color: var(--lu-muted); display: flex; justify-content: space-between; align-items: flex-end; gap: 4cqw; }
   .c-lu-b .info .mark { font-family: var(--lu-serif); font-style: italic; font-size: 5.6cqw; color: var(--lu-ink); line-height: 1; }
-  .c-mi-f { background: #fff; color: var(--mi-ink); font-family: var(--mi-go); }
+  .c-mi-f { background: #fff; color: var(--mi-ink); font-family: var(--ja); }
   .c-mi-f .pad { padding: 7cqw 8cqw; }
   .c-mi-f .head { display: flex; align-items: center; gap: 2.6cqw; }
   .c-mi-f .head svg { width: 10cqw; flex: none; }
-  .c-mi-f .head b { font-weight: 700; font-size: 3.6cqw; letter-spacing: .1em; display: block; line-height: 1.3; }
+  .c-mi-f .head b { font-family: var(--min); font-weight: 600; font-size: 3.6cqw; letter-spacing: .1em; display: block; line-height: 1.3; }
   .c-mi-f .head small { font-family: var(--en); font-size: 1.9cqw; letter-spacing: .26em; color: var(--mi-muted); }
-  .c-mi-f .role { margin-top: 8cqw; font-size: 2.8cqw; color: var(--mi-blue); font-weight: 700; letter-spacing: .14em; }
-  .c-mi-f .name { font-size: 7.4cqw; font-weight: 700; letter-spacing: .24em; line-height: 1.3; }
-  .c-mi-f .info { position: absolute; left: 8cqw; right: 8cqw; bottom: 6cqw; font-size: 2.4cqw; line-height: 1.75; color: var(--mi-muted); font-weight: 500; }
-  .c-mi-f::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 2.4cqw; background: linear-gradient(var(--mi-blue), var(--mi-navy)); }
+  .c-mi-f .role { margin-top: 8cqw; font-size: 2.6cqw; color: var(--mi-blue); font-weight: 500; letter-spacing: .14em; }
+  .c-mi-f .name { font-family: var(--min); font-size: 7.4cqw; font-weight: 600; letter-spacing: .28em; line-height: 1.3; }
+  .c-mi-f .info { position: absolute; left: 8cqw; right: 8cqw; bottom: 6cqw; font-size: 2.4cqw; line-height: 1.75; color: var(--mi-muted); font-weight: 400; }
+  .c-mi-f::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 1.6cqw; background: var(--mi-orange); }
   .c-mi-b { background: var(--mi-navy); display: grid; place-items: center; }
   .c-mi-b svg { width: 62cqw; }
 
@@ -195,17 +187,19 @@
   .bn-lu .date { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 3.1cqw; color: #9a6a52; }
   .bn-lu .btn { display: inline-block; margin-top: 2cqw; background: #3b2622; color: #f3ebe4; font-size: 1.7cqw; letter-spacing: .3em; padding: 1.3cqw 3cqw; }
   .bn-row { display: grid; grid-template-columns: 300fr 728fr; gap: 28px; align-items: start; }
-  .bn-rect { aspect-ratio: 300 / 250; background: var(--mi-navy); color: #fff; font-family: var(--mi-go); }
-  .bn-rect .pad { padding: 9cqw 8cqw; display: flex; flex-direction: column; justify-content: space-between; }
-  .bn-rect .k { font-size: 5cqw; font-weight: 700; color: var(--mi-orange); letter-spacing: .1em; }
-  .bn-rect h4 { margin: 2cqw 0 0; font-weight: 900; font-size: 9.6cqw; line-height: 1.32; white-space: nowrap; }
-  .bn-rect .btn { position: relative; align-self: flex-start; background: var(--mi-orange); color: var(--mi-navy); font-weight: 900; font-size: 4.6cqw; letter-spacing: .08em; padding: 2.6cqw 5cqw; }
-  .bn-lb { aspect-ratio: 728 / 90; background: #fff; color: var(--mi-ink); font-family: var(--mi-go); border: 1px solid #e1e7ef; }
-  .bn-lb .pad { display: flex; align-items: center; gap: 3cqw; padding: 0 3cqw; }
-  .bn-lb .pad svg { width: 6.6cqw; flex: none; }
-  .bn-lb b { font-weight: 900; font-size: 3cqw; letter-spacing: .04em; color: var(--mi-navy); white-space: nowrap; }
-  .bn-lb span { font-size: 1.9cqw; color: var(--mi-muted); font-weight: 500; flex: 1; line-height: 1.5; }
-  .bn-lb .btn { background: var(--mi-blue); color: #fff; font-weight: 700; font-size: 1.9cqw; padding: 1.5cqw 3cqw; white-space: nowrap; }
+  .bn-rect { aspect-ratio: 300 / 250; background: #1f2329; color: #f2efe9; }
+  .bn-rect .ph { position: absolute; left: 0; right: 0; top: 0; height: 70%; background: var(--pro) 50% 22% / cover; }
+  .bn-rect .tate { position: absolute; left: 6cqw; top: 6cqw; writing-mode: vertical-rl; font-family: var(--min); font-weight: 700; font-size: 7.4cqw; line-height: 1.55; letter-spacing: .12em; color: #fff; }
+  .bn-rect .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; padding: 0 7cqw; display: flex; align-items: center; justify-content: space-between; gap: 3cqw; }
+  .bn-rect .bar b { font-family: var(--min); font-weight: 600; font-size: 5.6cqw; letter-spacing: .08em; white-space: nowrap; }
+  .bn-rect .bar span { font-family: var(--en); font-weight: 300; font-size: 6.2cqw; white-space: nowrap; }
+  .bn-rect .bar i, .bn-lb .d i { font-style: normal; color: #ef8a3c; margin: 0 .25em; }
+  .bn-lb { aspect-ratio: 728 / 90; background: #1f2329; color: #f2efe9; }
+  .bn-lb .pad { display: flex; align-items: center; gap: 3.2cqw; padding: 0 3cqw 0 0; }
+  .bn-lb .face { align-self: stretch; aspect-ratio: 1; flex: none; background: var(--pro) 59% 19% / 290% auto; }
+  .bn-lb b { font-family: var(--min); font-weight: 600; font-size: 2.7cqw; letter-spacing: .08em; white-space: nowrap; }
+  .bn-lb .d { flex: 1; text-align: center; font-family: var(--en); font-weight: 300; font-size: 2.5cqw; white-space: nowrap; }
+  .bn-lb .btn { border: 1px solid #ef8a3c; color: #ef8a3c; font-size: 1.7cqw; letter-spacing: .24em; padding: 1.2cqw 2.6cqw; white-space: nowrap; }
   .size { display: block; margin-top: 10px; font-family: var(--en); font-size: 11px; letter-spacing: .24em; color: var(--dim); }
 
   /* ===== パッケージ ===== */
@@ -274,13 +268,13 @@
         <figure class="rv">
           <div class="logo-tiles">
             <div class="tile t-white">
-              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（カラー）"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#0e2747" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#59636f" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
+              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（カラー）"><rect x="6" y="12" width="76" height="76" fill="#1f2329"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#1f2329" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#6b6f76" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
             </div>
             <div class="tile t-navy">
-              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（反転）"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#0e2747" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#0e2747" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#fff" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#9fb0cc" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
+              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（反転）"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#1f2329" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#1f2329" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#fff" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#b9b4ab" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
             </div>
           </div>
-          <figcaption><b>みなと会計事務所</b>会計事務所のロゴ。名前を縦に入れた角印のようなマークと明朝の文字で、落ち着いて信頼できる印象に。</figcaption>
+          <figcaption><b>みなと会計事務所</b>会計事務所のロゴ。名前を縦に入れた角印のようなマークと明朝の文字で、落ち着いて信頼できる印象に。色は濃いグレー1色。</figcaption>
         </figure>
         <figure class="rv">
           <div class="logo-tiles">
@@ -352,27 +346,24 @@
           <div class="desk">
             <div class="trim"><i></i><i></i><i></i><i></i>
               <div class="flyer fl-mi shadow" role="img" aria-label="みなと会計事務所の確定申告の相談会のチラシ">
-                <div class="in">
-                  <div class="top"><svg viewBox="0 0 300 100" role="img" aria-label="みなと会計事務所"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#0e2747" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#59636f" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg><span>TAX RETURN<br>CLINIC 2027</span></div>
-                  <div class="hd">
-                    <h3>確定申告、<br><em>ひとりで</em><br>悩まない。</h3>
-                    <ol class="can"><li><b>01</b>書類の集め方から一緒に確認</li><li><b>02</b>副業・医療費控除のご相談</li><li><b>03</b>申告書の作成までお任せ</li></ol>
+                <div class="ph"></div>
+                <div class="tate">確定申告、<br>ひとりで悩まない。</div>
+                <div class="label">TAX RETURN<br>CLINIC 2027</div>
+                <div class="sheet">
+                  <div class="r1"><h3>確定申告の相談会</h3></div>
+                  <div class="r2">
+                    <div class="dates">2.2<em>tue</em><i>—</i>3.13<em>sat</em></div>
+                    <div class="times"><b>火・木</b>18:00 — 21:00<br><b>土</b>10:00 — 17:00<br>予約制・1回50分</div>
                   </div>
-                  <p class="lead">2月2日〜3月13日、平日の夜と土曜日に相談会をひらきます。<br>書類がそろっていなくても、そのままお持ちください。</p>
-                  <div class="cal">
-                    <div><div class="mh"><b>2</b><span>FEB 2027</span></div><div class="days"><span class="w su">日</span><span class="w">月</span><span class="w">火</span><span class="w">水</span><span class="w">木</span><span class="w">金</span><span class="w">土</span><span></span><span>1</span><span class="on">2</span><span>3</span><span class="on">4</span><span>5</span><span class="on">6</span><span class="su">7</span><span>8</span><span class="on">9</span><span>10</span><span class="on">11</span><span>12</span><span class="on">13</span><span class="su">14</span><span>15</span><span class="on">16</span><span>17</span><span class="on">18</span><span>19</span><span class="on">20</span><span class="su">21</span><span>22</span><span class="on">23</span><span>24</span><span class="on">25</span><span>26</span><span class="on">27</span><span class="su">28</span></div></div>
-                    <div><div class="mh"><b>3</b><span>MAR 2027</span></div><div class="days"><span class="w su">日</span><span class="w">月</span><span class="w">火</span><span class="w">水</span><span class="w">木</span><span class="w">金</span><span class="w">土</span><span></span><span>1</span><span class="on">2</span><span>3</span><span class="on">4</span><span>5</span><span class="on">6</span><span class="su">7</span><span>8</span><span class="on">9</span><span>10</span><span class="on">11</span><span>12</span><span class="on">13</span><span class="su">14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span class="su">21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="su">28</span><span>29</span><span>30</span><span>31</span></div></div>
+                  <div class="r3">
+                    <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所"><rect x="6" y="12" width="76" height="76" fill="#f2efe9"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#1f2329" stroke-opacity=".5" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#1f2329" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#f2efe9" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#b9b4ab" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
+                    <div class="tel">00-0000-0000<small>〒000-0000 東京都○○区○○ 4-5-6</small></div>
                   </div>
-                  <div class="key"><i></i>相談会の日　火・木 18:00〜21:00 ／ 土 10:00〜17:00（1回50分）</div>
-                </div>
-                <div class="foot">
-                  <div class="tel">00-0000-0000<small>ご予約はお電話かWebで</small></div>
-                  <div class="addr">〒000-0000 東京都○○区○○ 4-5-6<br>○○駅から徒歩3分</div>
                 </div>
               </div>
             </div>
           </div>
-          <figcaption><b>会計事務所の相談会チラシ（A4・片面）</b>いちばん知りたい「いつ相談できるか」をカレンダーで見せ、見出しは一言で。色は紺とオレンジの2色だけにしました。</figcaption>
+          <figcaption><b>会計事務所の相談会チラシ（A4・片面）</b>人物の写真と壁のオレンジを大きく使い、縦書きの明朝で「確定申告、ひとりで悩まない。」の一言だけ。日程と連絡先は下の濃い段にまとめました。</figcaption>
         </figure>
       </div>
     </div>
@@ -409,17 +400,17 @@
           <div class="desk">
             <div class="cards">
               <div class="card c-mi-f shadow" role="img" aria-label="みなと会計事務所の名刺（表）">
-                <div class="pad"><div class="head"><svg viewBox="6 12 76 76" aria-hidden="true"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></svg><div><b>みなと会計事務所</b><small>MINATO TAX &amp; ACCOUNTING</small></div></div>
+                <div class="pad"><div class="head"><svg viewBox="6 12 76 76" aria-hidden="true"><rect x="6" y="12" width="76" height="76" fill="#1f2329"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></svg><div><b>みなと会計事務所</b><small>MINATO TAX &amp; ACCOUNTING</small></div></div>
                 <div class="role">税理士</div>
                 <div class="name">青木 誠</div></div>
                 <div class="info">〒000-0000 東京都○○区○○ 4-5-6<br>TEL 00-0000-0000 ／ minato-sample.example</div>
               </div>
               <div class="card c-mi-b shadow" role="img" aria-label="みなと会計事務所の名刺（裏）">
-                <svg viewBox="0 0 320 150" aria-hidden="true"><g transform="translate(116 10)"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#0e2747" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#0e2747" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></g><text x="160" y="128" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" fill="#9fb0cc" textLength="190" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
+                <svg viewBox="0 0 320 150" aria-hidden="true"><g transform="translate(116 10)"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#1f2329" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#1f2329" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></g><text x="160" y="128" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" fill="#b9b4ab" textLength="190" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
               </div>
             </div>
           </div>
-          <figcaption><b>会計事務所の名刺（両面）</b>表は白で読みやすく、右端に紺のライン。裏は紺一色に角印のマークだけを置いて、事務所の印象を残します。</figcaption>
+          <figcaption><b>会計事務所の名刺（両面）</b>表は白で読みやすく、右端にオレンジの細いライン。裏は濃いグレー一色に角印のマークだけを置いて、事務所の印象を残します。</figcaption>
         </figure>
       </div>
     </div>
@@ -461,15 +452,15 @@
         <div class="bn-row">
           <figure class="rv">
             <div class="bn bn-rect" role="img" aria-label="みなと会計事務所の広告バナー（正方形に近い形）">
-              <div class="pad"><div><div class="k">確定申告の相談会</div><h4>書類が<br>分からなくても、<br>大丈夫です。</h4></div>
-              <span class="btn">日程を見る</span></div>
+              <div class="ph"></div>
+              <div class="tate">ひとりで<br>悩まない。</div>
+              <div class="bar"><b>確定申告の相談会</b><span>2.2<i>—</i>3.13</span></div>
             </div>
-            <figcaption><b>会計事務所の広告バナー</b><span class="size">300 × 250 PX</span></figcaption>
+            <figcaption><b>会計事務所の広告バナー</b>チラシと同じ写真と言葉で、小さくても同じ相談会だと分かるように。<span class="size">300 × 250 PX</span></figcaption>
           </figure>
           <figure class="rv">
             <div class="bn bn-lb" role="img" aria-label="みなと会計事務所の横長バナー">
-              <div class="pad"><svg viewBox="6 12 76 76" aria-hidden="true"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></svg>
-              <b>確定申告の相談会</b><span>平日夜・土曜も受付。<br>みなと会計事務所</span><span class="btn">予約する</span></div>
+              <div class="pad"><div class="face"></div><b>確定申告、ひとりで悩まない。</b><span class="d">相談会　2.2<i> — </i>3.13</span><span class="btn">予約する</span></div>
             </div>
             <figcaption><b>同じ相談会の横長バナー</b>同じ内容を、サイズに合わせて組み直します。<span class="size">728 × 90 PX</span></figcaption>
           </figure>
