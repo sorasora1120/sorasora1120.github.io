@@ -15,6 +15,8 @@
 - 画像はページに data URI で埋め込む（rawcdn 経由だと iPhone で jpg が表示されなかったため）。データは `tools/img/*.json`
   - 同じ画像を何度も使うときは CSS 変数（`--salon1: url({{salon1}})`）にして1回だけ埋め込む（重複でページが 930KB になったことがある）
   - 新しい画像：`node tools/enc.js tools/img/<名前>.json <最大幅> <画質> assets/...jpg` → `python3 tools/build.py`
+  - 写真は自由に使えるライセンスのものだけ（Unsplash・StockSnap・WordPress Photo Directory の CC0 など）。出どころは design.html のフッターに書く。
+    「ボットではないか」の確認が出るサイトから自動で取らない
   - チーム実績のスクショは `.github/workflows/capture.yml`（Actions で撮って `assets/team/` にコミット）
 - アニメーション
   - clip-path で隠した要素は IntersectionObserver が反応しない。見出しは親（`.rv > h2`）を監視する
