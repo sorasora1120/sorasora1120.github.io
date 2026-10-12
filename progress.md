@@ -1,6 +1,6 @@
 # progress.md（引き継ぎメモ）
 
-最終更新: 2026-10-08
+最終更新: 2026-10-12
 
 ## いまのページ構成（index.html）
 2026-10-08 に「高級感」重視で作り直し、その後ユーザーの希望で黒ベースにした（明朝の見出し・黒白グレー・ゆっくりした動き。方針は CLAUDE.md）。
@@ -16,6 +16,14 @@ hero（コピー＋チーム実績4サイトのスライドショー）→ WORKS
 - サンプルページ：`salon.html`（美容室）、`accounting.html`（会計事務所）、`cafe.html`（英語のカフェLP）。写真は Unsplash
 - works のサンプル画像（`shot_salon` など、`tools/img/shots.json`）は各サンプルページのスクリーンショット。
   サンプルページの見た目を変えたら撮り直す
+
+- `design.html`（2026-10-12）：チラシ・名刺・ロゴ・バナー・パッケージのデザインサンプル。affiliate-pipeline がこの種類の案件も拾うように
+  なり（ユーザー「じゃあ仕事増やそう」）、提案文の最初にこのページを案内する（`worker_matcher.DESIGN_SAMPLES_URL`）。
+  架空の3店（Lumière・みなと会計事務所・Windsor Urban Café）のロゴ（カラー＋反転）・A4チラシ2つ・名刺2組（両面）・バナー4つ・
+  コーヒー豆の袋とドリップバッグの箱。画像は salon1 / salon3 / cafe3 / cafe5 を使い、ほかはHTML・CSS・SVGで描いている（文字がくっきり）。
+  中の大きさは `container-type: inline-size` と cqw でそろえる（**container の要素自身に padding を付けない**：padding 自体と中身の cqw が
+  ずれて文字が小さくなった。padding は内側の `.pad` に付ける）。トップの「できること」の下と「デザインサンプル」の下からリンク
+  - スクショ確認：Google Fonts の CSS は大きいので、Playwright の route で curl する時は `maxBuffer` を大きくする（ENOBUFS で全部フォールバックになった）
 
 ## 決まっていること
 - アイコンは案Dベース（黒地に SORA / WEB DESIGN、Jost の細字）：`assets/brand/sora-icon.png`（800×800、クラウドワークス用）。ファビコンは `tools/img/favicon.json`

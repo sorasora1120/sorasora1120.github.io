@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デザインサンプル｜SORA WEB DESIGN</title>
+<meta name="description" content="チラシ・名刺・ロゴ・バナー・パッケージのデザインサンプル（架空の店舗・事務所です）。">
+<meta name="theme-color" content="#0c0c0d">
+<link rel="icon" href="{{favicon}}">
+<link rel="apple-touch-icon" href="{{favicon}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Poppins:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ページ（ポートフォリオと同じ黒ベース・明朝の見出し・Jostの細字） */
+  :root {
+    color-scheme: dark;
+    --bg: #0c0c0d; --bg2: #141416; --ink: #ecebe7; --sub: #a4a3a0; --dim: #6e6e72; --line: #2a2a2e;
+    --en: "Jost", "Noto Sans JP", sans-serif;
+    --min: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    --ease: cubic-bezier(.22,.61,.12,1);
+    /* 架空のお店のブランド */
+    --lu-bg: #f7f3ee; --lu-ink: #2a2420; --lu-accent: #a07856; --lu-muted: #85786d; --lu-line: #e6ddd3;
+    --lu-serif: "Cormorant Garamond", serif; --lu-min: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+    --mi-navy: #0e2747; --mi-blue: #1d5fae; --mi-sky: #eef4fb; --mi-ink: #16202e; --mi-muted: #5b6676; --mi-orange: #f2a33a;
+    --mi-go: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --wu-esp: #3b2620; --wu-terra: #c1552c; --wu-cream: #f6eee3; --wu-latte: #d9b99b;
+    --wu-font: "Poppins", "Jost", sans-serif;
+    --salon1: url("{{salon1}}"); --salon3: url("{{salon3}}"); --cafe3: url("{{cafe3}}"); --cafe5: url("{{cafe5}}");
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--ja); font-size: 14.5px; line-height: 2; letter-spacing: .06em; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 56px; }
+  .sample-bar { background: #1c1c1f; color: var(--sub); text-align: center; font-size: 11.5px; padding: 8px 16px; letter-spacing: .1em; border-bottom: 1px solid var(--line); }
+  header .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .logo { font-family: var(--en); font-weight: 400; font-size: 17px; letter-spacing: .38em; line-height: 1.2; }
+  .logo small { display: block; font-size: 9px; letter-spacing: .5em; color: var(--dim); line-height: 1; margin-top: 2px; }
+  .back { font-family: var(--en); font-size: 12px; letter-spacing: .24em; color: var(--sub); display: inline-flex; align-items: center; gap: 14px; }
+  .back i { display: inline-block; width: 28px; height: 1px; background: currentColor; transition: width .6s var(--ease); }
+  .back:hover i { width: 42px; }
+  .label { display: flex; align-items: center; gap: 16px; font-family: var(--en); font-size: 11.5px; font-weight: 400; letter-spacing: .38em; color: var(--sub); text-transform: uppercase; }
+  .label::before { content: ""; width: 36px; height: 1px; background: var(--ink); }
+  .intro { padding: 96px 0 72px; }
+  .intro h1 { font-family: var(--min); font-weight: 600; font-size: clamp(28px, 3.8vw, 48px); line-height: 1.6; letter-spacing: .08em; margin: 34px 0 26px; }
+  .intro p { max-width: 640px; color: var(--sub); margin: 0; }
+  .toc { display: flex; flex-wrap: wrap; gap: 10px 30px; margin-top: 40px; font-family: var(--en); font-size: 12px; letter-spacing: .3em; color: var(--sub); }
+  .toc a { border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: color .4s, border-color .4s; }
+  .toc a:hover { color: var(--ink); border-color: var(--ink); }
+
+  section.kind { padding: 88px 0; border-top: 1px solid var(--line); }
+  .kind-head { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: end; margin-bottom: 52px; }
+  .kind-head h2 { font-family: var(--min); font-weight: 600; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: .1em; line-height: 1.6; margin: 22px 0 0; }
+  .kind-head p { color: var(--sub); margin: 0; }
+  .kind-head ul { list-style: none; margin: 14px 0 0; padding: 0; color: var(--sub); font-size: 13px; }
+  .kind-head li { padding-left: 18px; position: relative; }
+  .kind-head li::before { content: ""; position: absolute; left: 0; top: 1em; width: 8px; height: 1px; background: var(--sub); }
+  .grid { display: grid; gap: 40px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  figure { margin: 0; }
+  figcaption { margin-top: 18px; font-size: 12.5px; color: var(--sub); letter-spacing: .08em; line-height: 1.8; }
+  figcaption b { display: block; color: var(--ink); font-weight: 500; font-size: 13.5px; }
+  .desk { background: var(--bg2); border: 1px solid var(--line); padding: clamp(22px, 4vw, 48px); display: grid; place-items: center; }
+  .shadow { box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.35); }
+
+  /* スクロールでふわっと表示 */
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+  .rv.on { opacity: 1; transform: none; }
+
+  /* ===== ロゴ ===== */
+  .logo-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .tile { aspect-ratio: 4 / 3; display: grid; place-items: center; padding: 8%; container-type: inline-size; }
+  .tile svg { width: 100%; height: auto; display: block; }
+  .t-light-lu { background: var(--lu-bg); } .t-dark { background: #18181a; } .t-white { background: #fff; } .t-navy { background: var(--mi-navy); }
+  .t-cream { background: var(--wu-cream); } .t-esp { background: var(--wu-esp); }
+  .lu-word { font-family: var(--lu-serif); font-style: italic; font-weight: 500; }
+  .lnum { font-variant-numeric: lining-nums; }
+  .mi-word { font-family: var(--mi-go); font-weight: 700; }
+  .wu-word { font-family: var(--wu-font); font-weight: 700; }
+
+  /* ===== チラシ（A4） ===== */
+  .flyer { width: min(100%, 420px); aspect-ratio: 210 / 297; container-type: inline-size; position: relative; overflow: hidden; }
+  /* Lumière：写真＋縦書きの明朝 */
+  .fl-lu { background: var(--lu-bg); color: var(--lu-ink); }
+  .fl-lu .photo { position: absolute; left: 0; right: 0; top: 0; height: 56%; background: var(--salon1) center / cover; }
+  .fl-lu .photo::after { content: ""; position: absolute; inset: 0; background:
+      linear-gradient(180deg, rgba(42,36,32,.55) 0%, rgba(42,36,32,.18) 34%, rgba(42,36,32,.1) 60%, var(--lu-bg) 100%),
+      linear-gradient(270deg, rgba(42,36,32,.42) 0%, rgba(42,36,32,0) 38%); }
+  .fl-lu .brand { position: absolute; left: 7cqw; top: 6cqw; color: #fff; font-family: var(--lu-serif); font-style: italic; font-size: 8.4cqw; line-height: 1; text-shadow: 0 1px 12px rgba(0,0,0,.25); }
+  .fl-lu .brand small { display: block; font-family: var(--en); font-style: normal; font-size: 2cqw; letter-spacing: .5em; margin-top: 1.6cqw; }
+  .fl-lu .tate { position: absolute; right: 7cqw; top: 8cqw; writing-mode: vertical-rl; font-family: var(--lu-min); font-weight: 600; font-size: 7.6cqw; letter-spacing: .2em; line-height: 1.5; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.35); }
+  .fl-lu .lower { position: absolute; left: 7cqw; right: 7cqw; top: 54%; bottom: 6cqw; display: flex; flex-direction: column; justify-content: space-between; }
+  .fl-lu .lead { font-family: var(--lu-min); font-size: 3.4cqw; line-height: 1.9; letter-spacing: .08em; margin: 0 0 3.6cqw; }
+  .fl-lu .offer { border-top: 1px solid var(--lu-line); border-bottom: 1px solid var(--lu-line); padding: 3.4cqw 0; display: flex; align-items: baseline; justify-content: space-between; gap: 3cqw; }
+  .fl-lu .offer .term { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 4.6cqw; color: var(--lu-accent); }
+  .fl-lu .offer .what { font-size: 2.7cqw; letter-spacing: .06em; }
+  .fl-lu .offer .price { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-size: 7cqw; line-height: 1; white-space: nowrap; }
+  .fl-lu .offer .price small { font-family: var(--ja); font-size: 2.2cqw; margin-left: .8cqw; }
+  .fl-lu .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 4cqw; font-size: 2.3cqw; line-height: 1.8; color: var(--lu-muted); }
+  .fl-lu .qr { width: 15cqw; height: 15cqw; border: 1px solid var(--lu-line); display: grid; place-items: center; font-family: var(--en); font-size: 2.2cqw; letter-spacing: .2em; color: var(--lu-muted); flex: none; }
+  .fl-lu .foot b { display: block; color: var(--lu-ink); font-weight: 500; font-size: 2.8cqw; }
+  /* みなと会計事務所：紺の帯＋チェックリスト */
+  .fl-mi { background: #fff; color: var(--mi-ink); font-family: var(--mi-go); }
+  .fl-mi .band { background: var(--mi-navy); color: #fff; padding: 6.4cqw 7cqw 5.4cqw; position: relative; overflow: hidden; }
+  .fl-mi .band svg { position: absolute; right: -6cqw; bottom: -2cqw; width: 70cqw; opacity: .18; }
+  .fl-mi .kicker { display: inline-block; background: var(--mi-orange); color: var(--mi-navy); font-weight: 900; font-size: 2.8cqw; letter-spacing: .12em; padding: .8cqw 2.4cqw; }
+  .fl-mi h3 { margin: 3cqw 0 1.8cqw; font-weight: 900; font-size: 8.2cqw; line-height: 1.28; letter-spacing: .04em; }
+  .fl-mi .band p { margin: 0; font-size: 2.9cqw; line-height: 1.75; opacity: .9; font-weight: 500; }
+  .fl-mi .inner { padding: 4.4cqw 7cqw 0; }
+  .fl-mi .ttl { font-weight: 900; font-size: 3.6cqw; color: var(--mi-navy); letter-spacing: .1em; display: flex; align-items: center; gap: 2cqw; }
+  .fl-mi .ttl::after { content: ""; flex: 1; height: 1px; background: #dbe3ee; }
+  .fl-mi .checks { list-style: none; margin: 2.4cqw 0 3.4cqw; padding: 0; display: grid; gap: 1.4cqw; }
+  .fl-mi .checks li { display: flex; align-items: center; gap: 2.6cqw; font-weight: 700; font-size: 3cqw; line-height: 1.5; background: var(--mi-sky); padding: 1.5cqw 3cqw; }
+  .fl-mi .checks li::before { content: ""; width: 3.2cqw; height: 1.8cqw; border-left: .7cqw solid var(--mi-blue); border-bottom: .7cqw solid var(--mi-blue); transform: rotate(-45deg) translateY(-.6cqw); flex: none; }
+  .fl-mi table { width: 100%; border-collapse: collapse; font-size: 2.8cqw; line-height: 1.6; }
+  .fl-mi th { text-align: left; color: var(--mi-blue); font-weight: 900; width: 14cqw; padding: 1.2cqw 0; border-bottom: 1px solid #e1e7ef; vertical-align: top; }
+  .fl-mi td { padding: 1.2cqw 0; border-bottom: 1px solid #e1e7ef; font-weight: 500; }
+  .fl-mi .foot { position: absolute; left: 0; right: 0; bottom: 0; background: var(--mi-sky); padding: 3.2cqw 7cqw; display: flex; align-items: center; justify-content: space-between; gap: 4cqw; }
+  .fl-mi .foot .tel { font-family: var(--en); font-weight: 500; font-size: 5.2cqw; color: var(--mi-navy); letter-spacing: .04em; line-height: 1.1; text-align: right; }
+  .fl-mi .foot .tel small { display: block; font-family: var(--mi-go); font-size: 2.3cqw; color: var(--mi-muted); font-weight: 500; letter-spacing: .06em; }
+
+  /* ===== 名刺（91×55） ===== */
+  .cards { display: grid; gap: 22px; width: 100%; max-width: 520px; }
+  .card { aspect-ratio: 91 / 55; container-type: inline-size; position: relative; overflow: hidden; }
+  .c-lu-f { background: var(--lu-bg); display: grid; place-items: center; }
+  .c-lu-f svg { width: 52cqw; }
+  .pad { position: absolute; inset: 0; }
+  .c-lu-b { background: #fffdf9; color: var(--lu-ink); }
+  .c-lu-b .pad { padding: 8cqw; }
+  .c-lu-b .role { font-family: var(--en); font-size: 2.6cqw; letter-spacing: .5em; color: var(--lu-accent); }
+  .c-lu-b .name { font-family: var(--lu-min); font-weight: 600; font-size: 7cqw; letter-spacing: .3em; margin: 2.2cqw 0 0; line-height: 1.3; }
+  .c-lu-b .kana { font-family: var(--lu-serif); font-style: italic; font-size: 3.4cqw; color: var(--lu-muted); letter-spacing: .1em; }
+  .c-lu-b .info { position: absolute; left: 8cqw; right: 8cqw; bottom: 7cqw; font-size: 2.5cqw; line-height: 1.75; color: var(--lu-muted); display: flex; justify-content: space-between; align-items: flex-end; gap: 4cqw; }
+  .c-lu-b .info .mark { font-family: var(--lu-serif); font-style: italic; font-size: 5.6cqw; color: var(--lu-ink); line-height: 1; }
+  .c-mi-f { background: #fff; color: var(--mi-ink); font-family: var(--mi-go); }
+  .c-mi-f .pad { padding: 7cqw 8cqw; }
+  .c-mi-f .head { display: flex; align-items: center; gap: 2.6cqw; }
+  .c-mi-f .head svg { width: 10cqw; flex: none; }
+  .c-mi-f .head b { font-weight: 700; font-size: 3.6cqw; letter-spacing: .1em; display: block; line-height: 1.3; }
+  .c-mi-f .head small { font-family: var(--en); font-size: 1.9cqw; letter-spacing: .26em; color: var(--mi-muted); }
+  .c-mi-f .role { margin-top: 8cqw; font-size: 2.8cqw; color: var(--mi-blue); font-weight: 700; letter-spacing: .14em; }
+  .c-mi-f .name { font-size: 7.4cqw; font-weight: 700; letter-spacing: .24em; line-height: 1.3; }
+  .c-mi-f .info { position: absolute; left: 8cqw; right: 8cqw; bottom: 6cqw; font-size: 2.4cqw; line-height: 1.75; color: var(--mi-muted); font-weight: 500; }
+  .c-mi-f::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 2.4cqw; background: linear-gradient(var(--mi-blue), var(--mi-navy)); }
+  .c-mi-b { background: var(--mi-navy); display: grid; place-items: center; }
+  .c-mi-b svg { width: 62cqw; }
+
+  /* ===== バナー ===== */
+  .banners { display: grid; gap: 28px; width: 100%; }
+  .bn { container-type: inline-size; position: relative; overflow: hidden; }
+  .bn-wide { aspect-ratio: 1200 / 628; }
+  .bn-wu { background: var(--cafe3) center / cover; color: #fff; font-family: var(--wu-font); }
+  .bn-wu::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(59,38,32,.92) 0%, rgba(59,38,32,.72) 46%, rgba(59,38,32,.08) 78%); }
+  .bn-wu .in { position: absolute; left: 6cqw; top: 50%; transform: translateY(-50%); width: 56cqw; }
+  .bn-wu .tag { display: inline-block; font-size: 1.7cqw; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--wu-latte); border: 1px solid rgba(217,185,155,.6); padding: .6cqw 1.6cqw; }
+  .bn-wu h4 { margin: 2.4cqw 0 1.8cqw; font-weight: 800; font-size: 6.4cqw; line-height: 1.08; letter-spacing: -.01em; }
+  .bn-wu h4 em { font-style: normal; color: #f0a37e; }
+  .bn-wu p { margin: 0 0 3.2cqw; font-family: var(--en); font-size: 2.1cqw; letter-spacing: .06em; opacity: .9; line-height: 1.6; }
+  .bn-wu .btn { display: inline-flex; align-items: center; gap: 1.6cqw; background: var(--wu-terra); color: #fff; font-weight: 600; font-size: 2cqw; letter-spacing: .08em; padding: 1.4cqw 3cqw; }
+  .bn-wu .btn::after { content: "→"; }
+  .bn-lu { background: var(--lu-bg); color: var(--lu-ink); display: grid; grid-template-columns: 1fr 1fr; }
+  .bn-lu .ph { background: var(--salon3) center / cover; }
+  .bn-lu .txt { position: relative; padding: 6.4cqw 5cqw; display: flex; flex-direction: column; justify-content: space-between; }
+  .bn-lu .brand { font-family: var(--lu-serif); font-style: italic; font-size: 3.4cqw; line-height: 1; }
+  .bn-lu h4 { margin: 0; font-family: var(--lu-min); font-weight: 600; font-size: 4.6cqw; letter-spacing: .14em; line-height: 1.55; }
+  .bn-lu .date { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 3.1cqw; color: var(--lu-accent); }
+  .bn-lu .btn { align-self: flex-start; border: 1px solid var(--lu-ink); font-size: 1.7cqw; letter-spacing: .3em; padding: 1.2cqw 2.8cqw; }
+  .bn-row { display: grid; grid-template-columns: 300fr 728fr; gap: 28px; align-items: start; }
+  .bn-rect { aspect-ratio: 300 / 250; background: var(--mi-navy); color: #fff; font-family: var(--mi-go); }
+  .bn-rect .pad { padding: 9cqw 8cqw; display: flex; flex-direction: column; justify-content: space-between; }
+  .bn-rect svg { position: absolute; right: -10cqw; bottom: -6cqw; width: 90cqw; opacity: .16; }
+  .bn-rect .k { font-size: 5cqw; font-weight: 700; color: var(--mi-orange); letter-spacing: .1em; }
+  .bn-rect h4 { margin: 2cqw 0 0; font-weight: 900; font-size: 10.4cqw; line-height: 1.32; }
+  .bn-rect .btn { position: relative; align-self: flex-start; background: var(--mi-orange); color: var(--mi-navy); font-weight: 900; font-size: 4.6cqw; letter-spacing: .08em; padding: 2.6cqw 5cqw; }
+  .bn-lb { aspect-ratio: 728 / 90; background: #fff; color: var(--mi-ink); font-family: var(--mi-go); border: 1px solid #e1e7ef; }
+  .bn-lb .pad { display: flex; align-items: center; gap: 3cqw; padding: 0 3cqw; }
+  .bn-lb .pad svg { width: 6.6cqw; flex: none; }
+  .bn-lb b { font-weight: 900; font-size: 3cqw; letter-spacing: .04em; color: var(--mi-navy); white-space: nowrap; }
+  .bn-lb span { font-size: 1.9cqw; color: var(--mi-muted); font-weight: 500; flex: 1; line-height: 1.5; }
+  .bn-lb .btn { background: var(--mi-blue); color: #fff; font-weight: 700; font-size: 1.9cqw; padding: 1.5cqw 3cqw; white-space: nowrap; }
+  .size { display: block; margin-top: 10px; font-family: var(--en); font-size: 11px; letter-spacing: .24em; color: var(--dim); }
+
+  /* ===== パッケージ ===== */
+  .pkg-stage { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6%; align-items: end; max-width: 620px; }
+  .pkg-stage svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 16px 26px rgba(0,0,0,.5)); }
+
+  footer { border-top: 1px solid var(--line); padding: 56px 0 72px; color: var(--dim); font-size: 12px; }
+  footer .row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+
+  @media (max-width: 960px) {
+    .wrap { padding: 0 22px; }
+    .kind-head { grid-template-columns: 1fr; gap: 18px; }
+    .g2, .g3 { grid-template-columns: 1fr; }
+    .bn-row { grid-template-columns: 1fr; }
+    .bn-row .bn-rect { max-width: 300px; }
+    section.kind { padding: 64px 0; }
+  }
+  @media (max-width: 520px) {
+    .logo-tiles { grid-template-columns: 1fr 1fr; }
+    .intro { padding: 64px 0 48px; }
+    .pkg-stage { gap: 4%; }
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">このページのデザインは、すべて架空の店舗・事務所を想定した制作サンプルです</div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="./">SORA<small>WEB DESIGN</small></a>
+    <a class="back" href="./#sample"><i></i>BACK</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <div class="label rv">Design Sample</div>
+      <h1 class="rv">チラシ・名刺・ロゴ・<br>バナー・パッケージ</h1>
+      <p class="rv">Webサイトのほかに、印刷物やロゴ、広告のバナーもお作りしています。ここに載せているのは、架空のお店・事務所を想定して作ったデザインサンプルです。印刷物は、印刷会社にそのまま出せる入稿データ（PDF・AI）でお渡しします。</p>
+      <nav class="toc rv"><a href="#logo">LOGO</a><a href="#flyer">FLYER</a><a href="#card">BUSINESS CARD</a><a href="#banner">BANNER</a><a href="#package">PACKAGE</a></nav>
+    </div>
+  </section>
+
+  <!-- ロゴ -->
+  <section class="kind" id="logo">
+    <div class="wrap">
+      <div class="kind-head rv">
+        <div><div class="label">Logo</div><h2>ロゴ</h2></div>
+        <div>
+          <p>小さくしても、白黒にしても、そのお店らしさが伝わる形に。使う場所に合わせたパターンと、データ一式でお渡しします。</p>
+          <ul><li>カラー・白黒・反転（暗い背景用）</li><li>AI・SVG・PNG（透過）</li></ul>
+        </div>
+      </div>
+      <div class="grid g3">
+        <figure class="rv">
+          <div class="logo-tiles">
+            <div class="tile t-light-lu">
+              <svg viewBox="56 0 208 150" role="img" aria-label="Lumièreのロゴ（カラー）">
+                <g fill="none" stroke="#a07856" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g>
+                <text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#2a2420">Lumière</text>
+                <text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#85786d">HAIR SALON</text>
+              </svg>
+            </div>
+            <div class="tile t-dark">
+              <svg viewBox="56 0 208 150" role="img" aria-label="Lumièreのロゴ（反転）">
+                <g fill="none" stroke="#f7f3ee" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g>
+                <text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#f7f3ee">Lumière</text>
+                <text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#b8ada2">HAIR SALON</text>
+              </svg>
+            </div>
+          </div>
+          <figcaption><b>hair salon Lumière</b>美容室のロゴ。光をモチーフにした細い線のマークと、斜体の英字で、やわらかく上品に。</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="logo-tiles">
+            <div class="tile t-white">
+              <svg viewBox="14 34 296 82" role="img" aria-label="みなと会計事務所のロゴ（カラー）">
+                <rect x="22" y="43" width="64" height="64" fill="#0e2747"/>
+                <path d="M30 86c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/>
+                <path d="M30 70c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                <text x="102" y="84" class="mi-word" font-size="24" fill="#0e2747" textLength="196" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text>
+                <text x="103" y="104" font-family="Jost, sans-serif" font-size="9" fill="#5b6676" textLength="194" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text>
+              </svg>
+            </div>
+            <div class="tile t-navy">
+              <svg viewBox="14 34 296 82" role="img" aria-label="みなと会計事務所のロゴ（反転）">
+                <rect x="22" y="43" width="64" height="64" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M30 86c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/>
+                <path d="M30 70c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                <text x="102" y="84" class="mi-word" font-size="24" fill="#fff" textLength="196" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text>
+                <text x="103" y="104" font-family="Jost, sans-serif" font-size="9" fill="#9fb0cc" textLength="194" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text>
+              </svg>
+            </div>
+          </div>
+          <figcaption><b>みなと会計事務所</b>会計事務所のロゴ。「みなと」の波を2本の線で。紺とオレンジで、堅すぎず信頼できる印象に。</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="logo-tiles">
+            <div class="tile t-cream">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Windsor Urban Caféのロゴ（カラー）" style="width:62%">
+                <defs><path id="wu-arc" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs>
+                <circle cx="100" cy="100" r="94" fill="#3b2620"/>
+                <circle cx="100" cy="100" r="86" fill="none" stroke="#d9b99b" stroke-width="1"/>
+                <text class="wu-word" font-size="15" fill="#f6eee3"><textPath href="#wu-arc" textLength="452" lengthAdjust="spacing">WINDSOR URBAN CAFÉ · DOWNTOWN ·</textPath></text>
+                <ellipse cx="100" cy="102" rx="22" ry="30" fill="#c1552c" transform="rotate(28 100 102)"/>
+                <path d="M88 80c14 10 14 34 24 44" fill="none" stroke="#3b2620" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="tile t-esp">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Windsor Urban Caféのロゴ（白黒）" style="width:62%">
+                <defs><path id="wu-arc2" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs>
+                <circle cx="100" cy="100" r="94" fill="none" stroke="#f6eee3" stroke-width="2"/>
+                <text class="wu-word" font-size="15" fill="#f6eee3"><textPath href="#wu-arc2" textLength="452" lengthAdjust="spacing">WINDSOR URBAN CAFÉ · DOWNTOWN ·</textPath></text>
+                <ellipse cx="100" cy="102" rx="22" ry="30" fill="#f6eee3" transform="rotate(28 100 102)"/>
+                <path d="M88 80c14 10 14 34 24 44" fill="none" stroke="#3b2620" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <figcaption><b>Windsor Urban Café</b>カナダのカフェのロゴ（英語）。丸いスタンプの形で、カップやスリーブにも使いやすく。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- チラシ -->
+  <section class="kind" id="flyer">
+    <div class="wrap">
+      <div class="kind-head rv">
+        <div><div class="label">Flyer</div><h2>チラシ</h2></div>
+        <div>
+          <p>手に取って3秒で「何の話で、どうすればいいか」が伝わるように。伝えたいことを1つにしぼり、文字と写真の量を整えます。</p>
+          <ul><li>A4・B5・A5、片面／両面</li><li>入稿データ（PDF・AI、塗り足しつき）でお渡し</li></ul>
+        </div>
+      </div>
+      <div class="grid g2">
+        <figure class="rv">
+          <div class="desk">
+            <div class="flyer fl-lu shadow" role="img" aria-label="Lumièreのキャンペーンのチラシ">
+              <div class="photo"></div>
+              <div class="brand">Lumière<small>HAIR SALON</small></div>
+              <div class="tate">秋の、髪質改善。</div>
+              <div class="lower">
+                <div>
+                  <p class="lead">乾燥と広がりが気になる季節に。<br>うるおいを閉じこめるトリートメントで、<br>指通りのいい髪へ。</p>
+                  <div class="offer">
+                    <div><div class="term">10.1 — 11.30</div><div class="what">髪質改善トリートメント＋カット</div></div>
+                    <div class="price">¥12,100<small>税込</small></div>
+                  </div>
+                </div>
+                <div class="foot">
+                  <div><b>ご予約はWebから</b>〒000-0000 ○○市○○ 1-2-3<br>TEL 00-0000-0000 ／ 10:00–19:00（火曜休み）</div>
+                  <div class="qr">QR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>美容室のキャンペーンチラシ（A4・片面）</b>写真を大きく使い、季節のメッセージを縦書きの明朝で。期間と料金は1か所にまとめました。</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="desk">
+            <div class="flyer fl-mi shadow" role="img" aria-label="みなと会計事務所の相談会のチラシ">
+              <div class="band">
+                <svg viewBox="0 0 200 60"><path d="M0 40c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#fff" stroke-width="5"/><path d="M0 22c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#f2a33a" stroke-width="5"/></svg>
+                <span class="kicker">2月・3月 開催</span>
+                <h3>確定申告<br>相談会のご案内</h3>
+                <p>平日の夜と土曜日も、相談できます。<br>書類が分からなくても、そのままお持ちください。</p>
+              </div>
+              <div class="inner">
+                <div class="ttl">こんな方へ</div>
+                <ul class="checks"><li>はじめて確定申告をする</li><li>副業の収入がある</li><li>医療費控除を受けたい</li></ul>
+                <table>
+                  <tr><th>日時</th><td>2/3〜3/14　平日18〜21時・土曜10〜17時</td></tr>
+                  <tr><th>場所</th><td>みなと会計事務所（○○駅から徒歩3分）</td></tr>
+                  <tr><th>予約</th><td>電話・Webで受付（1回50分）</td></tr>
+                </table>
+              </div>
+              <div class="foot">
+                <svg viewBox="0 0 140 30" style="width:34cqw" role="img" aria-label="みなと会計事務所"><rect x="0" y="2" width="26" height="26" fill="#0e2747"/><path d="M3.5 19c3-2.5 5.5-2.5 8.5 0s5.5 2.5 8.5 0 3.5-1.6 4.8-.8" fill="none" stroke="#f2a33a" stroke-width="2" stroke-linecap="round"/><path d="M3.5 12.5c3-2.5 5.5-2.5 8.5 0s5.5 2.5 8.5 0 3.5-1.6 4.8-.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="33" y="21" font-family="Zen Kaku Gothic New, sans-serif" font-weight="700" font-size="12.5" fill="#0e2747">みなと会計事務所</text></svg>
+                <div class="tel">00-0000-0000<small>受付 9:00〜18:00（土日祝は休み）</small></div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>会計事務所の相談会チラシ（A4・片面）</b>「自分のことだ」と思ってもらえるチェックリストを先に。日時・場所・予約は表にまとめて、迷わせない形に。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 名刺 -->
+  <section class="kind" id="card">
+    <div class="wrap">
+      <div class="kind-head rv">
+        <div><div class="label">Business Card</div><h2>名刺・ショップカード</h2></div>
+        <div>
+          <p>あとで見返したときに、誰で何をしている人かがすぐ分かるように。お店や会社の雰囲気に合う色と書体で作ります。</p>
+          <ul><li>91×55mm（ほかのサイズもOK）、片面／両面</li><li>入稿データ（PDF・AI）でお渡し</li></ul>
+        </div>
+      </div>
+      <div class="grid g2">
+        <figure class="rv">
+          <div class="desk">
+            <div class="cards">
+              <div class="card c-lu-f shadow" role="img" aria-label="Lumièreの名刺（表）">
+                <svg viewBox="0 0 320 150"><g fill="none" stroke="#a07856" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g><text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#2a2420">Lumière</text><text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#85786d">HAIR SALON</text></svg>
+              </div>
+              <div class="card c-lu-b shadow" role="img" aria-label="Lumièreの名刺（裏）">
+                <div class="pad"><div class="role">STYLIST</div>
+                <div class="name">佐藤 ひかり</div>
+                <div class="kana">Hikari Sato</div></div>
+                <div class="info"><div>〒000-0000 ○○市○○ 1-2-3<br>TEL 00-0000-0000<br>lumiere-sample.example</div><div class="mark">L</div></div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>美容室スタッフの名刺（両面）</b>表はロゴだけで静かに。裏は名前を明朝で大きく、連絡先は控えめに。</figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="desk">
+            <div class="cards">
+              <div class="card c-mi-f shadow" role="img" aria-label="みなと会計事務所の名刺（表）">
+                <div class="pad"><div class="head"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#0e2747"/><path d="M8 43c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M8 27c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><div><b>みなと会計事務所</b><small>MINATO TAX &amp; ACCOUNTING</small></div></div>
+                <div class="role">税理士</div>
+                <div class="name">青木 誠</div></div>
+                <div class="info">〒000-0000 東京都○○区○○ 4-5-6<br>TEL 00-0000-0000 ／ minato-sample.example</div>
+              </div>
+              <div class="card c-mi-b shadow" role="img" aria-label="みなと会計事務所の名刺（裏）">
+                <svg viewBox="0 0 320 150"><rect x="128" y="20" width="64" height="64" fill="none" stroke="#fff" stroke-width="2"/><path d="M136 63c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M136 47c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text x="160" y="118" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="4.4" fill="#9fb0cc">MINATO TAX &amp; ACCOUNTING</text></svg>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>会計事務所の名刺（両面）</b>表は白で読みやすく、右端に紺のライン。裏は紺一色にマークを置いて、事務所の印象を残します。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- バナー -->
+  <section class="kind" id="banner">
+    <div class="wrap">
+      <div class="kind-head rv">
+        <div><div class="label">Banner</div><h2>バナー</h2></div>
+        <div>
+          <p>スクロールしている一瞬で「自分に関係ある」と思ってもらえるように。言葉を1つにしぼり、スマホでも読める文字の大きさにします。</p>
+          <ul><li>Webサイト・広告・メールなど、指定のサイズで</li><li>PNG・JPG（元データもお渡しできます）</li></ul>
+        </div>
+      </div>
+      <div class="banners">
+        <figure class="rv">
+          <div class="bn bn-wide bn-wu" role="img" aria-label="Windsor Urban Caféの季節のバナー">
+            <div class="in">
+              <span class="tag">Seasonal Menu</span>
+              <h4>Pumpkin Spice <em>Latte</em> is back.</h4>
+              <p>Oct 1 — Nov 30 · Downtown Windsor<br>Made with real pumpkin and our house espresso.</p>
+              <span class="btn">Order ahead</span>
+            </div>
+          </div>
+          <figcaption><b>カフェの季節メニューのバナー（英語・1200×628）</b>写真の右側を残して、左に言葉をまとめました。ボタンの色はお店のテラコッタ色。<span class="size">1200 × 628 PX</span></figcaption>
+        </figure>
+        <figure class="rv">
+          <div class="bn bn-wide bn-lu" role="img" aria-label="Lumièreのキャンペーンのバナー">
+            <div class="txt">
+              <div class="brand">Lumière</div>
+              <h4>秋の髪質改善<br>トリートメント</h4>
+              <div><div class="date">10.1 — 11.30</div><span class="btn" style="display:inline-block;margin-top:2.2cqw">WEB予約</span></div>
+            </div>
+            <div class="ph"></div>
+          </div>
+          <figcaption><b>美容室のキャンペーンバナー（1200×628）</b>チラシと同じ言葉・色にそろえて、どこで見ても同じお店だと分かるように。<span class="size">1200 × 628 PX</span></figcaption>
+        </figure>
+        <div class="bn-row">
+          <figure class="rv">
+            <div class="bn bn-rect" role="img" aria-label="みなと会計事務所の広告バナー（正方形に近い形）">
+              <svg viewBox="0 0 200 60"><path d="M0 40c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#fff" stroke-width="5"/><path d="M0 22c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#f2a33a" stroke-width="5"/></svg>
+              <div class="pad"><div><div class="k">確定申告の相談会</div><h4>書類が分からなくても、<br>大丈夫です。</h4></div>
+              <span class="btn">日程を見る</span></div>
+            </div>
+            <figcaption><b>会計事務所の広告バナー</b><span class="size">300 × 250 PX</span></figcaption>
+          </figure>
+          <figure class="rv">
+            <div class="bn bn-lb" role="img" aria-label="みなと会計事務所の横長バナー">
+              <div class="pad"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#0e2747"/><path d="M8 43c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M8 27c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+              <b>確定申告の相談会</b><span>平日夜・土曜も受付。<br>みなと会計事務所</span><span class="btn">予約する</span></div>
+            </div>
+            <figcaption><b>同じ相談会の横長バナー</b>同じ内容を、サイズに合わせて組み直します。<span class="size">728 × 90 PX</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- パッケージ -->
+  <section class="kind" id="package">
+    <div class="wrap">
+      <div class="kind-head rv">
+        <div><div class="label">Package</div><h2>パッケージ・ラベル</h2></div>
+        <div>
+          <p>売り場や画面の中で、まず手に取ってもらえるように。離れて見ても何の商品かが分かる大きさと配置にします。</p>
+          <ul><li>箱・袋・ボトル・ラベルシールなど</li><li>印刷会社の型（展開図）に合わせた入稿データでお渡し</li></ul>
+        </div>
+      </div>
+      <figure class="rv">
+        <div class="desk">
+          <div class="pkg-stage">
+            <svg viewBox="0 0 260 360" role="img" aria-label="コーヒー豆の袋（ハウスブレンド）">
+              <defs>
+                <linearGradient id="pouch" x1="0" x2="1"><stop offset="0" stop-color="#2c1c17"/><stop offset=".45" stop-color="#3b2620"/><stop offset="1" stop-color="#24170f"/></linearGradient>
+                <linearGradient id="gloss" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+              </defs>
+              <path d="M30 22h200l8 312q0 12-12 12H34q-12 0-12-12z" fill="url(#pouch)"/>
+              <rect x="30" y="22" width="200" height="22" fill="#2a1a13"/>
+              <path d="M30 34h200" stroke="#5a3d31" stroke-width="1" stroke-dasharray="3 3"/>
+              <rect x="56" y="104" width="148" height="178" fill="#f6eee3"/>
+              <circle cx="130" cy="140" r="22" fill="#3b2620"/>
+              <ellipse cx="130" cy="141" rx="8" ry="11" fill="#c1552c" transform="rotate(28 130 141)"/>
+              <path d="M125.5 133c5 3.6 5 12.4 9 16" fill="none" stroke="#3b2620" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="130" y="184" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600" font-size="8" letter-spacing="2.4" fill="#3b2620">WINDSOR URBAN CAFÉ</text>
+              <text x="130" y="212" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="21" fill="#3b2620">HOUSE</text>
+              <text x="130" y="234" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="21" fill="#c1552c">BLEND</text>
+              <path d="M84 248h92" stroke="#d9b99b"/>
+              <text x="130" y="262" text-anchor="middle" font-family="Jost, sans-serif" font-size="7.4" fill="#6b5145" textLength="128" lengthAdjust="spacingAndGlyphs">MEDIUM ROAST · COCOA · CARAMEL</text>
+              <text x="130" y="274" text-anchor="middle" font-family="Jost, sans-serif" font-size="7.4" fill="#6b5145" textLength="84" lengthAdjust="spacing">WHOLE BEAN · 200 G</text>
+              <path d="M30 22h200l8 312q0 12-12 12H34q-12 0-12-12z" fill="url(#gloss)"/>
+            </svg>
+            <svg viewBox="0 0 220 300" role="img" aria-label="ドリップバッグの箱">
+              <path d="M24 70l92-30 92 30v200l-92 26-92-26z" fill="#e9dccb"/>
+              <path d="M116 40l92 30v200l-92 26z" fill="#d8c6b0"/>
+              <path d="M24 70l92-30 92 30-92 30z" fill="#f6eee3"/>
+              <path d="M24 70l92 30v196l-92-26z" fill="#f6eee3"/>
+              <path d="M24 168l92 30v56l-92-30z" fill="#c1552c"/>
+              <text transform="matrix(1 .326 0 1 34 128)" font-family="Poppins, sans-serif" font-weight="800" font-size="15" fill="#3b2620">DRIP BAG</text>
+              <text transform="matrix(1 .326 0 1 34 144)" font-family="Jost, sans-serif" font-size="7" letter-spacing="1.2" fill="#6b5145">HOUSE BLEND</text>
+              <text transform="matrix(1 .326 0 1 34 154)" font-family="Jost, sans-serif" font-size="7" letter-spacing="1.2" fill="#6b5145">5 BAGS × 10 G</text>
+              <text transform="matrix(1 .326 0 1 33 211)" font-family="Poppins, sans-serif" font-weight="600" font-size="6.6" fill="#f6eee3" textLength="80" lengthAdjust="spacing">WINDSOR URBAN CAFÉ</text>
+              <circle cx="78" cy="252" r="9" fill="#3b2620" transform="matrix(1 .326 0 1 0 -25)"/>
+              <path d="M116 100v196" stroke="#cdbba5"/>
+              <text transform="matrix(1 -.326 0 1 126 150)" font-family="Jost, sans-serif" font-size="6.4" fill="#6b5145" textLength="72" lengthAdjust="spacing">ROASTED IN WINDSOR</text>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>カフェのコーヒー豆の袋とドリップバッグの箱（英語）</b>店のロゴ・色・書体をそろえて、並べたときに同じシリーズだと分かるように。袋は豆の種類ごとに色の帯だけを変えられる作りです。</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>掲載しているデザインは、すべて架空の店舗・事務所のサンプルです。実在の企業・人物とは関係ありません。</span>
+    <a class="back" href="./"><i></i>SORA WEB DESIGN</a>
+  </div>
+</footer>
+
+<script>
+  // スクロールでふわっと表示（IntersectionObserver が使えない時は最初から表示）
+  (function () {
+    var els = document.querySelectorAll(".rv");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("on"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
