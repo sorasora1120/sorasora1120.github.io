@@ -27,7 +27,7 @@
     --mi-go: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
     --wu-esp: #3b2620; --wu-terra: #c1552c; --wu-cream: #f6eee3; --wu-latte: #d9b99b;
     --wu-font: "Poppins", "Jost", sans-serif;
-    --salon1: url("{{salon1}}"); --salon3: url("{{salon3}}"); --cafe3: url("{{cafe3}}"); --cafe5: url("{{cafe5}}");
+    --hair: url("{{hair}}"); --cafe3: url("{{cafe3}}");
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -82,51 +82,76 @@
   .wu-word { font-family: var(--wu-font); font-weight: 700; }
 
   /* ===== チラシ（A4） ===== */
-  .flyer { width: min(100%, 420px); aspect-ratio: 210 / 297; container-type: inline-size; position: relative; overflow: hidden; }
-  /* Lumière：写真＋縦書きの明朝 */
-  .fl-lu { background: var(--lu-bg); color: var(--lu-ink); }
-  .fl-lu .photo { position: absolute; left: 0; right: 0; top: 0; height: 56%; background: var(--salon1) center / cover; }
-  .fl-lu .photo::after { content: ""; position: absolute; inset: 0; background:
-      linear-gradient(180deg, rgba(42,36,32,.55) 0%, rgba(42,36,32,.18) 34%, rgba(42,36,32,.1) 60%, var(--lu-bg) 100%),
-      linear-gradient(270deg, rgba(42,36,32,.42) 0%, rgba(42,36,32,0) 38%); }
-  .fl-lu .brand { position: absolute; left: 7cqw; top: 6cqw; color: #fff; font-family: var(--lu-serif); font-style: italic; font-size: 8.4cqw; line-height: 1; text-shadow: 0 1px 12px rgba(0,0,0,.25); }
-  .fl-lu .brand small { display: block; font-family: var(--en); font-style: normal; font-size: 2cqw; letter-spacing: .5em; margin-top: 1.6cqw; }
-  .fl-lu .tate { position: absolute; right: 7cqw; top: 8cqw; writing-mode: vertical-rl; font-family: var(--lu-min); font-weight: 600; font-size: 7.6cqw; letter-spacing: .2em; line-height: 1.5; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.35); }
-  .fl-lu .lower { position: absolute; left: 7cqw; right: 7cqw; top: 54%; bottom: 6cqw; display: flex; flex-direction: column; justify-content: space-between; }
-  .fl-lu .lead { font-family: var(--lu-min); font-size: 3.4cqw; line-height: 1.9; letter-spacing: .08em; margin: 0 0 3.6cqw; }
-  .fl-lu .offer { border-top: 1px solid var(--lu-line); border-bottom: 1px solid var(--lu-line); padding: 3.4cqw 0; display: flex; align-items: baseline; justify-content: space-between; gap: 3cqw; }
-  .fl-lu .offer .term { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 4.6cqw; color: var(--lu-accent); }
-  .fl-lu .offer .what { font-size: 2.7cqw; letter-spacing: .06em; }
-  .fl-lu .offer .price { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-size: 7cqw; line-height: 1; white-space: nowrap; }
-  .fl-lu .offer .price small { font-family: var(--ja); font-size: 2.2cqw; margin-left: .8cqw; }
-  .fl-lu .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 4cqw; font-size: 2.3cqw; line-height: 1.8; color: var(--lu-muted); }
-  .fl-lu .qr { width: 15cqw; height: 15cqw; border: 1px solid var(--lu-line); display: grid; place-items: center; font-family: var(--en); font-size: 2.2cqw; letter-spacing: .2em; color: var(--lu-muted); flex: none; }
-  .fl-lu .foot b { display: block; color: var(--lu-ink); font-weight: 500; font-size: 2.8cqw; }
-  /* みなと会計事務所：紺の帯＋チェックリスト */
-  .fl-mi { background: #fff; color: var(--mi-ink); font-family: var(--mi-go); }
-  .fl-mi .band { background: var(--mi-navy); color: #fff; padding: 6.4cqw 7cqw 5.4cqw; position: relative; overflow: hidden; }
-  .fl-mi .band svg { position: absolute; right: -6cqw; bottom: -2cqw; width: 70cqw; opacity: .18; }
-  .fl-mi .kicker { display: inline-block; background: var(--mi-orange); color: var(--mi-navy); font-weight: 900; font-size: 2.8cqw; letter-spacing: .12em; padding: .8cqw 2.4cqw; }
-  .fl-mi h3 { margin: 3cqw 0 1.8cqw; font-weight: 900; font-size: 8.2cqw; line-height: 1.28; letter-spacing: .04em; }
-  .fl-mi .band p { margin: 0; font-size: 2.9cqw; line-height: 1.75; opacity: .9; font-weight: 500; }
-  .fl-mi .inner { padding: 4.4cqw 7cqw 0; }
-  .fl-mi .ttl { font-weight: 900; font-size: 3.6cqw; color: var(--mi-navy); letter-spacing: .1em; display: flex; align-items: center; gap: 2cqw; }
-  .fl-mi .ttl::after { content: ""; flex: 1; height: 1px; background: #dbe3ee; }
-  .fl-mi .checks { list-style: none; margin: 2.4cqw 0 3.4cqw; padding: 0; display: grid; gap: 1.4cqw; }
-  .fl-mi .checks li { display: flex; align-items: center; gap: 2.6cqw; font-weight: 700; font-size: 3cqw; line-height: 1.5; background: var(--mi-sky); padding: 1.5cqw 3cqw; }
-  .fl-mi .checks li::before { content: ""; width: 3.2cqw; height: 1.8cqw; border-left: .7cqw solid var(--mi-blue); border-bottom: .7cqw solid var(--mi-blue); transform: rotate(-45deg) translateY(-.6cqw); flex: none; }
-  .fl-mi table { width: 100%; border-collapse: collapse; font-size: 2.8cqw; line-height: 1.6; }
-  .fl-mi th { text-align: left; color: var(--mi-blue); font-weight: 900; width: 14cqw; padding: 1.2cqw 0; border-bottom: 1px solid #e1e7ef; vertical-align: top; }
-  .fl-mi td { padding: 1.2cqw 0; border-bottom: 1px solid #e1e7ef; font-weight: 500; }
-  .fl-mi .foot { position: absolute; left: 0; right: 0; bottom: 0; background: var(--mi-sky); padding: 3.2cqw 7cqw; display: flex; align-items: center; justify-content: space-between; gap: 4cqw; }
-  .fl-mi .foot .tel { font-family: var(--en); font-weight: 500; font-size: 5.2cqw; color: var(--mi-navy); letter-spacing: .04em; line-height: 1.1; text-align: right; }
-  .fl-mi .foot .tel small { display: block; font-family: var(--mi-go); font-size: 2.3cqw; color: var(--mi-muted); font-weight: 500; letter-spacing: .06em; }
+  /* 2026-10-12、「ダサい・AIっぽい」と言われて作り直した。写真にグラデーションをかけて文字を載せる・
+     紺の帯＋チェックリスト、のような型どおりの組み方をやめ、雑誌の表紙の組み方と、カレンダーが主役の組み方にした */
+  .trim { position: relative; width: min(100%, 420px); margin: 14px; }
+  .trim > i { position: absolute; width: 12px; height: 12px; border: 0 solid #55555b; pointer-events: none; }
+  .trim > i:nth-of-type(1) { left: -14px; top: -14px; border-right-width: 1px; border-bottom-width: 1px; }
+  .trim > i:nth-of-type(2) { right: -14px; top: -14px; border-left-width: 1px; border-bottom-width: 1px; }
+  .trim > i:nth-of-type(3) { left: -14px; bottom: -14px; border-right-width: 1px; border-top-width: 1px; }
+  .trim > i:nth-of-type(4) { right: -14px; bottom: -14px; border-left-width: 1px; border-top-width: 1px; }
+  .flyer { width: 100%; aspect-ratio: 210 / 297; container-type: inline-size; position: relative; overflow: hidden; }
+
+  /* Lumière：雑誌の表紙のように、写真の上に大きな英字の題字 */
+  .fl-lu { background: #f3ebe4; color: #3b2622; }
+  .fl-lu .ph { position: absolute; left: 0; top: 0; width: 100%; height: 64%; background: var(--hair) 57% 0 / cover; }
+  .fl-lu .mast { position: absolute; left: 0; right: 0; top: 3cqw; text-align: center; font-family: var(--lu-serif); font-style: italic; font-weight: 500; font-size: 19cqw; line-height: 1; letter-spacing: .01em; color: #3b2622; }
+  .fl-lu .issue { position: absolute; top: 24.5cqw; font-family: var(--en); font-size: 1.8cqw; font-weight: 400; letter-spacing: .4em; color: #3b2622; }
+  .fl-lu .issue.l { left: 6.5cqw; } .fl-lu .issue.r { right: 6cqw; }
+  .fl-lu .tate { position: absolute; right: 4.6cqw; top: 47cqw; writing-mode: vertical-rl; font-family: var(--lu-min); font-weight: 600; font-size: 4.3cqw; line-height: 1.75; letter-spacing: .16em; color: #3b2622; }
+  .fl-lu .side { position: absolute; left: 4cqw; top: 46cqw; writing-mode: vertical-rl; font-family: var(--en); font-size: 1.7cqw; letter-spacing: .5em; color: rgba(59,38,34,.75); }
+  .fl-lu .seal { position: absolute; right: 7cqw; top: 81cqw; width: 19cqw; height: 19cqw; border-radius: 50%; background: #3b2622; color: #f3ebe4; display: grid; place-content: center; text-align: center; box-shadow: inset 0 0 0 .7cqw #3b2622, inset 0 0 0 .95cqw rgba(243,235,228,.6); }
+  .fl-lu .seal b { font-family: var(--lu-min); font-weight: 600; font-size: 3.3cqw; letter-spacing: .18em; line-height: 1.3; }
+  .fl-lu .seal span { font-family: var(--lu-serif); font-style: italic; font-size: 2.4cqw; font-variant-numeric: lining-nums; margin-top: .6cqw; }
+  .fl-lu .sheet { position: absolute; left: 0; right: 0; top: 64%; bottom: 0; padding: 5.4cqw 7cqw 5cqw; display: flex; flex-direction: column; }
+  .fl-lu h3 { margin: 0 0 1.2cqw; font-family: var(--lu-min); font-weight: 600; font-size: 5.8cqw; letter-spacing: .06em; line-height: 1.3; }
+  .fl-lu .lead { margin: 0; font-size: 2.55cqw; letter-spacing: .06em; line-height: 1.7; color: #6d5249; }
+  .fl-lu .deal { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 4cqw; padding-bottom: 2.6cqw; border-bottom: 1px solid #dccbbf; }
+  .fl-lu .deal small { display: block; font-size: 2.2cqw; letter-spacing: .08em; color: #6d5249; }
+  .fl-lu .yen { font-family: var(--lu-serif); font-weight: 600; font-size: 9.6cqw; line-height: .95; font-variant-numeric: lining-nums; letter-spacing: -.01em; }
+  .fl-lu .yen i { font-family: var(--ja); font-style: normal; font-weight: 400; font-size: 2.3cqw; letter-spacing: .04em; margin-left: .8cqw; }
+  .fl-lu .when { text-align: right; font-family: var(--lu-serif); font-size: 5.2cqw; line-height: 1.05; font-variant-numeric: lining-nums; white-space: nowrap; }
+  .fl-lu .when em { font-style: italic; font-size: 2.4cqw; letter-spacing: .14em; color: #9a6a52; margin-left: .6cqw; }
+  .fl-lu .info { margin-top: 2.6cqw; display: flex; justify-content: space-between; align-items: flex-end; gap: 4cqw; font-size: 2.05cqw; line-height: 1.75; color: #6d5249; letter-spacing: .04em; }
+  .fl-lu .qr { flex: none; width: 10cqw; text-align: center; font-family: var(--en); font-size: 1.6cqw; letter-spacing: .2em; color: #6d5249; }
+  .fl-lu .qr i { display: block; aspect-ratio: 1; border: 1px solid #b9a294; margin-bottom: 1cqw; background:
+      linear-gradient(#3b2622 0 0) 12% 12% / 26% 26% no-repeat, linear-gradient(#3b2622 0 0) 88% 12% / 26% 26% no-repeat,
+      linear-gradient(#3b2622 0 0) 12% 88% / 26% 26% no-repeat; opacity: .8; }
+
+  /* みなと会計事務所：大きな見出しと、相談できる日が一目で分かるカレンダー */
+  .fl-mi { background: #f6f4ef; color: #1b2430; font-family: var(--mi-go); }
+  .fl-mi .in { position: absolute; inset: 0; padding: 6.5cqw 7cqw 0; }
+  .fl-mi .top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 3cqw; border-bottom: 2px solid #0e2747; }
+  .fl-mi .top svg { width: 40cqw; display: block; }
+  .fl-mi .top span { font-family: var(--en); font-size: 1.9cqw; letter-spacing: .3em; color: #0e2747; text-align: right; line-height: 1.5; }
+  .fl-mi .hd { display: grid; grid-template-columns: auto 1fr; gap: 5cqw; align-items: end; margin: 5.5cqw 0 2.8cqw; }
+  .fl-mi h3 { margin: 0; font-weight: 900; font-size: 9.4cqw; line-height: 1.2; letter-spacing: .02em; color: #0e2747; white-space: nowrap; }
+  .fl-mi h3 em { font-style: normal; color: #e0701b; }
+  .fl-mi .lead { margin: 0; font-weight: 500; font-size: 2.75cqw; line-height: 1.75; letter-spacing: .04em; }
+  .fl-mi .cal { margin-top: 3.6cqw; display: grid; grid-template-columns: 1fr 1fr; gap: 6cqw; }
+  .fl-mi .mh { display: flex; align-items: baseline; gap: 2cqw; margin-bottom: 1.6cqw; }
+  .fl-mi .mh b { font-family: var(--en); font-weight: 400; font-size: 10cqw; line-height: .8; color: #0e2747; }
+  .fl-mi .mh span { font-family: var(--en); font-size: 1.8cqw; letter-spacing: .3em; color: #59636f; }
+  .fl-mi .days { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: .5cqw; font-family: var(--en); font-size: 2.2cqw; text-align: center; line-height: 4cqw; }
+  .fl-mi .days .w { font-family: var(--mi-go); font-weight: 700; font-size: 1.8cqw; color: #59636f; line-height: 3.6cqw; }
+  .fl-mi .days .su { color: #b4584f; }
+  .fl-mi .days .on { position: relative; color: #fff; font-weight: 500; z-index: 0; }
+  .fl-mi .days .on::before { content: ""; position: absolute; left: 50%; top: 50%; width: 4.1cqw; height: 4.1cqw; transform: translate(-50%, -50%); border-radius: 50%; background: #e0701b; z-index: -1; }
+  .fl-mi .key { margin-top: 2.2cqw; display: flex; align-items: center; gap: 1.6cqw; font-size: 2.3cqw; font-weight: 700; color: #0e2747; }
+  .fl-mi .key i { width: 2.6cqw; height: 2.6cqw; border-radius: 50%; background: #e0701b; flex: none; }
+  .fl-mi .can { list-style: none; margin: 0 0 1cqw; padding: 0; display: grid; gap: 2.2cqw; font-size: 2.15cqw; font-weight: 700; line-height: 1.5; }
+  .fl-mi .can li { border-top: 1px solid #cfd5dc; padding-top: 1.4cqw; }
+  .fl-mi .can b { display: block; font-family: var(--en); font-weight: 400; font-size: 3.4cqw; color: #e0701b; line-height: 1.15; }
+  .fl-mi .foot { position: absolute; left: 0; right: 0; bottom: 0; background: #0e2747; color: #fff; padding: 3.4cqw 7cqw; display: flex; align-items: center; justify-content: space-between; gap: 4cqw; }
+  .fl-mi .tel { font-family: var(--en); font-weight: 400; font-size: 6.4cqw; letter-spacing: .02em; line-height: 1; }
+  .fl-mi .tel small { display: block; font-family: var(--mi-go); font-size: 2.1cqw; font-weight: 500; letter-spacing: .06em; margin-top: 1.4cqw; color: #c9d3e3; }
+  .fl-mi .addr { text-align: right; font-size: 2.05cqw; line-height: 1.7; color: #c9d3e3; }
 
   /* ===== 名刺（91×55） ===== */
   .cards { display: grid; gap: 22px; width: 100%; max-width: 520px; }
   .card { aspect-ratio: 91 / 55; container-type: inline-size; position: relative; overflow: hidden; }
   .c-lu-f { background: var(--lu-bg); display: grid; place-items: center; }
-  .c-lu-f svg { width: 52cqw; }
+  .c-lu-f svg { width: 54cqw; }
   .pad { position: absolute; inset: 0; }
   .c-lu-b { background: #fffdf9; color: var(--lu-ink); }
   .c-lu-b .pad { padding: 8cqw; }
@@ -161,19 +186,19 @@
   .bn-wu p { margin: 0 0 3.2cqw; font-family: var(--en); font-size: 2.1cqw; letter-spacing: .06em; opacity: .9; line-height: 1.6; }
   .bn-wu .btn { display: inline-flex; align-items: center; gap: 1.6cqw; background: var(--wu-terra); color: #fff; font-weight: 600; font-size: 2cqw; letter-spacing: .08em; padding: 1.4cqw 3cqw; }
   .bn-wu .btn::after { content: "→"; }
-  .bn-lu { background: var(--lu-bg); color: var(--lu-ink); display: grid; grid-template-columns: 1fr 1fr; }
-  .bn-lu .ph { background: var(--salon3) center / cover; }
+  .bn-lu { background: #f3ebe4; color: #3b2622; display: grid; grid-template-columns: 1fr 1.15fr; }
+  .bn-lu .ph { background: var(--hair) 55% 30% / cover; }
   .bn-lu .txt { position: relative; padding: 6.4cqw 5cqw; display: flex; flex-direction: column; justify-content: space-between; }
   .bn-lu .brand { font-family: var(--lu-serif); font-style: italic; font-size: 3.4cqw; line-height: 1; }
-  .bn-lu h4 { margin: 0; font-family: var(--lu-min); font-weight: 600; font-size: 4.6cqw; letter-spacing: .14em; line-height: 1.55; }
-  .bn-lu .date { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 3.1cqw; color: var(--lu-accent); }
-  .bn-lu .btn { align-self: flex-start; border: 1px solid var(--lu-ink); font-size: 1.7cqw; letter-spacing: .3em; padding: 1.2cqw 2.8cqw; }
+  .bn-lu h4 { margin: 0; font-family: var(--lu-min); font-weight: 600; font-size: 5cqw; letter-spacing: .12em; line-height: 1.5; }
+  .bn-lu .what { font-family: var(--lu-min); font-size: 1.9cqw; letter-spacing: .14em; margin-bottom: .6cqw; }
+  .bn-lu .date { font-variant-numeric: lining-nums; font-family: var(--lu-serif); font-style: italic; font-size: 3.1cqw; color: #9a6a52; }
+  .bn-lu .btn { display: inline-block; margin-top: 2cqw; background: #3b2622; color: #f3ebe4; font-size: 1.7cqw; letter-spacing: .3em; padding: 1.3cqw 3cqw; }
   .bn-row { display: grid; grid-template-columns: 300fr 728fr; gap: 28px; align-items: start; }
   .bn-rect { aspect-ratio: 300 / 250; background: var(--mi-navy); color: #fff; font-family: var(--mi-go); }
   .bn-rect .pad { padding: 9cqw 8cqw; display: flex; flex-direction: column; justify-content: space-between; }
-  .bn-rect svg { position: absolute; right: -10cqw; bottom: -6cqw; width: 90cqw; opacity: .16; }
   .bn-rect .k { font-size: 5cqw; font-weight: 700; color: var(--mi-orange); letter-spacing: .1em; }
-  .bn-rect h4 { margin: 2cqw 0 0; font-weight: 900; font-size: 10.4cqw; line-height: 1.32; }
+  .bn-rect h4 { margin: 2cqw 0 0; font-weight: 900; font-size: 9.6cqw; line-height: 1.32; white-space: nowrap; }
   .bn-rect .btn { position: relative; align-self: flex-start; background: var(--mi-orange); color: var(--mi-navy); font-weight: 900; font-size: 4.6cqw; letter-spacing: .08em; padding: 2.6cqw 5cqw; }
   .bn-lb { aspect-ratio: 728 / 90; background: #fff; color: var(--mi-ink); font-family: var(--mi-go); border: 1px solid #e1e7ef; }
   .bn-lb .pad { display: flex; align-items: center; gap: 3cqw; padding: 0 3cqw; }
@@ -238,44 +263,24 @@
         <figure class="rv">
           <div class="logo-tiles">
             <div class="tile t-light-lu">
-              <svg viewBox="56 0 208 150" role="img" aria-label="Lumièreのロゴ（カラー）">
-                <g fill="none" stroke="#a07856" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g>
-                <text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#2a2420">Lumière</text>
-                <text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#85786d">HAIR SALON</text>
-              </svg>
+              <svg viewBox="40 18 220 104" role="img" aria-label="Lumièreのロゴ（カラー）"><text x="150" y="80" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="66" fill="#2a2420" textLength="196" lengthAdjust="spacingAndGlyphs">Lumière</text><line x1="122" y1="96" x2="178" y2="96" stroke="#a07856" stroke-width="1"/><text x="150" y="114" text-anchor="middle" font-family="Jost, sans-serif" font-size="9.5" fill="#85786d" textLength="96" lengthAdjust="spacing">HAIR SALON</text></svg>
             </div>
             <div class="tile t-dark">
-              <svg viewBox="56 0 208 150" role="img" aria-label="Lumièreのロゴ（反転）">
-                <g fill="none" stroke="#f7f3ee" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g>
-                <text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#f7f3ee">Lumière</text>
-                <text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#b8ada2">HAIR SALON</text>
-              </svg>
+              <svg viewBox="40 18 220 104" role="img" aria-label="Lumièreのロゴ（反転）"><text x="150" y="80" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="66" fill="#f7f3ee" textLength="196" lengthAdjust="spacingAndGlyphs">Lumière</text><line x1="122" y1="96" x2="178" y2="96" stroke="#b8957a" stroke-width="1"/><text x="150" y="114" text-anchor="middle" font-family="Jost, sans-serif" font-size="9.5" fill="#b8ada2" textLength="96" lengthAdjust="spacing">HAIR SALON</text></svg>
             </div>
           </div>
-          <figcaption><b>hair salon Lumière</b>美容室のロゴ。光をモチーフにした細い線のマークと、斜体の英字で、やわらかく上品に。</figcaption>
+          <figcaption><b>hair salon Lumière</b>美容室のロゴ。マークは付けずに斜体の英字だけで組み、細い線と小さな「HAIR SALON」で、やわらかく上品に。</figcaption>
         </figure>
         <figure class="rv">
           <div class="logo-tiles">
             <div class="tile t-white">
-              <svg viewBox="14 34 296 82" role="img" aria-label="みなと会計事務所のロゴ（カラー）">
-                <rect x="22" y="43" width="64" height="64" fill="#0e2747"/>
-                <path d="M30 86c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/>
-                <path d="M30 70c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-                <text x="102" y="84" class="mi-word" font-size="24" fill="#0e2747" textLength="196" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text>
-                <text x="103" y="104" font-family="Jost, sans-serif" font-size="9" fill="#5b6676" textLength="194" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text>
-              </svg>
+              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（カラー）"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#0e2747" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#59636f" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
             </div>
             <div class="tile t-navy">
-              <svg viewBox="14 34 296 82" role="img" aria-label="みなと会計事務所のロゴ（反転）">
-                <rect x="22" y="43" width="64" height="64" fill="none" stroke="#fff" stroke-width="2"/>
-                <path d="M30 86c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/>
-                <path d="M30 70c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-                <text x="102" y="84" class="mi-word" font-size="24" fill="#fff" textLength="196" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text>
-                <text x="103" y="104" font-family="Jost, sans-serif" font-size="9" fill="#9fb0cc" textLength="194" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text>
-              </svg>
+              <svg viewBox="0 6 300 88" role="img" aria-label="みなと会計事務所のロゴ（反転）"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#0e2747" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#0e2747" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#fff" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#9fb0cc" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
             </div>
           </div>
-          <figcaption><b>みなと会計事務所</b>会計事務所のロゴ。「みなと」の波を2本の線で。紺とオレンジで、堅すぎず信頼できる印象に。</figcaption>
+          <figcaption><b>みなと会計事務所</b>会計事務所のロゴ。名前を縦に入れた角印のようなマークと明朝の文字で、落ち着いて信頼できる印象に。</figcaption>
         </figure>
         <figure class="rv">
           <div class="logo-tiles">
@@ -311,59 +316,63 @@
       <div class="kind-head rv">
         <div><div class="label">Flyer</div><h2>チラシ</h2></div>
         <div>
-          <p>手に取って3秒で「何の話で、どうすればいいか」が伝わるように。伝えたいことを1つにしぼり、文字と写真の量を整えます。</p>
-          <ul><li>A4・B5・A5、片面／両面</li><li>入稿データ（PDF・AI、塗り足しつき）でお渡し</li></ul>
+          <p>手に取って3秒で「何の話で、どうすればいいか」が伝わるように。お店の雰囲気に合わせて、組み方から考えます。</p>
+          <ul><li>A4・B5・A5、片面／両面</li><li>入稿データ（PDF・AI、塗り足し・トンボつき）でお渡し</li></ul>
         </div>
       </div>
       <div class="grid g2">
         <figure class="rv">
           <div class="desk">
-            <div class="flyer fl-lu shadow" role="img" aria-label="Lumièreのキャンペーンのチラシ">
-              <div class="photo"></div>
-              <div class="brand">Lumière<small>HAIR SALON</small></div>
-              <div class="tate">秋の、髪質改善。</div>
-              <div class="lower">
-                <div>
-                  <p class="lead">乾燥と広がりが気になる季節に。<br>うるおいを閉じこめるトリートメントで、<br>指通りのいい髪へ。</p>
-                  <div class="offer">
-                    <div><div class="term">10.1 — 11.30</div><div class="what">髪質改善トリートメント＋カット</div></div>
-                    <div class="price">¥12,100<small>税込</small></div>
+            <div class="trim"><i></i><i></i><i></i><i></i>
+              <div class="flyer fl-lu shadow" role="img" aria-label="Lumièreの秋のトリートメントのチラシ">
+                <div class="ph"></div>
+                <div class="mast">Lumière</div>
+                <div class="issue l">HAIR SALON</div><div class="issue r">AUTUMN 2026</div>
+                <div class="side">HAIR QUALITY TREATMENT</div>
+                <div class="tate">髪に、秋の<br>うるおいを。</div>
+                <div class="seal"><b>期間<br>限定</b><span>10.1–11.30</span></div>
+                <div class="sheet">
+                  <h3>髪質改善トリートメント</h3>
+                  <p class="lead">乾燥と広がりが気になる季節の、うるおいケア。</p>
+                  <div class="deal">
+                    <div class="yen">¥12,100<i>税込・カット込み</i></div>
+                    <div class="when">10.1<em>thu</em><br>— 11.30<em>mon</em></div>
                   </div>
-                </div>
-                <div class="foot">
-                  <div><b>ご予約はWebから</b>〒000-0000 ○○市○○ 1-2-3<br>TEL 00-0000-0000 ／ 10:00–19:00（火曜休み）</div>
-                  <div class="qr">QR</div>
+                  <div class="info">
+                    <div>〒000-0000 ○○市○○ 1-2-3 ／ TEL 00-0000-0000<br>10:00–19:00（火曜休み）　ご予約はWebから</div>
+                    <div class="qr"><i></i>WEB予約</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <figcaption><b>美容室のキャンペーンチラシ（A4・片面）</b>写真を大きく使い、季節のメッセージを縦書きの明朝で。期間と料金は1か所にまとめました。</figcaption>
+          <figcaption><b>美容室の秋のキャンペーンチラシ（A4・片面）</b>雑誌の表紙のように、写真の上に店名を大きく。言葉は「髪に、秋のうるおいを。」の1つにしぼり、料金と期間は下にまとめました。</figcaption>
         </figure>
         <figure class="rv">
           <div class="desk">
-            <div class="flyer fl-mi shadow" role="img" aria-label="みなと会計事務所の相談会のチラシ">
-              <div class="band">
-                <svg viewBox="0 0 200 60"><path d="M0 40c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#fff" stroke-width="5"/><path d="M0 22c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#f2a33a" stroke-width="5"/></svg>
-                <span class="kicker">2月・3月 開催</span>
-                <h3>確定申告<br>相談会のご案内</h3>
-                <p>平日の夜と土曜日も、相談できます。<br>書類が分からなくても、そのままお持ちください。</p>
-              </div>
-              <div class="inner">
-                <div class="ttl">こんな方へ</div>
-                <ul class="checks"><li>はじめて確定申告をする</li><li>副業の収入がある</li><li>医療費控除を受けたい</li></ul>
-                <table>
-                  <tr><th>日時</th><td>2/3〜3/14　平日18〜21時・土曜10〜17時</td></tr>
-                  <tr><th>場所</th><td>みなと会計事務所（○○駅から徒歩3分）</td></tr>
-                  <tr><th>予約</th><td>電話・Webで受付（1回50分）</td></tr>
-                </table>
-              </div>
-              <div class="foot">
-                <svg viewBox="0 0 140 30" style="width:34cqw" role="img" aria-label="みなと会計事務所"><rect x="0" y="2" width="26" height="26" fill="#0e2747"/><path d="M3.5 19c3-2.5 5.5-2.5 8.5 0s5.5 2.5 8.5 0 3.5-1.6 4.8-.8" fill="none" stroke="#f2a33a" stroke-width="2" stroke-linecap="round"/><path d="M3.5 12.5c3-2.5 5.5-2.5 8.5 0s5.5 2.5 8.5 0 3.5-1.6 4.8-.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="33" y="21" font-family="Zen Kaku Gothic New, sans-serif" font-weight="700" font-size="12.5" fill="#0e2747">みなと会計事務所</text></svg>
-                <div class="tel">00-0000-0000<small>受付 9:00〜18:00（土日祝は休み）</small></div>
+            <div class="trim"><i></i><i></i><i></i><i></i>
+              <div class="flyer fl-mi shadow" role="img" aria-label="みなと会計事務所の確定申告の相談会のチラシ">
+                <div class="in">
+                  <div class="top"><svg viewBox="0 0 300 100" role="img" aria-label="みなと会計事務所"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g><text x="98" y="57" font-family="Shippori Mincho B1, serif" font-weight="600" font-size="25" fill="#0e2747" textLength="194" lengthAdjust="spacingAndGlyphs">みなと会計事務所</text><text x="99" y="79" font-family="Jost, sans-serif" font-size="9" fill="#59636f" textLength="192" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg><span>TAX RETURN<br>CLINIC 2027</span></div>
+                  <div class="hd">
+                    <h3>確定申告、<br><em>ひとりで</em><br>悩まない。</h3>
+                    <ol class="can"><li><b>01</b>書類の集め方から一緒に確認</li><li><b>02</b>副業・医療費控除のご相談</li><li><b>03</b>申告書の作成までお任せ</li></ol>
+                  </div>
+                  <p class="lead">2月2日〜3月13日、平日の夜と土曜日に相談会をひらきます。<br>書類がそろっていなくても、そのままお持ちください。</p>
+                  <div class="cal">
+                    <div><div class="mh"><b>2</b><span>FEB 2027</span></div><div class="days"><span class="w su">日</span><span class="w">月</span><span class="w">火</span><span class="w">水</span><span class="w">木</span><span class="w">金</span><span class="w">土</span><span></span><span>1</span><span class="on">2</span><span>3</span><span class="on">4</span><span>5</span><span class="on">6</span><span class="su">7</span><span>8</span><span class="on">9</span><span>10</span><span class="on">11</span><span>12</span><span class="on">13</span><span class="su">14</span><span>15</span><span class="on">16</span><span>17</span><span class="on">18</span><span>19</span><span class="on">20</span><span class="su">21</span><span>22</span><span class="on">23</span><span>24</span><span class="on">25</span><span>26</span><span class="on">27</span><span class="su">28</span></div></div>
+                    <div><div class="mh"><b>3</b><span>MAR 2027</span></div><div class="days"><span class="w su">日</span><span class="w">月</span><span class="w">火</span><span class="w">水</span><span class="w">木</span><span class="w">金</span><span class="w">土</span><span></span><span>1</span><span class="on">2</span><span>3</span><span class="on">4</span><span>5</span><span class="on">6</span><span class="su">7</span><span>8</span><span class="on">9</span><span>10</span><span class="on">11</span><span>12</span><span class="on">13</span><span class="su">14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span class="su">21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="su">28</span><span>29</span><span>30</span><span>31</span></div></div>
+                  </div>
+                  <div class="key"><i></i>相談会の日　火・木 18:00〜21:00 ／ 土 10:00〜17:00（1回50分）</div>
+                </div>
+                <div class="foot">
+                  <div class="tel">00-0000-0000<small>ご予約はお電話かWebで</small></div>
+                  <div class="addr">〒000-0000 東京都○○区○○ 4-5-6<br>○○駅から徒歩3分</div>
+                </div>
               </div>
             </div>
           </div>
-          <figcaption><b>会計事務所の相談会チラシ（A4・片面）</b>「自分のことだ」と思ってもらえるチェックリストを先に。日時・場所・予約は表にまとめて、迷わせない形に。</figcaption>
+          <figcaption><b>会計事務所の相談会チラシ（A4・片面）</b>いちばん知りたい「いつ相談できるか」をカレンダーで見せ、見出しは一言で。色は紺とオレンジの2色だけにしました。</figcaption>
         </figure>
       </div>
     </div>
@@ -384,7 +393,7 @@
           <div class="desk">
             <div class="cards">
               <div class="card c-lu-f shadow" role="img" aria-label="Lumièreの名刺（表）">
-                <svg viewBox="0 0 320 150"><g fill="none" stroke="#a07856" stroke-width="1.4"><circle cx="160" cy="34" r="17"/><path d="M160 6v8M160 54v8M132 34h8M180 34h8M140 14l5.5 5.5M174.5 48.5l5.5 5.5M180 14l-5.5 5.5M145.5 48.5L140 54"/></g><text x="160" y="112" text-anchor="middle" class="lu-word" font-size="50" fill="#2a2420">Lumière</text><text x="160" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="7" fill="#85786d">HAIR SALON</text></svg>
+                <svg viewBox="40 18 220 104" role="img" aria-label="Lumière"><text x="150" y="80" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="66" fill="#2a2420" textLength="196" lengthAdjust="spacingAndGlyphs">Lumière</text><line x1="122" y1="96" x2="178" y2="96" stroke="#a07856" stroke-width="1"/><text x="150" y="114" text-anchor="middle" font-family="Jost, sans-serif" font-size="9.5" fill="#85786d" textLength="96" lengthAdjust="spacing">HAIR SALON</text></svg>
               </div>
               <div class="card c-lu-b shadow" role="img" aria-label="Lumièreの名刺（裏）">
                 <div class="pad"><div class="role">STYLIST</div>
@@ -400,17 +409,17 @@
           <div class="desk">
             <div class="cards">
               <div class="card c-mi-f shadow" role="img" aria-label="みなと会計事務所の名刺（表）">
-                <div class="pad"><div class="head"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#0e2747"/><path d="M8 43c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M8 27c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><div><b>みなと会計事務所</b><small>MINATO TAX &amp; ACCOUNTING</small></div></div>
+                <div class="pad"><div class="head"><svg viewBox="6 12 76 76" aria-hidden="true"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></svg><div><b>みなと会計事務所</b><small>MINATO TAX &amp; ACCOUNTING</small></div></div>
                 <div class="role">税理士</div>
                 <div class="name">青木 誠</div></div>
                 <div class="info">〒000-0000 東京都○○区○○ 4-5-6<br>TEL 00-0000-0000 ／ minato-sample.example</div>
               </div>
               <div class="card c-mi-b shadow" role="img" aria-label="みなと会計事務所の名刺（裏）">
-                <svg viewBox="0 0 320 150"><rect x="128" y="20" width="64" height="64" fill="none" stroke="#fff" stroke-width="2"/><path d="M136 63c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M136 47c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text x="160" y="118" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="4.4" fill="#9fb0cc">MINATO TAX &amp; ACCOUNTING</text></svg>
+                <svg viewBox="0 0 320 150" aria-hidden="true"><g transform="translate(116 10)"><rect x="6" y="12" width="76" height="76" fill="#fff"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#0e2747" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#0e2747" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></g><text x="160" y="128" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" fill="#9fb0cc" textLength="190" lengthAdjust="spacing">MINATO TAX &amp; ACCOUNTING</text></svg>
               </div>
             </div>
           </div>
-          <figcaption><b>会計事務所の名刺（両面）</b>表は白で読みやすく、右端に紺のライン。裏は紺一色にマークを置いて、事務所の印象を残します。</figcaption>
+          <figcaption><b>会計事務所の名刺（両面）</b>表は白で読みやすく、右端に紺のライン。裏は紺一色に角印のマークだけを置いて、事務所の印象を残します。</figcaption>
         </figure>
       </div>
     </div>
@@ -442,25 +451,24 @@
           <div class="bn bn-wide bn-lu" role="img" aria-label="Lumièreのキャンペーンのバナー">
             <div class="txt">
               <div class="brand">Lumière</div>
-              <h4>秋の髪質改善<br>トリートメント</h4>
-              <div><div class="date">10.1 — 11.30</div><span class="btn" style="display:inline-block;margin-top:2.2cqw">WEB予約</span></div>
+              <h4>髪に、秋の<br>うるおいを。</h4>
+              <div><div class="what">髪質改善トリートメント</div><div class="date">10.1 — 11.30</div><span class="btn">WEB予約</span></div>
             </div>
             <div class="ph"></div>
           </div>
-          <figcaption><b>美容室のキャンペーンバナー（1200×628）</b>チラシと同じ言葉・色にそろえて、どこで見ても同じお店だと分かるように。<span class="size">1200 × 628 PX</span></figcaption>
+          <figcaption><b>美容室のキャンペーンバナー（1200×628）</b>チラシと同じ写真・言葉・色にそろえて、どこで見ても同じキャンペーンだと分かるように。<span class="size">1200 × 628 PX</span></figcaption>
         </figure>
         <div class="bn-row">
           <figure class="rv">
             <div class="bn bn-rect" role="img" aria-label="みなと会計事務所の広告バナー（正方形に近い形）">
-              <svg viewBox="0 0 200 60"><path d="M0 40c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#fff" stroke-width="5"/><path d="M0 22c17-14 33-14 50 0s33 14 50 0 33-14 50 0 33 14 50 0" fill="none" stroke="#f2a33a" stroke-width="5"/></svg>
-              <div class="pad"><div><div class="k">確定申告の相談会</div><h4>書類が分からなくても、<br>大丈夫です。</h4></div>
+              <div class="pad"><div><div class="k">確定申告の相談会</div><h4>書類が<br>分からなくても、<br>大丈夫です。</h4></div>
               <span class="btn">日程を見る</span></div>
             </div>
             <figcaption><b>会計事務所の広告バナー</b><span class="size">300 × 250 PX</span></figcaption>
           </figure>
           <figure class="rv">
             <div class="bn bn-lb" role="img" aria-label="みなと会計事務所の横長バナー">
-              <div class="pad"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#0e2747"/><path d="M8 43c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#f2a33a" stroke-width="4" stroke-linecap="round"/><path d="M8 27c7-6 13-6 20 0s13 6 20 0 9-4 12-2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+              <div class="pad"><svg viewBox="6 12 76 76" aria-hidden="true"><rect x="6" y="12" width="76" height="76" fill="#0e2747"/><rect x="10.5" y="16.5" width="67" height="67" fill="none" stroke="#f6f4ef" stroke-opacity=".55" stroke-width=".9"/><g font-family="Shippori Mincho B1, serif" font-weight="700" font-size="21" fill="#fff" text-anchor="middle"><text x="44" y="39">み</text><text x="44" y="61.5">な</text><text x="44" y="84">と</text></g></svg>
               <b>確定申告の相談会</b><span>平日夜・土曜も受付。<br>みなと会計事務所</span><span class="btn">予約する</span></div>
             </div>
             <figcaption><b>同じ相談会の横長バナー</b>同じ内容を、サイズに合わせて組み直します。<span class="size">728 × 90 PX</span></figcaption>
