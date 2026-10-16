@@ -10,6 +10,10 @@
   CrowdWorks の提案文からは本番の `https://sorasora1120.github.io/` にリンクしている
 - このサイトは「ソラ」としての Web制作の窓口。案件収集の仕組みは `affiliate-pipeline`、ビューアは `dispatch-viewer`
 
+## 英語版
+- `en.html`（元は `src/en.html`）は現地（Windsor）のお店向けの英語の営業サイト。`samples/` は dispatch-viewer の previews からコピーした架空の見本と動画
+- 料金は dispatch-viewer の local-en.html と揃える
+
 ## 編集のしかた
 - **ルートの `*.html` を直接編集しない**。元は `src/*.html`。編集したら `python3 tools/build.py` でルートに書き出し、両方をコミット
 - 画像はページに data URI で埋め込む（rawcdn 経由だと iPhone で jpg が表示されなかったため）。データは `tools/img/*.json`
