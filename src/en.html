@@ -438,7 +438,7 @@
     <p class="lead rv">Tell us your business name. We'll make a free preview and send it to you.</p>
     <div class="card rv">
       <span class="name" data-f="name">Sora</span>
-      <a data-f="email" href="#"></a>
+      <a data-f="email" href="mailto:sorajima.pi112@icloud.com">sorajima.pi112@icloud.com</a>
       <a data-f="phone" href="#"></a>
       <span class="empty" data-f="none">Reply to the message this page came with.</span>
     </div>
@@ -516,9 +516,10 @@
     // contact details from ?name=&email=&phone= (same as dispatch-viewer local-en.html)
     var q = new URLSearchParams(location.search), f = function (k) { return document.querySelector('[data-f="' + k + '"]'); };
     if (q.get("name")) f("name").textContent = q.get("name");
-    if (q.get("email")) { f("email").textContent = q.get("email"); f("email").href = "mailto:" + q.get("email"); } else f("email").remove();
+    var email = q.get("email") || "sorajima.pi112@icloud.com";
+    f("email").textContent = email; f("email").href = "mailto:" + email;
     if (q.get("phone")) { f("phone").textContent = q.get("phone"); f("phone").href = "tel:" + q.get("phone").replace(/[^\d+]/g, ""); } else f("phone").remove();
-    if (q.get("email") || q.get("phone")) f("none").remove();
+    f("none").remove();
 
     // reveal on scroll (curtained images: watch the outer .rv)
     var els = document.querySelectorAll(".rv");
