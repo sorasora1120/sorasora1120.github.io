@@ -11,7 +11,12 @@
 - このサイトは「ソラ」としての Web制作の窓口。案件収集の仕組みは `affiliate-pipeline`、ビューアは `dispatch-viewer`
 
 ## 英語版
-- `en.html`（元は `src/en.html`）は現地（Windsor）のお店向けの英語の営業サイト。`samples/` は dispatch-viewer の previews からコピーした架空の見本と動画
+- `en.html`（元は `src/en.html`）は現地（Windsor）のお店向けの英語の営業サイト。`samples/` は dispatch-viewer の previews からコピーした架空の見本
+- **en.html だけは動きを大きくしてよい**（2026-10-17「もっとダイナミックな3dにして、もっとカッコよく」）：表紙は見本サイトの画面が浮かぶ3Dの集まり
+  （スクロールで回りながら散る・PCはマウスに合わせて傾く）、見本は1台の3Dのスマホを画面に固定して、スクロールで起き上がる→揺れる→
+  くるっと回って次の見本へ（画面の中もスクロールに合わせて動く）、見出しは単語ごとに3Dで起き上がる。下の「使わない演出」（回転するリング・
+  カーソルの光など）はこちらでも使わない。画面の画像は `tools/img/en3d.json`（見本をスマホ幅で撮った縦長のスクショ）
+- position: sticky を効かせるため、en.html は html・body を `overflow-x: clip` にしている（hidden だと sticky が止まる）
 - 料金は dispatch-viewer の local-en.html と揃える
 
 ## 編集のしかた
