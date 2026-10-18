@@ -17,6 +17,7 @@
   くるっと回って次の見本へ（画面の中もスクロールに合わせて動く）、見出しは単語ごとに3Dで起き上がる。下の「使わない演出」（回転するリング・
   カーソルの光など）はこちらでも使わない。画面の画像は `tools/img/en3d.json`（見本をスマホ幅で撮った縦長のスクショ）
 - position: sticky を効かせるため、en.html は html・body を `overflow-x: clip` にしている（hidden だと sticky が止まる）
+- `p/`：実在のお店に送るプレビュー（dispatch-viewer の previews でビルドしたものをコピー。build.py は通さない）。お店のOKなしに一覧やリンクに載せない
 - 料金は dispatch-viewer の local-en.html と揃える
 
 ## 編集のしかた
