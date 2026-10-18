@@ -30,7 +30,7 @@
 
   /* header */
   header { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .5s, border-color .5s; border-bottom: 1px solid transparent; }
-  header.scrolled { background: rgba(12,12,13,.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-color: var(--line); }
+  header.scrolled { background: rgba(12,12,13,.96); border-color: var(--line); }
   .nav { display: flex; align-items: center; height: 84px; gap: 40px; }
   .logo { font: 400 17px var(--sans); letter-spacing: .38em; }
   .logo small { display: block; font-size: 9px; letter-spacing: .5em; color: var(--dim); line-height: 1; margin-top: 2px; }
@@ -65,7 +65,7 @@
   .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .floor { position: absolute; left: -50%; right: -50%; bottom: -8%; height: 62%; z-index: 0; pointer-events: none;
     background-image: linear-gradient(rgba(236,235,231,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(236,235,231,.08) 1px, transparent 1px);
-    background-size: 72px 72px; transform: perspective(520px) rotateX(72deg); transform-origin: 50% 100%; animation: floor 5s linear infinite;
+    background-size: 72px 72px; transform: perspective(520px) rotateX(72deg); transform-origin: 50% 100%;
     -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 85%); mask-image: linear-gradient(to top, #000 0%, transparent 85%); }
   @keyframes floor { to { background-position: 0 72px; } }
   .stage3d { position: relative; height: min(78vh, 760px); perspective: 1400px; perspective-origin: 50% 42%; }
@@ -456,12 +456,12 @@
     </div>
     <div class="stage3d" id="stage3d" aria-hidden="true">
       <div class="cluster" id="cluster">
-        <div class="item" style="--x:-190px;--y:-180px;--z:-440px;--ry:26deg;--rx:8deg;--rz:-2deg"><div class="bob" style="--d:9s"><div class="win" style="--w:500px"><div class="bar"><i></i><i></i><i></i></div><div class="pic" style="background-image:var(--d_salon)"></div></div></div></div>
-        <div class="item" style="--x:230px;--y:190px;--z:-500px;--ry:-28deg;--rx:-6deg;--rz:2deg"><div class="bob" style="--d:11s;--dl:-3s"><div class="win" style="--w:470px"><div class="bar"><i></i><i></i><i></i></div><div class="pic" style="background-image:var(--d_barber)"></div></div></div></div>
-        <div class="item" style="--x:-10px;--y:-230px;--z:-280px;--ry:12deg;--rx:12deg;--rz:-3deg"><div class="bob" style="--d:8s;--dl:-5s"><div class="dev" style="--w:170px"><div class="scr"><div class="shot" style="background-image:var(--m_barber);aspect-ratio:360/4954"></div></div></div></div></div>
-        <div class="item" style="--x:-240px;--y:50px;--z:40px;--ry:28deg;--rx:4deg;--rz:-5deg"><div class="bob" style="--d:7.5s;--dl:-1s"><div class="dev" style="--w:210px"><div class="scr"><div class="shot" style="background-image:var(--m_cafe);aspect-ratio:360/4994"></div></div></div></div></div>
-        <div class="item" style="--x:250px;--y:-80px;--z:-40px;--ry:-32deg;--rx:6deg;--rz:4deg"><div class="bob" style="--d:8.5s;--dl:-4s"><div class="dev" style="--w:200px"><div class="scr"><div class="shot" style="background-image:var(--m_salon);aspect-ratio:360/4946"></div></div></div></div></div>
-        <div class="item" style="--x:15px;--y:40px;--z:230px;--ry:-14deg;--rx:2deg;--rz:2deg"><div class="bob" style="--d:7s;--dl:-2s"><div class="dev" style="--w:250px"><div class="scr"><div class="shot" style="background-image:var(--m_pizza);aspect-ratio:360/4994"></div></div></div></div></div>
+        <div class="item" style="--x:-190px;--y:-180px;--z:-440px;--ry:26deg;--rx:8deg;--rz:-2deg"><div class="bob" style="--d:9s"><div class="win" style="--w:500px"><div class="bar"><i></i><i></i><i></i></div><div class="pic bg-d_salon"></div></div></div></div>
+        <div class="item" style="--x:230px;--y:190px;--z:-500px;--ry:-28deg;--rx:-6deg;--rz:2deg"><div class="bob" style="--d:11s;--dl:-3s"><div class="win" style="--w:470px"><div class="bar"><i></i><i></i><i></i></div><div class="pic bg-d_barber"></div></div></div></div>
+        <div class="item" style="--x:-10px;--y:-230px;--z:-280px;--ry:12deg;--rx:12deg;--rz:-3deg"><div class="bob" style="--d:8s;--dl:-5s"><div class="dev" style="--w:170px"><div class="scr"><div class="shot bg-m_barber" style="aspect-ratio:360/4954"></div></div></div></div></div>
+        <div class="item" style="--x:-240px;--y:50px;--z:40px;--ry:28deg;--rx:4deg;--rz:-5deg"><div class="bob" style="--d:7.5s;--dl:-1s"><div class="dev" style="--w:210px"><div class="scr"><div class="shot bg-m_cafe" style="aspect-ratio:360/4994"></div></div></div></div></div>
+        <div class="item" style="--x:250px;--y:-80px;--z:-40px;--ry:-32deg;--rx:6deg;--rz:4deg"><div class="bob" style="--d:8.5s;--dl:-4s"><div class="dev" style="--w:200px"><div class="scr"><div class="shot bg-m_salon" style="aspect-ratio:360/4946"></div></div></div></div></div>
+        <div class="item" style="--x:15px;--y:40px;--z:230px;--ry:-14deg;--rx:2deg;--rz:2deg"><div class="bob" style="--d:7s;--dl:-2s"><div class="dev" style="--w:250px"><div class="scr"><div class="shot bg-m_pizza" style="aspect-ratio:360/4994"></div></div></div></div></div>
       </div>
       <span class="cap">Sample sites · fictional shops</span>
     </div>
@@ -498,7 +498,7 @@
               <div class="map"></div><div class="search">golden hour café</div><div class="pin3"></div>
               <div class="sheet3"><h4>Golden Hour Café</h4><div class="meta">Café · <b>Open</b> · Closes 6 PM</div>
                 <div class="acts"><span class="main">Directions</span><span>Call</span><span class="hot">Website</span></div>
-                <div class="thumbs"><i style="background-image:var(--m_cafe)"></i><i style="background-image:var(--m_cafe);background-position:0 18%"></i><i style="background-image:var(--m_cafe);background-position:0 30%"></i></div></div>
+                <div class="thumbs"><i class="bg-m_cafe"></i><i class="bg-m_cafe" style="background-position:0 18%"></i><i class="bg-m_cafe" style="background-position:0 30%"></i></div></div>
             </div>
             <div class="ba-labels"><span>Without</span><span>With</span></div>
             <div class="handle"></div>
@@ -536,7 +536,7 @@
           <div class="p3" id="p3">
             <div class="back"><div class="cam"><i></i><i></i><i></i></div><div class="mark">SORA</div></div>
             <div class="edge" style="transform:translateZ(-6px)"></div><div class="edge" style="transform:translateZ(-4px)"></div><div class="edge" style="transform:translateZ(-2px)"></div><div class="edge" style="transform:translateZ(0px)"></div><div class="edge" style="transform:translateZ(2px)"></div><div class="edge" style="transform:translateZ(4px)"></div><div class="edge" style="transform:translateZ(6px)"></div>
-            <div class="front"><div class="screen"><div class="shot" style="background-image:var(--m_cafe);aspect-ratio:360/4994"></div><div class="shot" style="background-image:var(--m_salon);aspect-ratio:360/4946"></div><div class="shot" style="background-image:var(--m_barber);aspect-ratio:360/4954"></div><div class="shot" style="background-image:var(--m_pizza);aspect-ratio:360/4994"></div></div></div>
+            <div class="front"><div class="screen"><div class="shot bg-m_cafe" style="aspect-ratio:360/4994"></div><div class="shot bg-m_salon" style="aspect-ratio:360/4946"></div><div class="shot bg-m_barber" style="aspect-ratio:360/4954"></div><div class="shot bg-m_pizza" style="aspect-ratio:360/4994"></div></div></div>
           </div>
         </div>
       </div>
@@ -696,6 +696,17 @@
     function onScroll() { header.classList.toggle("scrolled", scrollY > 20); }
     addEventListener("scroll", onScroll, { passive: true }); onScroll();
     var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // ページ内の位置は読み込み時と大きさが変わった時だけ測る（スクロールのたびに測ると重い）
+    var geo = {};
+    function absTop(el) { return el.getBoundingClientRect().top + scrollY; }
+    function measureGeo() {
+      var a = document.getElementById("pin"), b = document.getElementById("pinProc"), c = document.getElementById("why"), d = document.getElementById("offerCard"), pr = document.getElementById("prism");
+      geo.pinT = absTop(a); geo.pinH = a.offsetHeight; geo.pcT = absTop(b); geo.pcH = b.offsetHeight;
+      geo.baT = absTop(c); geo.baH = c.offsetHeight; geo.ofT = absTop(d); geo.prH = pr.offsetHeight;
+    }
+    measureGeo();
+    addEventListener("resize", measureGeo); addEventListener("load", measureGeo);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureGeo);
 
     // mobile menu
     var menuBtn = document.querySelector(".menu-btn");
@@ -748,7 +759,7 @@
     function ease(v) { return v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; }
     function measure() { p3w = p3.offsetWidth; pans = shots.map(function (s) { return s.offsetHeight - s.parentNode.offsetHeight; }); }
     function story() {
-      var r = pin.getBoundingClientRect(), vh = innerHeight, span = Math.max(1, pin.offsetHeight - vh);
+      var vh = innerHeight, r = { top: geo.pinT - scrollY, bottom: geo.pinT + geo.pinH - scrollY }, span = Math.max(1, geo.pinH - vh);
       if (r.bottom < -vh || r.top > vh * 1.5) return;
       var p = cl(-r.top / span), e = ease(cl((vh - r.top) / vh));
       var seg = p * N, idx = Math.min(N - 1, Math.floor(seg)), b = Math.round(seg), d = seg - b, ry, spin = 0;
@@ -801,7 +812,7 @@
     }).observe(baScr);
     function baTurn() {
       if (reduce) return;
-      var r = baSec.getBoundingClientRect(), k = cl((innerHeight - r.top) / (innerHeight + r.height));
+      var r = { top: geo.baT - scrollY, height: geo.baH }, k = cl((innerHeight - r.top) / (innerHeight + r.height));
       baTilt.style.transform = "rotateY(" + (-34 + 68 * k) + "deg) rotateX(" + (14 - 20 * k) + "deg)";
     }
 
@@ -809,12 +820,12 @@
     var pinProc = document.getElementById("pinProc"), prism = document.getElementById("prism");
     var pBars = [].slice.call(document.querySelectorAll(".proc-bars b"));
     function proc() {
-      var r = pinProc.getBoundingClientRect(), vh = innerHeight, span = Math.max(1, pinProc.offsetHeight - vh);
+      var vh = innerHeight, r = { top: geo.pcT - scrollY, bottom: geo.pcT + geo.pcH - scrollY }, span = Math.max(1, geo.pcH - vh);
       if (r.bottom < -vh || r.top > vh * 1.5) return;
       var p = cl(-r.top / span), q = p * 3, k = Math.min(3, Math.floor(q)), f = q - k;
       var ang = 90 * (k + (k < 3 ? ease(cl((f - .3) / .55)) : 0));
       if (reduce) ang = 90 * Math.round(q);
-      var h = prism.offsetHeight, e = ease(cl((vh - r.top) / vh));
+      var h = geo.prH, e = ease(cl((vh - r.top) / vh));
       prism.style.transform = "translateY(" + ((1 - e) * 120) + "px) translateZ(" + (-h / 2 - (1 - e) * 200) + "px) rotateY(" + (-14 + 28 * p) + "deg) rotateX(" + ang + "deg)";
       pBars.forEach(function (bb, i) { bb.style.setProperty("--f", cl(ang / 90 + 1 - i)); });
     }
@@ -827,7 +838,7 @@
     }
     function offerTilt() {
       if (reduce) return;
-      var r = offer.getBoundingClientRect(), k = cl((innerHeight - r.top) / innerHeight);
+      var r = { top: geo.ofT - scrollY }, k = cl((innerHeight - r.top) / innerHeight);
       offer.style.transform = "rotateX(" + ((1 - ease(k)) * 18 - omy * 8) + "deg) rotateY(" + (omx * 10) + "deg)";
     }
 
@@ -879,7 +890,7 @@
   })();
 </script>
 <style>
-  :root { --m_cafe: url("{{m_cafe}}"); --m_salon: url("{{m_salon}}"); --m_barber: url("{{m_barber}}"); --m_pizza: url("{{m_pizza}}"); --d_salon: url("{{d_salon}}"); --d_barber: url("{{d_barber}}"); }
+  .bg-m_cafe { background-image: url("{{m_cafe}}"); } .bg-m_salon { background-image: url("{{m_salon}}"); } .bg-m_barber { background-image: url("{{m_barber}}"); } .bg-m_pizza { background-image: url("{{m_pizza}}"); } .bg-d_salon { background-image: url("{{d_salon}}"); } .bg-d_barber { background-image: url("{{d_barber}}"); }
 </style>
 </body>
 </html>
