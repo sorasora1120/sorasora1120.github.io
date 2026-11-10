@@ -89,3 +89,6 @@ hero（コピー＋チーム実績4サイトのスライドショー）→ WORKS
   → 架空の見本4つ（dispatch-viewer の previews/demo-*.html、スクショは `tools/img/shots_en.json`）→ FAQ → 連絡先（`?name=&email=&phone=`）
 - 支払いの書き方は「半分を先に、半分を公開時」だけ（受け取る人は書かない。現地の仕事のお金は友達が受け取る約束のため）
 - 日本語版のメニューに EN、英語版に 日本語 のリンク
+
+## 2026-11-10 mippe/
+- 学生団体 MIPPE!（Sora は運営メンバー）の公式LPの試作。dispatch-viewer の mippe/ をそのままコピー（src/build.py は通さない）。普通のURL（sorasora1120.github.io/mippe/）で遠藤さんに見せるため。直すときは dispatch-viewer 側を直してからコピーする。
