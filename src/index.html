@@ -148,7 +148,7 @@
   .flow::after { content: ""; position: absolute; top: 0; left: 0; height: 1px; width: 100%; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; transition: transform 2.2s var(--ease); }
   .flow.on::after { transform: scaleX(1); }
   .flow div { padding: 40px 26px 0 0; position: relative; }
-  .flow div::before { counter-increment: s; content: "STEP 0" counter(s); font-family: var(--en); font-weight: 400; font-size: 11px; letter-spacing: .3em; color: var(--dim); display: block; margin-bottom: 16px; }
+  .flow div::before { counter-increment: s; content: counter(s) "."; font-family: var(--en); font-weight: 400; font-size: 11px; letter-spacing: .3em; color: var(--dim); display: block; margin-bottom: 16px; }
   .flow h3 { font-family: var(--min); font-weight: 600; margin: 0 0 8px; font-size: 17px; letter-spacing: .1em; }
   .flow p { margin: 0; color: var(--sub); font-size: 13px; }
 
@@ -313,35 +313,34 @@
   <div class="wrap nav">
     <a class="logo" href="#">SORA<small>WEB DESIGN</small></a>
     <ul>
-      <li><a href="#works">WORKS</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#service">SERVICE</a></li>
-      <li><a href="#price">PRICE</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="en.html">EN</a></li>
+      <li><a href="#works">実績</a></li>
+      <li><a href="#about">ソラ</a></li>
+      <li><a href="#service">できること</a></li>
+      <li><a href="#price">料金</a></li>
+      <li><a href="#faq">質問</a></li>
+      <li><a href="en.html">English</a></li>
     </ul>
     <a class="btn sm" href="#contact">ご相談</a>
     <button class="menu-btn" type="button" aria-label="メニュー" aria-expanded="false"><i></i><i></i></button>
   </div>
 </header>
 <nav class="sheet" aria-label="メニュー">
-  <a href="#works">WORKS <small>制作実績</small></a>
-  <a href="#about">ABOUT <small>ソラについて</small></a>
-  <a href="#service">SERVICE <small>できること</small></a>
-  <a href="#price">PRICE <small>料金の目安</small></a>
-  <a href="#faq">FAQ <small>よくある質問</small></a>
-  <a href="#contact">CONTACT <small>ご相談</small></a>
-  <a href="en.html">ENGLISH <small>英語版</small></a>
+  <a href="#works">チームの実績</a>
+  <a href="#about">ソラがやること</a>
+  <a href="#service">できること</a>
+  <a href="#price">料金の目安</a>
+  <a href="#faq">よくある質問</a>
+  <a href="#contact">相談する</a>
+  <a href="en.html">English</a>
 </nav>
 
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="label rv">Web Design &amp; Development</div>
-      <h1 class="rv"><span class="ln"><span>Webサイトで、</span></span><span class="ln"><span>ビジネスを</span></span><span class="ln"><span>次の一歩へ。</span></span></h1>
-      <p class="lead rv">ホームページ・LP・ネットショップの制作から、公開後の更新まで。デザイナーとエンジニアが組んだ少人数のチームで、伝わるサイトをつくります。</p>
+            <h1 class="rv"><span class="ln"><span>ホームページを</span></span><span class="ln"><span>つくっています。</span></span></h1>
+      <p class="lead rv">ソラです。留学しながら、ホームページ・LP・ネットショップをつくっています。デザインと実装は、組んでいるデザイナー・エンジニアと一緒にやっています。</p>
       <div class="cta-row rv">
-        <a class="btn fill" href="#contact">無料で相談する <span class="ar"></span></a>
+        <a class="btn fill" href="#contact">相談してみる <span class="ar"></span></a>
         <a class="btn" href="#works">制作実績を見る</a>
       </div>
     </div>
@@ -352,7 +351,7 @@
         <img src="{{hd_malane}}" data-name="malanelighting.com" alt="">
         <img src="{{hd_havoc}}" data-name="havocpowersports.com" alt="">
       </div>
-      <div class="cap"><span>TEAM WORKS — <b>amdor.de</b></span><span class="bars"><i></i><i></i><i></i><i></i></span></div>
+      <div class="cap"><span>チームの実績：<b>amdor.de</b></span><span class="bars"><i></i><i></i><i></i><i></i></span></div>
     </div>
   </div>
 </div>
@@ -361,25 +360,24 @@
   <div class="wrap">
     <div class="sec-head rv">
       <div>
-        <div class="label">Works</div>
         <h2>チームの制作実績</h2>
-        <div class="num-big"><b data-count="12">12</b>SITES</div>
+        <div class="num-big"><b data-count="12">12</b>サイト</div>
       </div>
-      <p>チームのデザイナー・エンジニアが、これまでに海外向けに制作したサイトの一部です。画像を押すと実際のサイトが開きます。</p>
+      <p>一緒にやっているデザイナー・エンジニアが、これまでに海外向けにつくったサイトです。押すと本物のサイトが開きます。</p>
     </div>
     <div class="tws">
-      <a class="tw rv" href="https://amdor.de/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-amdor" src="{{amdor}}" alt="amdor.de のトップページ"></div><div class="tw-meta"><span class="n">01</span><div><b>amdor.de</b><span>Eyewear / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://maribelli-shop.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-maribelli" src="{{maribelli}}" alt="maribelli-shop.com のトップページ"></div><div class="tw-meta"><span class="n">02</span><div><b>maribelli-shop.com</b><span>Fashion / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://gipsyqueens.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{gipsyqueens}}" alt="gipsyqueens.com のトップページ"></div><div class="tw-meta"><span class="n">03</span><div><b>gipsyqueens.com</b><span>Fashion / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://whitesandgolf.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-whitesand" src="{{whitesand}}" alt="whitesandgolf.com のトップページ"></div><div class="tw-meta"><span class="n">04</span><div><b>whitesandgolf.com</b><span>Golf Apparel / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://malanelighting.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-malane" src="{{malane}}" alt="malanelighting.com のトップページ"></div><div class="tw-meta"><span class="n">05</span><div><b>malanelighting.com</b><span>Lighting / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://havocpowersports.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{havoc}}" alt="havocpowersports.com のトップページ"></div><div class="tw-meta"><span class="n">06</span><div><b>havocpowersports.com</b><span>Powersports Dealer</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://golfcarsofarizona.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{golfcars}}" alt="golfcarsofarizona.com のトップページ"></div><div class="tw-meta"><span class="n">07</span><div><b>golfcarsofarizona.com</b><span>Golf Cart Dealer</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://bigcoveecycles.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{bigcove}}" alt="bigcoveecycles.com のトップページ"></div><div class="tw-meta"><span class="n">08</span><div><b>bigcoveecycles.com</b><span>E-Bike / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://massinart.ma/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{massinart}}" alt="massinart.ma のトップページ"></div><div class="tw-meta"><span class="n">09</span><div><b>massinart.ma</b><span>Art / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://www.skyfoxtech.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{skyfox}}" alt="skyfoxtech.com のトップページ"></div><div class="tw-meta"><span class="n">10</span><div><b>skyfoxtech.com</b><span>Gadgets / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://bsonme.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{bsonme}}" alt="bsonme.com のトップページ"></div><div class="tw-meta"><span class="n">11</span><div><b>bsonme.com</b><span>Electronics / EC</span></div><i>VIEW</i></div></a>
-      <a class="tw rv" href="https://hogplay.myshopify.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{hogplay}}" alt="hogplay.myshopify.com のトップページ"></div><div class="tw-meta"><span class="n">12</span><div><b>hogplay.myshopify.com</b><span>Car Accessories / EC</span></div><i>VIEW</i></div></a>
+      <a class="tw rv" href="https://amdor.de/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-amdor" src="{{amdor}}" alt="amdor.de のトップページ"></div><div class="tw-meta"><span class="n">01</span><div><b>amdor.de</b><span>Eyewear / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://maribelli-shop.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-maribelli" src="{{maribelli}}" alt="maribelli-shop.com のトップページ"></div><div class="tw-meta"><span class="n">02</span><div><b>maribelli-shop.com</b><span>Fashion / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://gipsyqueens.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{gipsyqueens}}" alt="gipsyqueens.com のトップページ"></div><div class="tw-meta"><span class="n">03</span><div><b>gipsyqueens.com</b><span>Fashion / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://whitesandgolf.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-whitesand" src="{{whitesand}}" alt="whitesandgolf.com のトップページ"></div><div class="tw-meta"><span class="n">04</span><div><b>whitesandgolf.com</b><span>Golf Apparel / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://malanelighting.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img id="tw-malane" src="{{malane}}" alt="malanelighting.com のトップページ"></div><div class="tw-meta"><span class="n">05</span><div><b>malanelighting.com</b><span>Lighting / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://havocpowersports.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{havoc}}" alt="havocpowersports.com のトップページ"></div><div class="tw-meta"><span class="n">06</span><div><b>havocpowersports.com</b><span>Powersports Dealer</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://golfcarsofarizona.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{golfcars}}" alt="golfcarsofarizona.com のトップページ"></div><div class="tw-meta"><span class="n">07</span><div><b>golfcarsofarizona.com</b><span>Golf Cart Dealer</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://bigcoveecycles.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{bigcove}}" alt="bigcoveecycles.com のトップページ"></div><div class="tw-meta"><span class="n">08</span><div><b>bigcoveecycles.com</b><span>E-Bike / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://massinart.ma/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{massinart}}" alt="massinart.ma のトップページ"></div><div class="tw-meta"><span class="n">09</span><div><b>massinart.ma</b><span>Art / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://www.skyfoxtech.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{skyfox}}" alt="skyfoxtech.com のトップページ"></div><div class="tw-meta"><span class="n">10</span><div><b>skyfoxtech.com</b><span>Gadgets / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://bsonme.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{bsonme}}" alt="bsonme.com のトップページ"></div><div class="tw-meta"><span class="n">11</span><div><b>bsonme.com</b><span>Electronics / EC</span></div><i>見る</i></div></a>
+      <a class="tw rv" href="https://hogplay.myshopify.com/" target="_blank" rel="noopener"><div class="tw-img curtain"><img src="{{hogplay}}" alt="hogplay.myshopify.com のトップページ"></div><div class="tw-meta"><span class="n">12</span><div><b>hogplay.myshopify.com</b><span>Car Accessories / EC</span></div><i>見る</i></div></a>
     </div>
   </div>
 </section>
@@ -387,20 +385,20 @@
 <section id="about" style="padding-top:40px">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="label">About</div><h2>ソラについて</h2></div>
+      <div><h2>ソラがやること</h2></div>
     </div>
     <div class="about-grid">
       <div class="rv">
-        <p class="big-copy">お客様のお話を伺って、<br>「誰に・何を・どう伝えるか」を<br>整理するのが、私の役割です。</p>
-        <p class="body">Webサイトの企画とディレクションを担当しています。整理した内容を、デザイナー・エンジニアと一緒に形にします。</p>
-        <p class="body">海外で活動するメンバーとチームを組んでいるので、ご予算に合わせた柔軟なご提案ができます。窓口はずっと私ひとりなので、伝言ゲームにはなりません。</p>
+        <p class="big-copy">話を聞いて、<br>どんなサイトにするか決めて、<br>最後まで連絡を取るのが私です。</p>
+        <p class="body">決まったことをデザイナー・エンジニアに伝えて、できあがったものを私がチェックしてからお渡しします。</p>
+        <p class="body">メンバーは海外にいますが、やり取りはずっと私が日本語でします。</p>
       </div>
       <div class="rv">
         <div class="roles">
-          <div class="role"><h3>SORA<small>ソラ</small></h3><ul><li>ヒアリング・企画</li><li>構成・ディレクション</li><li>進行管理・品質チェック</li><li>公開後のサポート窓口</li></ul></div>
-          <div class="role"><h3>TEAM<small>チーム</small></h3><ul><li>UI・グラフィックデザイン</li><li>コーディング・実装</li><li>WordPress・Shopify構築</li><li>動作確認・修正対応</li></ul></div>
+          <div class="role"><h3>ソラ</h3><ul><li>ヒアリング・企画</li><li>構成・ディレクション</li><li>進行管理・品質チェック</li><li>公開後のサポート窓口</li></ul></div>
+          <div class="role"><h3>チーム</h3><ul><li>UI・グラフィックデザイン</li><li>コーディング・実装</li><li>WordPress・Shopify構築</li><li>動作確認・修正対応</li></ul></div>
         </div>
-        <p class="tools"><b>TOOLS</b>Figma / WordPress / Shopify / STUDIO / HTML・CSS・JS / Google Analytics</p>
+        <p class="tools"><b>使うもの</b>Figma / WordPress / Shopify / STUDIO / HTML・CSS・JS / Google Analytics</p>
       </div>
     </div>
   </div>
@@ -409,14 +407,13 @@
 <section id="profile" class="profile">
   <div class="wrap intro">
     <div class="rv">
-      <div class="label">Profile</div>
       <h2 class="h2">自己紹介</h2>
     </div>
     <div class="rv">
       <p class="intro-text">はじめまして、ソラです。<br>
       小さな島で生まれ育ち、今は海外に留学しています。留学しながら、Web制作の仕事をしています。<br><br>
       好きなことは、サッカーと海です。<br>
-      島育ちなので、人とのつながりを大事にしています。どんな小さなことでも、お気軽にご相談ください。</p>
+      </p>
       <dl class="prof">
         <dt>名前</dt><dd>ソラ</dd>
         <dt>出身</dt><dd>小さな島</dd>
@@ -435,14 +432,14 @@
 <section id="service">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="label">Service</div><h2>できること</h2></div>
-      <p>企画・デザイン・実装・公開まで一式。必要なところだけのご依頼も歓迎です。</p>
+      <div><h2>できること</h2></div>
+      <p>全部まとめてでも、一部だけでも大丈夫です。</p>
     </div>
     <div class="services rv">
-      <div class="svc"><div class="num">01</div><h3>ホームページ制作</h3><p>会社・お店・士業のサイトを、信頼感と分かりやすさを大事に。WordPressで更新も簡単に。</p></div>
-      <div class="svc"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人を、問い合わせ・購入まで迷わず導く1枚のページ。</p></div>
-      <div class="svc"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップを開設。決済・配送設定まで、すぐ売れる状態でお渡し。</p></div>
-      <div class="svc"><div class="num">04</div><h3>公開後の保守</h3><p>文章や写真の差し替え、不具合の対応、サーバー管理まで。月額でまるごとお任せ。</p></div>
+      <div class="svc"><div class="num">01</div><h3>ホームページ制作</h3><p>会社やお店のサイト。WordPressで作れば、文章や写真を自分で変えられます。</p></div>
+      <div class="svc"><div class="num">02</div><h3>LP制作</h3><p>広告やSNSから来た人に見てもらう、1枚のページ。</p></div>
+      <div class="svc"><div class="num">03</div><h3>ECサイト構築</h3><p>Shopifyなどでネットショップをつくります。決済と配送の設定までやります。</p></div>
+      <div class="svc"><div class="num">04</div><h3>公開後の保守</h3><p>公開したあとの文章や写真の差し替え、不具合の対応。月額です。</p></div>
     </div>
     <p class="svc-more rv">チラシ・名刺・ロゴ・バナー・パッケージのデザインもお作りします。<a href="design.html">デザインのサンプルを見る</a></p>
   </div>
@@ -451,8 +448,8 @@
 <section id="flow" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="label">Flow</div><h2>ご依頼の流れ</h2></div>
-      <p>はじめての方にも分かりやすく、一つずつ確認しながら進めます。</p>
+      <div><h2>進め方</h2></div>
+      <p>一つずつ確認しながら進めます。</p>
     </div>
     <div class="flow rv">
       <div><h3>ご相談</h3><p>ご要望・ご予算・イメージを伺います。</p></div>
@@ -467,7 +464,7 @@
 <section id="price" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="label">Price</div><h2>料金の目安</h2></div>
+      <div><h2>料金の目安</h2></div>
       <p>内容を伺ってから、正式なお見積りをお出しします。</p>
     </div>
     <div class="prices rv">
@@ -477,18 +474,13 @@
       <div class="price"><h3>保守・更新</h3><p>軽微な修正・サーバー管理。</p><div class="yen"><span data-count="5500" data-comma="1">5,500</span><small>円〜/月</small></div></div>
     </div>
     <p class="price-note rv">※ ページ数・機能・素材のご用意状況によって変わります。</p>
-    <div class="promise rv">
-      <div><b><span data-count="24">24</span><small>時間</small></b><h3>以内にご返信</h3><p>ご連絡には原則24時間以内にお返事します。</p></div>
-      <div><b>3<small>画面</small></b><h3>スマホ・タブレット・PC</h3><p>どのサイトも、3つの画面で見やすく表示されるように作ります。</p></div>
-      <div><b>1<small>人</small></b><h3>ずっと同じ窓口</h3><p>最初のご相談から公開後まで、やり取りはソラが担当。伝言ゲームになりません。</p></div>
-    </div>
   </div>
 </section>
 
 <section id="sample" class="samples">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="label">Sample</div><h2>デザインサンプル</h2></div>
+      <div><h2>デザインサンプル</h2></div>
       <p>架空の店舗・事務所を想定して作ったデザインサンプルです。どれもスマホ・タブレット・PCに対応しています。</p>
     </div>
     <div class="works">
@@ -497,21 +489,21 @@
         <span class="tag">制作サンプル（架空の店舗）</span>
         <h3>美容室サイト</h3><p>落ち着いた雰囲気と、迷わない予約の流れ。</p>
         <ul class="pts"><li>縦書きのコピーと余白で、サロンらしい上品さを出す</li><li>メニューと料金をカテゴリごとに整理</li><li>上部に予約ボタンを固定して、いつでも予約へ</li></ul>
-        <span class="go">VIEW SAMPLE <span class="ar"></span></span>
+        <span class="go">見る <span class="ar"></span></span>
       </a>
       <a class="work rv" href="accounting.html">
         <div class="img curtain"><img class="full" id="img-accounting" src="{{shot_accounting}}" decoding="async" alt="会計事務所サイトのサンプル"></div>
         <span class="tag">制作サンプル（架空の事務所）</span>
         <h3>会計事務所コーポレート</h3><p>お悩み→サービス→料金→問い合わせの王道構成。</p>
         <ul class="pts"><li>「こんなお悩み」から入って、自分ごとにしてもらう</li><li>料金プランと契約までの流れを先に見せて不安を減らす</li><li>よくある質問と無料相談フォームで問い合わせにつなげる</li></ul>
-        <span class="go">VIEW SAMPLE <span class="ar"></span></span>
+        <span class="go">見る <span class="ar"></span></span>
       </a>
       <a class="work rv" href="cafe.html">
         <div class="img curtain"><img class="full" id="img-cafe" src="{{shot_cafe}}" decoding="async" alt="カフェのLPのサンプル"></div>
         <span class="tag">制作サンプル（架空の店舗）</span>
         <h3>カフェのLP（英語）</h3><p>海外のお客様向け。メニュー・口コミ・アクセス。</p>
         <ul class="pts"><li>写真を大きく使って、お店の空気感を伝える</li><li>人気メニューをカードで並べて選びやすく</li><li>場所と営業時間をまとめて、来店まで迷わせない</li></ul>
-        <span class="go">VIEW SAMPLE <span class="ar"></span></span>
+        <span class="go">見る <span class="ar"></span></span>
       </a>
     </div>
     <div class="rv" style="margin-top:56px"><a class="btn" href="design.html">チラシ・名刺・ロゴのサンプル<span class="ar"></span></a></div>
@@ -521,7 +513,6 @@
 <section id="faq">
   <div class="wrap faq">
     <div class="rv">
-      <div class="label">FAQ</div>
       <h2 class="h2">よくある質問</h2>
     </div>
     <div class="qa rv">
@@ -538,16 +529,15 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="label rv">Contact</div>
-    <h2 class="h2 rv">まずは、気軽にご相談ください。</h2>
-    <p class="lead1 rv">「まだ何も決まっていない」という段階でも大丈夫です。クラウドワークスから、お気軽にご連絡ください。</p>
+    <h2 class="h2 rv">相談はこちらから</h2>
+    <p class="lead1 rv">まだ何も決まっていなくても大丈夫です。クラウドワークスからメッセージをください。</p>
     <div class="ask rv">
       <div><b>01</b><span>業種</span><small>どんなお店・会社か</small></div>
       <div><b>02</b><span>目的</span><small>集客・問い合わせ・採用など</small></div>
       <div><b>03</b><span>ご予算</span><small>だいたいで大丈夫です</small></div>
       <div><b>04</b><span>公開時期</span><small>決まっていれば</small></div>
     </div>
-    <p class="lead2 rv">この4つが分かれば、すぐにご提案の準備ができます。参考にしたいサイトがあれば、あわせて教えてください。</p>
+    <p class="lead2 rv">この4つがわかると話が早いです。参考にしたいサイトがあれば、それも教えてください。</p>
     <div class="cw rv">
       <a class="btn fill" href="https://crowdworks.jp/public/employees/6831717" target="_blank" rel="noopener">クラウドワークスで相談する <span class="ar"></span></a>
       <span>プロフィールページから、メッセージやご依頼をお送りいただけます</span>
